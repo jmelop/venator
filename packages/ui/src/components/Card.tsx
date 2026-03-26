@@ -1,14 +1,11 @@
 import * as React from 'react';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Controls inner padding */
   padding?: 'none' | 'sm' | 'md' | 'lg';
 }
 
 export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Primary heading text */
   title?: string;
-  /** Supporting text below the title */
   description?: string;
   /** Right-aligned slot for actions (buttons, badges, etc.) */
   action?: React.ReactNode;
