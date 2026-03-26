@@ -71,9 +71,7 @@ NavItem.displayName = 'NavItem';
 export interface NavGroupProps {
   label: string;
   children: React.ReactNode;
-  /** Allows the group to be toggled open/closed */
   collapsible?: boolean;
-  /** Only applies when collapsible is true */
   defaultCollapsed?: boolean;
 }
 
