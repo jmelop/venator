@@ -1,23 +1,23 @@
 # Venator — React UI Infrastructure
 
-Venator is a React + TypeScript UI infrastructure for building modern web interfaces, internal tools, dashboards and AI-assisted applications.
-
-The goal of Venator is not to provide hundreds of components, but a small set of well-structured building blocks that can be used to construct real application interfaces.
+Venator is a React + TypeScript monorepo that provides design tokens, UI components, and structural layouts as reusable packages. It eliminates the recurring setup cost of making the same architectural decisions — token system, component primitives, layout structure — at the start of every project.
 
 ## Overview
 
-Venator focuses on clear architecture and reusable primitives rather than a large component catalog.
+Venator is built for developers who start multiple projects and need to move fast without re-litigating the same structural choices every time.
 
-The library is designed to support:
+It works well alongside generative UI tools like v0 or Lovable. Those tools are good at producing UI — Venator gives that UI somewhere to land: an architecture with consistent tokens, typed components, and layout conventions already in place.
 
-- dashboards and data tools
-- admin panels and internal applications
-- data-driven interfaces
+Designed for:
+
+- dashboards and internal tools
+- admin panels and data-driven interfaces
 - AI-assisted workflows
+- any project where you want structure without boilerplate
 
 ## Architecture
 
-Venator is structured as a monorepo using npm workspaces.
+Venator is a monorepo using npm workspaces. The three packages form a deliberate dependency chain: tokens feed the design system, ui provides the primitives, patterns compose them into deployable layouts.
 
 ```
 venator/
@@ -26,46 +26,30 @@ venator/
 ├── packages/
 │   ├── tokens/            # Design tokens (colors, spacing, typography)
 │   ├── ui/                # Core UI components
-│   └── patterns/          # Higher-level layouts and UI patterns
+│   └── patterns/          # Structural layouts and UI patterns
 ```
 
 ### Packages
 
 **@venator/tokens**
 
-Design tokens shared across the system.
+The foundation. Design tokens consumed by every other package and available as a Tailwind preset.
 
-Examples:
-
-- colors
-- spacing
-- typography
-- radius
-- shadows
+- colors, spacing, typography, radius, shadows, breakpoints
+- `venatorPreset` for `tailwind.config.js`
 
 **@venator/ui**
 
-Core UI components used to build application interfaces.
+Typed, unstyled-friendly component primitives. Small surface area by design.
 
-Examples:
-
-- Button
-- Card
-- Input
-- Badge
+- Button, Card, Input, Badge
 
 **@venator/patterns**
 
-Higher-level UI structures built using the base components.
+Structural layouts — not full pages, not demo screens. These are the architectural abstractions you fill with your own content.
 
-Examples:
-
-- DashboardLayout
-- PageHeader
-- StatCard
-- ActivityFeed
-
-These patterns are designed to simplify building real application screens.
+- `DashboardLayout` — sidebar + header shell, responsive (static on desktop, drawer on mobile)
+- PageHeader, StatCard, ActivityFeed
 
 ## Getting Started
 
@@ -121,23 +105,11 @@ function App() {
 
 ## Design Goals
 
-Venator is built around a few simple principles:
-
-**Small but extensible**
-
-Focus on a minimal set of primitives and components that can scale into larger interfaces.
-
-**Clear separation**
-
-Tokens, components and UI patterns are separated to keep the architecture maintainable.
-
-**Application-first**
-
-Components are designed to support real interfaces such as dashboards, tools and data applications.
-
-**Type-safe**
-
-All packages are written in TypeScript.
+- Tokens, components, and layouts are separate packages with a one-directional dependency chain.
+- Each package can be adopted independently.
+- All packages are written in TypeScript with strict mode enabled.
+- Layouts define structure only — no content, no opinions on what goes inside.
+- Compatible with generative UI tools (v0, Lovable) as a structural target for generated components.
 
 ---
 
