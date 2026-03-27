@@ -25,3 +25,6 @@ export type { SeparatorProps, SeparatorOrientation } from './components/Separato
 
 export { Select } from './components/Select';
 export type { SelectProps, SelectSize } from './components/Select';
+
+export { Tooltip } from './components/Tooltip';
+export type { TooltipProps, TooltipSide } from './components/Tooltip';
