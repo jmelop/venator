@@ -19,3 +19,6 @@ export type { BadgeProps, BadgeVariant, BadgeSize } from './components/Badge';
 
 export { Avatar } from './components/Avatar';
 export type { AvatarProps, AvatarSize, AvatarShape } from './components/Avatar';
+
+export { Separator } from './components/Separator';
+export type { SeparatorProps, SeparatorOrientation } from './components/Separator';
