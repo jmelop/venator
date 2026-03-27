@@ -10,3 +10,6 @@ export type { DashboardLayoutProps } from './layouts/DashboardLayout';
 
 export { PageHeader } from './components/PageHeader';
 export type { PageHeaderProps } from './components/PageHeader';
+
+export { ModuleGrid } from './components/ModuleGrid';
+export type { ModuleGridProps } from './components/ModuleGrid';
