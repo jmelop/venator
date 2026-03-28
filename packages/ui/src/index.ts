@@ -43,3 +43,6 @@ export type { SkeletonProps, SkeletonRounded } from './components/Skeleton';
 
 export { Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from './components/Breadcrumb';
 export type { BreadcrumbProps, BreadcrumbItemProps, BreadcrumbSeparatorProps } from './components/Breadcrumb';
+
+export { Toggle, Switch } from './components/Toggle';
+export type { ToggleProps, ToggleSize, SwitchProps } from './components/Toggle';
