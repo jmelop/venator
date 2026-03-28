@@ -31,3 +31,6 @@ export type { TooltipProps, TooltipSide } from './components/Tooltip';
 
 export { Modal, ModalHeader, ModalContent, ModalFooter } from './components/Modal';
 export type { ModalProps, ModalSize, ModalHeaderProps, ModalContentProps, ModalFooterProps } from './components/Modal';
+
+export { CodeBlock } from './components/CodeBlock';
+export type { CodeBlockProps } from './components/CodeBlock';
