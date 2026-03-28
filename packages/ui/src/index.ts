@@ -31,3 +31,15 @@ export type { TooltipProps, TooltipSide } from './components/Tooltip';
 
 export { Modal, ModalHeader, ModalContent, ModalFooter } from './components/Modal';
 export type { ModalProps, ModalSize, ModalHeaderProps, ModalContentProps, ModalFooterProps } from './components/Modal';
+
+export { CodeBlock } from './components/CodeBlock';
+export type { CodeBlockProps } from './components/CodeBlock';
+
+export { Tabs, TabsList, TabsTrigger, TabsContent } from './components/Tabs';
+export type { TabsProps, TabsListProps, TabsTriggerProps, TabsContentProps } from './components/Tabs';
+
+export { Skeleton } from './components/Skeleton';
+export type { SkeletonProps, SkeletonRounded } from './components/Skeleton';
+
+export { Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from './components/Breadcrumb';
+export type { BreadcrumbProps, BreadcrumbItemProps, BreadcrumbSeparatorProps } from './components/Breadcrumb';
