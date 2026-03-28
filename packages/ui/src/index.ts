@@ -46,3 +46,6 @@ export type { BreadcrumbProps, BreadcrumbItemProps, BreadcrumbSeparatorProps } f
 
 export { Toggle, Switch } from './components/Toggle';
 export type { ToggleProps, ToggleSize, SwitchProps } from './components/Toggle';
+
+export { Table, TableHeader, TableBody, TableFooter, TableRow, TableHead, TableCell, TableCaption } from './components/Table';
+export type { TableProps, TableHeaderProps, TableBodyProps, TableFooterProps, TableRowProps, TableHeadProps, TableCellProps, TableCaptionProps } from './components/Table';
