@@ -1,0 +1,96 @@
+import { Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from '@venator/ui';
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="Breadcrumb"
+  description="Shows the current page location within a navigational hierarchy."
+/>
+
+## Basic
+
+Wrap `BreadcrumbItem` components inside `Breadcrumb`. The last item should have `active` set — it renders without a trailing separator and marks `aria-current="page"`.
+
+<Preview>
+  <Breadcrumb>
+    <BreadcrumbItem href="/">Home</BreadcrumbItem>
+    <BreadcrumbItem href="/docs">Docs</BreadcrumbItem>
+    <BreadcrumbItem active>Breadcrumb</BreadcrumbItem>
+  </Breadcrumb>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Breadcrumb>
+  <BreadcrumbItem href="/">Home</BreadcrumbItem>
+  <BreadcrumbItem href="/docs">Docs</BreadcrumbItem>
+  <BreadcrumbItem active>Breadcrumb</BreadcrumbItem>
+</Breadcrumb>`}
+/>
+
+## Custom separator
+
+Pass any string or React node to the `separator` prop on `Breadcrumb` to replace the default `/`.
+
+<Preview>
+  <Breadcrumb separator=">">
+    <BreadcrumbItem href="/">Home</BreadcrumbItem>
+    <BreadcrumbItem href="/docs">Docs</BreadcrumbItem>
+    <BreadcrumbItem active>Breadcrumb</BreadcrumbItem>
+  </Breadcrumb>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Breadcrumb separator=">">
+  <BreadcrumbItem href="/">Home</BreadcrumbItem>
+  <BreadcrumbItem href="/docs">Docs</BreadcrumbItem>
+  <BreadcrumbItem active>Breadcrumb</BreadcrumbItem>
+</Breadcrumb>`}
+/>
+
+## Without links
+
+Omit `href` to render a `<span>` instead of an `<a>`. Useful for non-navigable crumbs.
+
+<Preview>
+  <Breadcrumb>
+    <BreadcrumbItem>Home</BreadcrumbItem>
+    <BreadcrumbItem>Docs</BreadcrumbItem>
+    <BreadcrumbItem active>Breadcrumb</BreadcrumbItem>
+  </Breadcrumb>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Breadcrumb>
+  <BreadcrumbItem>Home</BreadcrumbItem>
+  <BreadcrumbItem>Docs</BreadcrumbItem>
+  <BreadcrumbItem active>Breadcrumb</BreadcrumbItem>
+</Breadcrumb>`}
+/>
+
+## Props
+
+### Breadcrumb
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `separator` | `ReactNode` | `'/'` | Separator rendered between items |
+| `children` | `ReactNode` | — | `BreadcrumbItem` elements |
+| `className` | `string` | — | Additional Tailwind classes |
+
+### BreadcrumbItem
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `href` | `string` | — | Renders as `<a>` when provided, otherwise `<span>` |
+| `active` | `boolean` | `false` | Marks the current page; suppresses the trailing separator |
+| `children` | `ReactNode` | — | Label content |
+
+### BreadcrumbSeparator
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | — | Overrides the separator from context when provided |

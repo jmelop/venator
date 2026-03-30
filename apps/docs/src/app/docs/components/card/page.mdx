@@ -1,0 +1,137 @@
+import { Badge, Button, Card, CardContent, CardFooter, CardHeader } from '@venator/ui';
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="Card"
+  description="A versatile container for grouping related content."
+/>
+
+## Basic
+
+A `Card` with `CardHeader`, `CardContent`, and `CardFooter`.
+
+<Preview>
+  <Card>
+    <CardHeader title="Project overview" description="A summary of the current project status." />
+    <CardContent className="mt-4">
+      <p className="text-sm text-neutral-600">Everything is on track. The next milestone is due at the end of the sprint.</p>
+    </CardContent>
+    <CardFooter className="mt-4">
+      <Button variant="primary" size="sm">View project</Button>
+      <Button variant="outline" size="sm">Dismiss</Button>
+    </CardFooter>
+  </Card>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Card>
+  <CardHeader
+    title="Project overview"
+    description="A summary of the current project status."
+  />
+  <CardContent className="mt-4">
+    <p>Everything is on track. The next milestone is due at the end of the sprint.</p>
+  </CardContent>
+  <CardFooter className="mt-4">
+    <Button variant="primary" size="sm">View project</Button>
+    <Button variant="outline" size="sm">Dismiss</Button>
+  </CardFooter>
+</Card>`}
+/>
+
+## With action
+
+Pass a node to the `action` prop on `CardHeader` to render it in the top-right slot.
+
+<Preview>
+  <Card>
+    <CardHeader
+      title="API usage"
+      description="Requests in the last 30 days."
+      action={<Badge variant="success" dot>Live</Badge>}
+    />
+    <CardContent className="mt-4">
+      <p className="text-sm text-neutral-600">12,430 requests — 99.9% uptime.</p>
+    </CardContent>
+  </Card>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Card>
+  <CardHeader
+    title="API usage"
+    description="Requests in the last 30 days."
+    action={<Badge variant="success" dot>Live</Badge>}
+  />
+  <CardContent className="mt-4">
+    <p>12,430 requests — 99.9% uptime.</p>
+  </CardContent>
+</Card>`}
+/>
+
+## Padding variants
+
+Use the `padding` prop to control the card's internal spacing.
+
+<Preview>
+  <div className="flex flex-col gap-4">
+    <Card padding="none">
+      <p className="text-sm text-neutral-600 p-2">padding="none"</p>
+    </Card>
+    <Card padding="sm">
+      <p className="text-sm text-neutral-600">padding="sm"</p>
+    </Card>
+    <Card padding="md">
+      <p className="text-sm text-neutral-600">padding="md" (default)</p>
+    </Card>
+    <Card padding="lg">
+      <p className="text-sm text-neutral-600">padding="lg"</p>
+    </Card>
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Card padding="none">…</Card>
+<Card padding="sm">…</Card>
+<Card padding="md">…</Card>
+<Card padding="lg">…</Card>`}
+/>
+
+## Props
+
+### Card
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `padding` | `'none' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Internal spacing of the card |
+| `className` | `string` | — | Additional Tailwind classes |
+| `children` | `ReactNode` | — | Card content |
+
+### CardHeader
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | — | Bold heading rendered inside the header |
+| `description` | `string` | — | Muted sub-text below the title |
+| `action` | `ReactNode` | — | Right-aligned slot for buttons, badges, etc. |
+| `className` | `string` | — | Additional Tailwind classes |
+| `children` | `ReactNode` | — | Arbitrary content below title and description |
+
+### CardContent
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | — | Additional Tailwind classes |
+| `children` | `ReactNode` | — | Main body content |
+
+### CardFooter
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | — | Additional Tailwind classes |
+| `children` | `ReactNode` | — | Footer actions; laid out as a flex row with gap |
