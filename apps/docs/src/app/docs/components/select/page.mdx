@@ -1,0 +1,107 @@
+import { Select } from '@venator/ui';
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="Select"
+  description="A styled native select dropdown."
+/>
+
+## Basic
+
+A `Select` with a `placeholder` and several `<option>` children. The placeholder renders as a disabled hidden option so the user must make an explicit choice.
+
+<Preview>
+  <Select placeholder="Choose a role…">
+    <option value="admin">Admin</option>
+    <option value="editor">Editor</option>
+    <option value="viewer">Viewer</option>
+  </Select>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Select placeholder="Choose a role…">
+  <option value="admin">Admin</option>
+  <option value="editor">Editor</option>
+  <option value="viewer">Viewer</option>
+</Select>`}
+/>
+
+## Sizes
+
+Use the `size` prop to control the select's padding and font size.
+
+<Preview>
+  <div className="flex flex-col gap-3">
+    <Select size="sm" placeholder="Small">
+      <option value="a">Option A</option>
+      <option value="b">Option B</option>
+    </Select>
+    <Select size="md" placeholder="Medium (default)">
+      <option value="a">Option A</option>
+      <option value="b">Option B</option>
+    </Select>
+    <Select size="lg" placeholder="Large">
+      <option value="a">Option A</option>
+      <option value="b">Option B</option>
+    </Select>
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Select size="sm" placeholder="Small">…</Select>
+<Select size="md" placeholder="Medium (default)">…</Select>
+<Select size="lg" placeholder="Large">…</Select>`}
+/>
+
+## Error state
+
+Set `error` to apply red border and ring styles indicating a validation error.
+
+<Preview>
+  <Select placeholder="Choose a plan…" error>
+    <option value="starter">Starter</option>
+    <option value="pro">Pro</option>
+    <option value="enterprise">Enterprise</option>
+  </Select>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Select placeholder="Choose a plan…" error>
+  <option value="starter">Starter</option>
+  <option value="pro">Pro</option>
+  <option value="enterprise">Enterprise</option>
+</Select>`}
+/>
+
+## Disabled
+
+Pass the native `disabled` attribute to prevent interaction.
+
+<Preview>
+  <Select placeholder="Unavailable" disabled>
+    <option value="a">Option A</option>
+  </Select>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Select placeholder="Unavailable" disabled>
+  <option value="a">Option A</option>
+</Select>`}
+/>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Controls padding and font size |
+| `error` | `boolean` | `false` | Applies red border and focus ring |
+| `placeholder` | `string` | — | Renders a disabled hidden first option |
+| `disabled` | `boolean` | `false` | Native disabled attribute |
+| `className` | `string` | — | Additional Tailwind classes |
+| `children` | `ReactNode` | — | `<option>` or `<optgroup>` elements |

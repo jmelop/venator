@@ -1,0 +1,91 @@
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="CodeBlock"
+  description="Displays formatted code with syntax highlighting and copy to clipboard."
+/>
+
+## Basic
+
+Renders a dark code block with a copy-to-clipboard button. The default language is `tsx`.
+
+<Preview>
+  <CodeBlock
+    code={`import { Button } from '@venator/ui';
+
+export function Example() {
+  return <Button variant="primary">Click me</Button>;
+}`}
+  />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<CodeBlock
+  code={\`import { Button } from '@venator/ui';
+
+export function Example() {
+  return <Button variant="primary">Click me</Button>;
+}\`}
+/>`}
+/>
+
+## With filename
+
+Pass `filename` to show a label bar above the code. The top corners of the code block become square to connect with the bar.
+
+<Preview>
+  <CodeBlock
+    filename="Button.tsx"
+    code={`export interface ButtonProps {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  isLoading?: boolean;
+}`}
+  />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<CodeBlock
+  filename="Button.tsx"
+  code={\`export interface ButtonProps {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  isLoading?: boolean;
+}\`}
+/>`}
+/>
+
+## Bash
+
+Set `language="bash"` for shell commands.
+
+<Preview>
+  <CodeBlock
+    language="bash"
+    filename="Terminal"
+    code={`npm install @venator/ui @venator/patterns @venator/tokens`}
+  />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<CodeBlock
+  language="bash"
+  filename="Terminal"
+  code={\`npm install @venator/ui @venator/patterns @venator/tokens\`}
+/>`}
+/>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `code` | `string` | — | The source code string to display |
+| `language` | `string` | `'tsx'` | Language hint applied as a `language-*` class on `<code>` |
+| `filename` | `string` | — | When provided, renders a filename bar above the code block |

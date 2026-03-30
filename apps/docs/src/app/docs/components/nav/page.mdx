@@ -1,0 +1,162 @@
+import { NavItem, NavGroup } from '@venator/ui';
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="Nav"
+  description="Navigation primitives for building sidebars and menus."
+/>
+
+## NavItem basic
+
+A standalone navigation item rendered as a `<button>` by default.
+
+<Preview>
+  <NavItem label="Dashboard" />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<NavItem label="Dashboard" />`}
+/>
+
+## NavItem with icon
+
+Pass any React node to `icon` to render it to the left of the label.
+
+<Preview>
+  <NavItem
+    label="Settings"
+    icon={
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+      </svg>
+    }
+  />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<NavItem
+  label="Settings"
+  icon={<svg …>…</svg>}
+/>`}
+/>
+
+## NavItem active
+
+Set `active` to apply the highlighted style indicating the current page.
+
+<Preview>
+  <div className="flex flex-col gap-1">
+    <NavItem label="Dashboard" />
+    <NavItem label="Components" active />
+    <NavItem label="Patterns" />
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<NavItem label="Dashboard" />
+<NavItem label="Components" active />
+<NavItem label="Patterns" />`}
+/>
+
+## NavItem disabled
+
+Set `disabled` to prevent interaction and apply muted styles.
+
+<Preview>
+  <div className="flex flex-col gap-1">
+    <NavItem label="Available" />
+    <NavItem label="Coming soon" disabled />
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<NavItem label="Available" />
+<NavItem label="Coming soon" disabled />`}
+/>
+
+## NavItem as link
+
+Provide `href` to render an `<a>` tag instead of a `<button>`.
+
+<Preview>
+  <NavItem label="Documentation" href="/docs" />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<NavItem label="Documentation" href="/docs" />`}
+/>
+
+## NavGroup
+
+`NavGroup` renders a labelled section heading above its `NavItem` children.
+
+<Preview>
+  <NavGroup label="Getting Started">
+    <NavItem label="Introduction" href="/docs/getting-started/introduction" />
+    <NavItem label="Installation" href="/docs/getting-started/installation" />
+  </NavGroup>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<NavGroup label="Getting Started">
+  <NavItem label="Introduction" href="/docs/getting-started/introduction" />
+  <NavItem label="Installation" href="/docs/getting-started/installation" />
+</NavGroup>`}
+/>
+
+## NavGroup collapsible
+
+Set `collapsible` to allow the group to be toggled open or closed. Use `defaultCollapsed` to start collapsed.
+
+<Preview>
+  <NavGroup label="Components" collapsible>
+    <NavItem label="Button" href="/docs/components/button" />
+    <NavItem label="Card" href="/docs/components/card" />
+    <NavItem label="Badge" href="/docs/components/badge" />
+  </NavGroup>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<NavGroup label="Components" collapsible>
+  <NavItem label="Button" href="/docs/components/button" />
+  <NavItem label="Card" href="/docs/components/card" />
+  <NavItem label="Badge" href="/docs/components/badge" />
+</NavGroup>
+
+// Start collapsed:
+<NavGroup label="Components" collapsible defaultCollapsed>
+  …
+</NavGroup>`}
+/>
+
+## Props
+
+### NavItem
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | — | Text label for the nav item |
+| `icon` | `ReactNode` | — | Icon rendered to the left of the label |
+| `href` | `string` | — | Renders as `<a>` when provided, otherwise `<button>` |
+| `active` | `boolean` | `false` | Applies highlighted styles for the current page |
+| `disabled` | `boolean` | `false` | Prevents interaction and applies muted styles |
+| `onClick` | `MouseEventHandler` | — | Click handler |
+
+### NavGroup
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | — | Section heading text |
+| `collapsible` | `boolean` | `false` | Allows the group to be toggled open or closed |
+| `defaultCollapsed` | `boolean` | `false` | When `collapsible`, starts the group in a collapsed state |
+| `children` | `ReactNode` | — | `NavItem` elements |

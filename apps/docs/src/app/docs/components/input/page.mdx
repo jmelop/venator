@@ -1,0 +1,137 @@
+import { Input, Label } from '@venator/ui';
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="Input"
+  description="A text input field with support for icons, error states and sizes."
+/>
+
+## Basic
+
+A standard text input with a placeholder.
+
+<Preview>
+  <Input placeholder="Enter your email" type="email" />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Input placeholder="Enter your email" type="email" />`}
+/>
+
+## Sizes
+
+Use the `size` prop to control the input's padding and font size.
+
+<Preview>
+  <div className="flex flex-col gap-3">
+    <Input size="sm" placeholder="Small" />
+    <Input size="md" placeholder="Medium (default)" />
+    <Input size="lg" placeholder="Large" />
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Input size="sm" placeholder="Small" />
+<Input size="md" placeholder="Medium (default)" />
+<Input size="lg" placeholder="Large" />`}
+/>
+
+## With icons
+
+Use `leftIcon` and `rightIcon` to render icons inside the input on either side.
+
+<Preview>
+  <div className="flex flex-col gap-3">
+    <Input
+      placeholder="Search…"
+      leftIcon={
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      }
+    />
+    <Input
+      placeholder="Password"
+      type="password"
+      rightIcon={
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      }
+    />
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Input
+  placeholder="Search…"
+  leftIcon={
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
+  }
+/>
+
+<Input
+  placeholder="Password"
+  type="password"
+  rightIcon={
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  }
+/>`}
+/>
+
+## Error state
+
+Set `error` to apply red border and ring styles. Pair with a `Label` to communicate the validation state.
+
+<Preview>
+  <div className="flex flex-col gap-1.5">
+    <Label htmlFor="email-error" required>Email address</Label>
+    <Input id="email-error" type="email" placeholder="you@example.com" error />
+    <p className="text-xs text-red-600">Please enter a valid email address.</p>
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Label htmlFor="email-error" required>Email address</Label>
+<Input id="email-error" type="email" placeholder="you@example.com" error />
+<p className="text-xs text-red-600">Please enter a valid email address.</p>`}
+/>
+
+## Disabled
+
+Pass the native `disabled` attribute to prevent interaction.
+
+<Preview>
+  <Input placeholder="Disabled input" disabled />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Input placeholder="Disabled input" disabled />`}
+/>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Controls padding and font size |
+| `error` | `boolean` | `false` | Applies red border and focus ring |
+| `leftIcon` | `ReactNode` | — | Icon rendered inside the left edge |
+| `rightIcon` | `ReactNode` | — | Icon rendered inside the right edge |
+| `disabled` | `boolean` | `false` | Native disabled attribute |
+| `placeholder` | `string` | — | Placeholder text |
+| `className` | `string` | — | Additional Tailwind classes |

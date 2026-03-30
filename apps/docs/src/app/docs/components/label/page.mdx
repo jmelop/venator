@@ -1,0 +1,61 @@
+import { Input, Label } from '@venator/ui';
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="Label"
+  description="A form label associated with an input field."
+/>
+
+## Basic
+
+Use `htmlFor` to associate the label with an input by its `id`. Clicking the label focuses the input.
+
+<Preview>
+  <div className="flex flex-col gap-1.5">
+    <Label htmlFor="username">Username</Label>
+    <Input id="username" placeholder="Enter your username" />
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Label htmlFor="username">Username</Label>
+<Input id="username" placeholder="Enter your username" />`}
+/>
+
+## Required
+
+Set `required` to append a red asterisk. The asterisk is `aria-hidden` so screen readers are not affected — use native HTML `required` on the input for accessibility.
+
+<Preview>
+  <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-1.5">
+      <Label htmlFor="email-req" required>Email address</Label>
+      <Input id="email-req" type="email" placeholder="you@example.com" required />
+    </div>
+    <div className="flex flex-col gap-1.5">
+      <Label htmlFor="password-req" required>Password</Label>
+      <Input id="password-req" type="password" placeholder="••••••••" required />
+    </div>
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Label htmlFor="email-req" required>Email address</Label>
+<Input id="email-req" type="email" placeholder="you@example.com" required />
+
+<Label htmlFor="password-req" required>Password</Label>
+<Input id="password-req" type="password" placeholder="••••••••" required />`}
+/>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `required` | `boolean` | `false` | Appends a red asterisk (aria-hidden) to indicate a required field |
+| `htmlFor` | `string` | — | ID of the associated input element |
+| `className` | `string` | — | Additional Tailwind classes |
+| `children` | `ReactNode` | — | Label text |
