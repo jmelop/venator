@@ -1,0 +1,104 @@
+import { Button } from '@venator/ui';
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="Button"
+  description="A foundational button component with multiple variants, sizes and states."
+/>
+
+## Variants
+
+Use the `variant` prop to change the visual style. The default variant is `primary`.
+
+<Preview>
+  <div className="flex gap-3 flex-wrap items-center">
+    <Button variant="primary">Primary</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="outline">Outline</Button>
+    <Button variant="ghost">Ghost</Button>
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>`}
+/>
+
+## Sizes
+
+Use the `size` prop to control the button's padding and font size.
+
+<Preview>
+  <div className="flex gap-3 flex-wrap items-center">
+    <Button size="sm">Small</Button>
+    <Button size="md">Medium</Button>
+    <Button size="lg">Large</Button>
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>`}
+/>
+
+## Loading state
+
+Set `isLoading` to show a spinner and automatically disable the button.
+
+<Preview>
+  <div className="flex gap-3 flex-wrap items-center">
+    <Button variant="primary" isLoading>Loading</Button>
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Button variant="primary" isLoading>Loading</Button>`}
+/>
+
+## Disabled
+
+Pass the native `disabled` attribute to prevent interaction.
+
+<Preview>
+  <div className="flex gap-3 flex-wrap items-center">
+    <Button variant="primary" disabled>Disabled</Button>
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Button variant="primary" disabled>Disabled</Button>`}
+/>
+
+## Full width
+
+Set `fullWidth` to make the button span its container.
+
+<Preview>
+  <Button variant="primary" fullWidth>Full width</Button>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Button variant="primary" fullWidth>Full width</Button>`}
+/>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'primary' \| 'secondary' \| 'outline' \| 'ghost'` | `'primary'` | Visual style of the button |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Controls padding and font size |
+| `fullWidth` | `boolean` | `false` | Stretches the button to fill its container |
+| `isLoading` | `boolean` | `false` | Shows a spinner and disables the button |
+| `disabled` | `boolean` | `false` | Native disabled attribute |
+| `onClick` | `MouseEventHandler` | — | Click handler |
+| `className` | `string` | `''` | Additional Tailwind classes |
