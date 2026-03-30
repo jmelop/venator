@@ -1,0 +1,153 @@
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+import { ModalExample } from '@/components/ModalExample';
+
+<PageHeader
+  title="Modal"
+  description="A dialog overlay for focused interactions."
+/>
+
+## Basic
+
+`Modal` requires an `open` boolean and an `onClose` callback. It renders via a portal into `document.body` and traps scroll while open. Press `Escape` or click the backdrop to close.
+
+<Preview>
+  <ModalExample />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`'use client';
+
+import { useState } from 'react';
+import { Button, Modal, ModalHeader, ModalContent, ModalFooter } from '@venator/ui';
+
+export function ModalExample() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button variant="primary" onClick={() => setOpen(true)}>
+        Open modal
+      </Button>
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <ModalHeader title="Confirm action" onClose={() => setOpen(false)} />
+        <ModalContent>
+          <p className="text-sm text-neutral-600">
+            Are you sure you want to proceed? This action cannot be undone.
+          </p>
+        </ModalContent>
+        <ModalFooter>
+          <Button variant="outline" size="sm" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+          <Button variant="primary" size="sm" onClick={() => setOpen(false)}>
+            Confirm
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </>
+  );
+}`}
+/>
+
+## Sizes
+
+Use the `size` prop to control the maximum width of the dialog panel.
+
+| Size | Max width |
+|------|-----------|
+| `sm` | `max-w-sm` (384px) |
+| `md` | `max-w-md` (448px) — default |
+| `lg` | `max-w-lg` (512px) |
+| `xl` | `max-w-xl` (576px) |
+| `full` | Full viewport width and height |
+
+<CodeBlock
+  language="tsx"
+  code={`<Modal open={open} onClose={onClose} size="sm">…</Modal>
+<Modal open={open} onClose={onClose} size="md">…</Modal>
+<Modal open={open} onClose={onClose} size="lg">…</Modal>
+<Modal open={open} onClose={onClose} size="xl">…</Modal>
+<Modal open={open} onClose={onClose} size="full">…</Modal>`}
+/>
+
+## Controlled
+
+`Modal` is always controlled — manage `open` state externally and pass `onClose` to handle close requests (backdrop click, Escape key, or a close button).
+
+<CodeBlock
+  language="tsx"
+  code={`'use client';
+
+import { useState } from 'react';
+import { Button, Modal, ModalHeader, ModalContent, ModalFooter } from '@venator/ui';
+
+export function DeleteDialog() {
+  const [open, setOpen] = useState(false);
+
+  const handleDelete = () => {
+    // perform delete…
+    setOpen(false);
+  };
+
+  return (
+    <>
+      <Button variant="primary" onClick={() => setOpen(true)}>
+        Delete item
+      </Button>
+      <Modal open={open} onClose={() => setOpen(false)} size="sm">
+        <ModalHeader title="Delete item" onClose={() => setOpen(false)} />
+        <ModalContent>
+          <p className="text-sm text-neutral-600">
+            This will permanently delete the item. This action cannot be undone.
+          </p>
+        </ModalContent>
+        <ModalFooter>
+          <Button variant="outline" size="sm" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+          <Button variant="primary" size="sm" onClick={handleDelete}>
+            Delete
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </>
+  );
+}`}
+/>
+
+## Props
+
+### Modal
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `open` | `boolean` | — | Controls whether the modal is visible |
+| `onClose` | `() => void` | — | Called when the user closes the modal (backdrop click or Escape) |
+| `size` | `'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'` | `'md'` | Maximum width of the dialog panel |
+| `className` | `string` | — | Additional Tailwind classes on the panel |
+| `children` | `ReactNode` | — | Modal content |
+
+### ModalHeader
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | — | Heading text rendered in the header |
+| `onClose` | `() => void` | — | When provided, renders a close button in the top-right corner |
+| `className` | `string` | — | Additional Tailwind classes |
+
+### ModalContent
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | — | Additional Tailwind classes |
+| `children` | `ReactNode` | — | Body content with default horizontal and vertical padding |
+
+### ModalFooter
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | — | Additional Tailwind classes |
+| `children` | `ReactNode` | — | Footer actions; right-aligned flex row with gap |
