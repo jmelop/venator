@@ -1,0 +1,75 @@
+import { Separator } from '@venator/ui';
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="Separator"
+  description="A visual divider between content sections."
+/>
+
+## Horizontal
+
+The default orientation. Renders a full-width 1px line.
+
+<Preview>
+  <div className="flex flex-col gap-4">
+    <p className="text-sm text-neutral-600">Section one content goes here.</p>
+    <Separator />
+    <p className="text-sm text-neutral-600">Section two content goes here.</p>
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<p>Section one content goes here.</p>
+<Separator />
+<p>Section two content goes here.</p>`}
+/>
+
+## Vertical
+
+Set `orientation="vertical"` to render a 1px tall vertical line. The separator takes the full height of its container, so place it inside a flex row with an explicit height.
+
+<Preview>
+  <div className="flex items-center gap-4 h-6">
+    <span className="text-sm text-neutral-600">Files</span>
+    <Separator orientation="vertical" />
+    <span className="text-sm text-neutral-600">Edit</span>
+    <Separator orientation="vertical" />
+    <span className="text-sm text-neutral-600">View</span>
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<div className="flex items-center gap-4 h-6">
+  <span>Files</span>
+  <Separator orientation="vertical" />
+  <span>Edit</span>
+  <Separator orientation="vertical" />
+  <span>View</span>
+</div>`}
+/>
+
+## Decorative vs semantic
+
+By default `decorative` is `true`, which adds `aria-hidden="true"` so screen readers skip the element. Set `decorative={false}` when the separator conveys meaningful structure — this switches to `role="separator"` with `aria-orientation`.
+
+<CodeBlock
+  language="tsx"
+  code={`{/* Decorative (default) — hidden from assistive technology */}
+<Separator />
+
+{/* Semantic — announces the division to screen readers */}
+<Separator decorative={false} />
+<Separator decorative={false} orientation="vertical" />`}
+/>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Direction of the separator line |
+| `decorative` | `boolean` | `true` | When `true`, applies `aria-hidden`. When `false`, uses `role="separator"` |
+| `className` | `string` | — | Additional Tailwind classes |
