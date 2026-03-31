@@ -2,7 +2,7 @@
   "name": "venator",
   "version": "0.0.0",
   "private": true,
-  "description": "A React + TypeScript UI infrastructure for building modern web interfaces, data-driven tools and AI-assisted applications.",
+  "description": "A React + TypeScript frontend system for building scalable, consistent, and maintainable application architectures.",
   "workspaces": [
     "apps/*",
     "packages/*"
