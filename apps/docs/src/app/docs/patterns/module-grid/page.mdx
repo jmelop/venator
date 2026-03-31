@@ -1,0 +1,83 @@
+import { Card, CardContent, CardHeader } from '@venator/ui';
+import { CodeBlock } from '@venator/ui';
+import { PageHeader, ModuleGrid } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="ModuleGrid"
+  description="A responsive CSS grid for laying out dashboard modules."
+/>
+
+## Basic
+
+`ModuleGrid` renders a responsive `grid` container. Children stack to a single column on mobile, expand to the specified column count on larger screens.
+
+<Preview>
+  <ModuleGrid>
+    <Card>
+      <CardHeader title="Total users" />
+      <CardContent><p className="text-2xl font-bold text-neutral-900">4,821</p></CardContent>
+    </Card>
+    <Card>
+      <CardHeader title="Active sessions" />
+      <CardContent><p className="text-2xl font-bold text-neutral-900">312</p></CardContent>
+    </Card>
+    <Card>
+      <CardHeader title="Revenue" />
+      <CardContent><p className="text-2xl font-bold text-neutral-900">$18,400</p></CardContent>
+    </Card>
+  </ModuleGrid>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<ModuleGrid>
+  <Card>…</Card>
+  <Card>…</Card>
+  <Card>…</Card>
+</ModuleGrid>`}
+/>
+
+## Columns
+
+Use the `columns` prop to set the number of columns at the `lg` breakpoint. All values collapse to a single column on small screens and two columns on medium screens.
+
+<CodeBlock
+  language="tsx"
+  code={`{/* 1 column at all breakpoints */}
+<ModuleGrid columns={1}>…</ModuleGrid>
+
+{/* 2 columns at lg+ */}
+<ModuleGrid columns={2}>…</ModuleGrid>
+
+{/* 3 columns at lg+ (default) */}
+<ModuleGrid columns={3}>…</ModuleGrid>
+
+{/* 4 columns at lg+ */}
+<ModuleGrid columns={4}>…</ModuleGrid>`}
+/>
+
+## Gap
+
+Use the `gap` prop to control spacing between grid cells.
+
+<CodeBlock
+  language="tsx"
+  code={`{/* gap-3 */}
+<ModuleGrid gap="sm">…</ModuleGrid>
+
+{/* gap-5 (default) */}
+<ModuleGrid gap="md">…</ModuleGrid>
+
+{/* gap-7 */}
+<ModuleGrid gap="lg">…</ModuleGrid>`}
+/>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `columns` | `1 \| 2 \| 3 \| 4` | `3` | Number of columns at the `lg` breakpoint |
+| `gap` | `'sm' \| 'md' \| 'lg'` | `'md'` | Spacing between grid cells |
+| `className` | `string` | — | Additional Tailwind classes |
+| `children` | `ReactNode` | — | Grid cell elements |

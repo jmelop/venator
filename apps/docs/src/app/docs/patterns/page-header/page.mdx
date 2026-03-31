@@ -1,0 +1,103 @@
+import { Breadcrumb, BreadcrumbItem, Button } from '@venator/ui';
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="PageHeader"
+  description="A consistent page title area with optional description, breadcrumb and actions."
+/>
+
+## Basic
+
+Renders a page title as an `<h1>`.
+
+<Preview>
+  <PageHeader title="Dashboard" />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<PageHeader title="Dashboard" />`}
+/>
+
+## With description
+
+Add a `description` to provide supporting context below the title.
+
+<Preview>
+  <PageHeader
+    title="Team members"
+    description="Manage access and roles for your workspace."
+  />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<PageHeader
+  title="Team members"
+  description="Manage access and roles for your workspace."
+/>`}
+/>
+
+## With actions
+
+Pass any React node to `actions` to render it right-aligned alongside the title.
+
+<Preview>
+  <PageHeader
+    title="Projects"
+    description="All active projects in your workspace."
+    actions={<Button variant="primary" size="sm">New project</Button>}
+  />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<PageHeader
+  title="Projects"
+  description="All active projects in your workspace."
+  actions={<Button variant="primary" size="sm">New project</Button>}
+/>`}
+/>
+
+## With breadcrumb
+
+Pass a `Breadcrumb` to the `breadcrumb` slot to render a navigation trail above the title.
+
+<Preview>
+  <PageHeader
+    title="Edit profile"
+    breadcrumb={
+      <Breadcrumb>
+        <BreadcrumbItem href="/">Home</BreadcrumbItem>
+        <BreadcrumbItem href="/settings">Settings</BreadcrumbItem>
+        <BreadcrumbItem active>Edit profile</BreadcrumbItem>
+      </Breadcrumb>
+    }
+  />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<PageHeader
+  title="Edit profile"
+  breadcrumb={
+    <Breadcrumb>
+      <BreadcrumbItem href="/">Home</BreadcrumbItem>
+      <BreadcrumbItem href="/settings">Settings</BreadcrumbItem>
+      <BreadcrumbItem active>Edit profile</BreadcrumbItem>
+    </Breadcrumb>
+  }
+/>`}
+/>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | — | Page title rendered as `<h1>` |
+| `description` | `string` | — | Supporting text rendered below the title |
+| `actions` | `ReactNode` | — | Right-aligned slot for buttons or controls |
+| `breadcrumb` | `ReactNode` | — | Renders above the title, typically a `Breadcrumb` |
+| `className` | `string` | — | Additional Tailwind classes |

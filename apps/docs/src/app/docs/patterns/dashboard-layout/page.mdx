@@ -1,0 +1,107 @@
+import { CodeBlock } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="DashboardLayout"
+  description="A full-screen layout with a collapsible sidebar and header slot."
+/>
+
+## Overview
+
+`DashboardLayout` provides a two-column shell for admin and dashboard interfaces:
+
+- **Desktop (lg+)** — sidebar is static alongside the main content area. Use `sidebarCollapsed` to shrink it to icon-width.
+- **Mobile (<lg)** — sidebar is hidden by default and opens as an overlay drawer. The component manages its own open state, or you can take control via `mobileOpen` and `onMobileOpenChange`.
+
+The `header` slot renders a sticky top bar above the scrollable content area. The `children` prop is the main scrollable region.
+
+## Basic usage
+
+<CodeBlock
+  language="tsx"
+  code={`import { DashboardLayout } from '@venator/patterns';
+
+export default function App() {
+  return (
+    <DashboardLayout
+      sidebar={<Navigation />}
+      header={<Header />}
+    >
+      <DashboardContent />
+    </DashboardLayout>
+  );
+}`}
+/>
+
+## Controlled mobile drawer
+
+Manage the mobile drawer state externally by passing `mobileOpen` and `onMobileOpenChange`. Useful when a hamburger button in the header needs to open the sidebar.
+
+<CodeBlock
+  language="tsx"
+  code={`'use client';
+
+import { useState } from 'react';
+import { DashboardLayout } from '@venator/patterns';
+
+export function App() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  return (
+    <DashboardLayout
+      sidebar={<Navigation />}
+      header={
+        <button onClick={() => setMobileOpen(true)}>
+          Open menu
+        </button>
+      }
+      mobileOpen={mobileOpen}
+      onMobileOpenChange={setMobileOpen}
+    >
+      <Content />
+    </DashboardLayout>
+  );
+}`}
+/>
+
+## Collapsed sidebar
+
+Set `sidebarCollapsed` to `true` on desktop to shrink the sidebar to icon-width. Useful for building a toggle that expands and collapses the nav.
+
+<CodeBlock
+  language="tsx"
+  code={`'use client';
+
+import { useState } from 'react';
+import { DashboardLayout } from '@venator/patterns';
+
+export function App() {
+  const [collapsed, setCollapsed] = useState(false);
+
+  return (
+    <DashboardLayout
+      sidebar={<Navigation collapsed={collapsed} />}
+      header={
+        <button onClick={() => setCollapsed((c) => !c)}>
+          Toggle sidebar
+        </button>
+      }
+      sidebarCollapsed={collapsed}
+    >
+      <Content />
+    </DashboardLayout>
+  );
+}`}
+/>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `sidebar` | `ReactNode` | — | Content rendered in the sidebar panel |
+| `header` | `ReactNode` | — | Content rendered in the top header bar |
+| `children` | `ReactNode` | — | Main scrollable content area |
+| `sidebarCollapsed` | `boolean` | `false` | Shrinks the sidebar to icon-width on desktop |
+| `mobileOpen` | `boolean` | — | Controlled open state for the mobile drawer |
+| `onMobileOpenChange` | `(open: boolean) => void` | — | Called when the component requests a drawer state change |
