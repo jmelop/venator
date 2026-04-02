@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
   Alert,
   AlertDescription,
@@ -46,12 +47,12 @@ export default function Home() {
           tools, and AI-assisted applications.
         </p>
         <div className="flex items-center gap-3 flex-wrap justify-center">
-          <Button variant="primary" size="lg">
-            <a href="/docs/getting-started/introduction">Get Started</a>
-          </Button>
-          <Button variant="outline" size="lg">
-            <a href="#">GitHub</a>
-          </Button>
+          <Link href="/docs/getting-started/introduction">
+            <Button variant="primary" size="lg">Get Started</Button>
+          </Link>
+          <Link href="#">
+            <Button variant="outline" size="lg">GitHub</Button>
+          </Link>
         </div>
       </section>
 
