@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { NavGroup, NavItem } from '@venator/ui';
@@ -46,16 +47,18 @@ function Sidebar({ pathname }: { pathname: string }) {
       </div>
 
       <NavGroup label="Getting Started">
-        <NavItem
-          label="Introduction"
-          href="/docs/getting-started/introduction"
-          active={pathname === '/docs/getting-started/introduction'}
-        />
-        <NavItem
-          label="Installation"
-          href="/docs/getting-started/installation"
-          active={pathname === '/docs/getting-started/installation'}
-        />
+        <Link href="/docs/getting-started/introduction">
+          <NavItem
+            label="Introduction"
+            active={pathname === '/docs/getting-started/introduction'}
+          />
+        </Link>
+        <Link href="/docs/getting-started/installation">
+          <NavItem
+            label="Installation"
+            active={pathname === '/docs/getting-started/installation'}
+          />
+        </Link>
       </NavGroup>
 
       <NavGroup label="Components">
@@ -63,12 +66,12 @@ function Sidebar({ pathname }: { pathname: string }) {
           const slug = toSlug(name);
           const href = `/docs/components/${slug}`;
           return (
-            <NavItem
-              key={name}
-              label={name}
-              href={href}
-              active={pathname === href}
-            />
+            <Link key={name} href={href}>
+              <NavItem
+                label={name}
+                active={pathname === href}
+              />
+            </Link>
           );
         })}
       </NavGroup>
@@ -77,12 +80,12 @@ function Sidebar({ pathname }: { pathname: string }) {
         {patterns.map(({ label, slug }) => {
           const href = `/docs/patterns/${slug}`;
           return (
-            <NavItem
-              key={slug}
-              label={label}
-              href={href}
-              active={pathname === href}
-            />
+            <Link key={slug} href={href}>
+              <NavItem
+                label={label}
+                active={pathname === href}
+              />
+            </Link>
           );
         })}
       </NavGroup>
