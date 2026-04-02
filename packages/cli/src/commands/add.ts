@@ -15,7 +15,7 @@ function isKnownPattern(name: string): name is PatternSlug {
   return name in PATTERNS_MAP;
 }
 
-const PATTERNS_SRC_DIR = path.resolve(__dirname, '../../../patterns/src');
+const PATTERNS_SRC_DIR = path.resolve(__dirname, '../../patterns/src');
 
 export async function addCommand(pattern: string): Promise<void> {
   if (!isKnownPattern(pattern)) {

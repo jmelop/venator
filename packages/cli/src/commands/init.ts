@@ -10,7 +10,7 @@ function isSupportedArchetype(name: string): name is Archetype {
   return (SUPPORTED_ARCHETYPES as readonly string[]).includes(name);
 }
 
-const TEMPLATES_DIR = path.resolve(__dirname, '../../../archetypes/templates');
+const TEMPLATES_DIR = path.resolve(__dirname, '../../archetypes/templates');
 
 export async function initCommand(archetype: string): Promise<void> {
   if (!isSupportedArchetype(archetype)) {
