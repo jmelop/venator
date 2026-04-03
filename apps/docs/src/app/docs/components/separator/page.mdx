@@ -1,4 +1,4 @@
-import { Separator } from '@venator/ui';
+import { Separator, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@venator/ui';
 import { CodeBlock } from '@venator/ui';
 import { PageHeader } from '@venator/patterns';
 import { Preview } from '@/components/Preview';
@@ -68,8 +68,33 @@ By default `decorative` is `true`, which adds `aria-hidden="true"` so screen rea
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Direction of the separator line |
-| `decorative` | `boolean` | `true` | When `true`, applies `aria-hidden`. When `false`, uses `role="separator"` |
-| `className` | `string` | — | Additional Tailwind classes |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">orientation</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">'horizontal' | 'vertical'</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">'horizontal'</code></TableCell>
+      <TableCell>Direction of the separator line</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">decorative</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">boolean</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">true</code></TableCell>
+      <TableCell>When true, applies aria-hidden. When false, uses role="separator"</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">className</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional Tailwind classes</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>

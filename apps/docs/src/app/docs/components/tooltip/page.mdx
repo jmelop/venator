@@ -1,5 +1,4 @@
-import { Button, Tooltip } from '@venator/ui';
-import { CodeBlock } from '@venator/ui';
+import { Button, Tooltip, CodeBlock, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@venator/ui';
 import { PageHeader } from '@venator/patterns';
 import { Preview } from '@/components/Preview';
 
@@ -86,9 +85,39 @@ Set `delay` in milliseconds to control how long the user must hover before the t
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `content` | `ReactNode` | — | Text or element shown inside the tooltip bubble |
-| `side` | `'top' \| 'bottom' \| 'left' \| 'right'` | `'top'` | Which side of the trigger the tooltip appears on |
-| `delay` | `number` | `300` | Hover delay in milliseconds before the tooltip shows |
-| `children` | `ReactNode` | — | The trigger element |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">content</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Text or element shown inside the tooltip bubble</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">side</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">'top' | 'bottom' | 'left' | 'right'</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">'top'</code></TableCell>
+      <TableCell>Which side of the trigger the tooltip appears on</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">delay</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">number</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">300</code></TableCell>
+      <TableCell>Hover delay in milliseconds before the tooltip shows</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">children</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>The trigger element</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>

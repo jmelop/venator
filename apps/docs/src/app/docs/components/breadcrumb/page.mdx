@@ -1,4 +1,4 @@
-import { Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from '@venator/ui';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbSeparator, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@venator/ui';
 import { CodeBlock } from '@venator/ui';
 import { PageHeader } from '@venator/patterns';
 import { Preview } from '@/components/Preview';
@@ -75,22 +75,87 @@ Omit `href` to render a `<span>` instead of an `<a>`. Useful for non-navigable c
 
 ### Breadcrumb
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `separator` | `ReactNode` | `'/'` | Separator rendered between items |
-| `children` | `ReactNode` | — | `BreadcrumbItem` elements |
-| `className` | `string` | — | Additional Tailwind classes |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">separator</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">'/'</code></TableCell>
+      <TableCell>Separator rendered between items</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">children</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>BreadcrumbItem elements</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">className</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional Tailwind classes</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
 
 ### BreadcrumbItem
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `href` | `string` | — | Renders as `<a>` when provided, otherwise `<span>` |
-| `active` | `boolean` | `false` | Marks the current page; suppresses the trailing separator |
-| `children` | `ReactNode` | — | Label content |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">href</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Renders as &lt;a&gt; when provided, otherwise &lt;span&gt;</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">active</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">boolean</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">false</code></TableCell>
+      <TableCell>Marks the current page; suppresses the trailing separator</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">children</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Label content</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
 
 ### BreadcrumbSeparator
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | — | Overrides the separator from context when provided |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">children</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Overrides the separator from context when provided</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>

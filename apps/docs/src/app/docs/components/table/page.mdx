@@ -156,10 +156,30 @@ A full table with header, body, and three columns. The Status column uses `Badge
 
 ### Table
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | — | Additional Tailwind classes on the `<table>` element |
-| `children` | `ReactNode` | — | Table sections |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">className</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional Tailwind classes on the &lt;table&gt; element</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">children</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Table sections</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
 
 ### TableHeader / TableBody / TableFooter
 
@@ -167,28 +187,108 @@ All three wrap their respective HTML section elements (`<thead>`, `<tbody>`, `<t
 
 ### TableRow
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | — | Additional Tailwind classes |
-| `children` | `ReactNode` | — | `TableHead` or `TableCell` elements |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">className</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional Tailwind classes</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">children</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>TableHead or TableCell elements</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
 
 ### TableHead
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | — | Additional Tailwind classes on the `<th>` |
-| `children` | `ReactNode` | — | Column heading content |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">className</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional Tailwind classes on the &lt;th&gt;</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">children</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Column heading content</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
 
 ### TableCell
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | — | Additional Tailwind classes on the `<td>` |
-| `children` | `ReactNode` | — | Cell content |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">className</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional Tailwind classes on the &lt;td&gt;</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">children</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Cell content</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
 
 ### TableCaption
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | — | Additional Tailwind classes on the `<caption>` |
-| `children` | `ReactNode` | — | Caption text describing the table |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">className</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional Tailwind classes on the &lt;caption&gt;</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">children</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Caption text describing the table</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>

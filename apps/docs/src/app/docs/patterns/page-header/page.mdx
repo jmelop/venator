@@ -1,0 +1,137 @@
+import { Breadcrumb, BreadcrumbItem, Button, CodeBlock, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="PageHeader"
+  description="A consistent page title area with optional description, breadcrumb and actions."
+/>
+
+## Basic
+
+Renders a page title as an `<h1>`.
+
+<Preview>
+  <PageHeader title="Dashboard" />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<PageHeader title="Dashboard" />`}
+/>
+
+## With description
+
+Add a `description` to provide supporting context below the title.
+
+<Preview>
+  <PageHeader
+    title="Team members"
+    description="Manage access and roles for your workspace."
+  />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<PageHeader
+  title="Team members"
+  description="Manage access and roles for your workspace."
+/>`}
+/>
+
+## With actions
+
+Pass any React node to `actions` to render it right-aligned alongside the title.
+
+<Preview>
+  <PageHeader
+    title="Projects"
+    description="All active projects in your workspace."
+    actions={<Button variant="primary" size="sm">New project</Button>}
+  />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<PageHeader
+  title="Projects"
+  description="All active projects in your workspace."
+  actions={<Button variant="primary" size="sm">New project</Button>}
+/>`}
+/>
+
+## With breadcrumb
+
+Pass a `Breadcrumb` to the `breadcrumb` slot to render a navigation trail above the title.
+
+<Preview>
+  <PageHeader
+    title="Edit profile"
+    breadcrumb={
+      <Breadcrumb>
+        <BreadcrumbItem href="/">Home</BreadcrumbItem>
+        <BreadcrumbItem href="/settings">Settings</BreadcrumbItem>
+        <BreadcrumbItem active>Edit profile</BreadcrumbItem>
+      </Breadcrumb>
+    }
+  />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<PageHeader
+  title="Edit profile"
+  breadcrumb={
+    <Breadcrumb>
+      <BreadcrumbItem href="/">Home</BreadcrumbItem>
+      <BreadcrumbItem href="/settings">Settings</BreadcrumbItem>
+      <BreadcrumbItem active>Edit profile</BreadcrumbItem>
+    </Breadcrumb>
+  }
+/>`}
+/>
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">title</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Page title rendered as <code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">&lt;h1&gt;</code></TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">description</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Supporting text rendered below the title</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">actions</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Right-aligned slot for buttons or controls</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">breadcrumb</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Renders above the title, typically a <code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">Breadcrumb</code></TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">className</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional Tailwind classes</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>

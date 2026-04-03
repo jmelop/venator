@@ -1,0 +1,112 @@
+import { Card, CardContent, CardHeader, CodeBlock, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@venator/ui';
+import { PageHeader, ModuleGrid } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+
+<PageHeader
+  title="ModuleGrid"
+  description="A responsive CSS grid for laying out dashboard modules."
+/>
+
+## Basic
+
+`ModuleGrid` renders a responsive `grid` container. Children stack to a single column on mobile, expand to the specified column count on larger screens.
+
+<Preview>
+  <ModuleGrid>
+    <Card>
+      <CardHeader title="Total users" />
+      <CardContent><p className="text-2xl font-bold text-neutral-900">4,821</p></CardContent>
+    </Card>
+    <Card>
+      <CardHeader title="Active sessions" />
+      <CardContent><p className="text-2xl font-bold text-neutral-900">312</p></CardContent>
+    </Card>
+    <Card>
+      <CardHeader title="Revenue" />
+      <CardContent><p className="text-2xl font-bold text-neutral-900">$18,400</p></CardContent>
+    </Card>
+  </ModuleGrid>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<ModuleGrid>
+  <Card>…</Card>
+  <Card>…</Card>
+  <Card>…</Card>
+</ModuleGrid>`}
+/>
+
+## Columns
+
+Use the `columns` prop to set the number of columns at the `lg` breakpoint. All values collapse to a single column on small screens and two columns on medium screens.
+
+<CodeBlock
+  language="tsx"
+  code={`{/* 1 column at all breakpoints */}
+<ModuleGrid columns={1}>…</ModuleGrid>
+
+{/* 2 columns at lg+ */}
+<ModuleGrid columns={2}>…</ModuleGrid>
+
+{/* 3 columns at lg+ (default) */}
+<ModuleGrid columns={3}>…</ModuleGrid>
+
+{/* 4 columns at lg+ */}
+<ModuleGrid columns={4}>…</ModuleGrid>`}
+/>
+
+## Gap
+
+Use the `gap` prop to control spacing between grid cells.
+
+<CodeBlock
+  language="tsx"
+  code={`{/* gap-3 */}
+<ModuleGrid gap="sm">…</ModuleGrid>
+
+{/* gap-5 (default) */}
+<ModuleGrid gap="md">…</ModuleGrid>
+
+{/* gap-7 */}
+<ModuleGrid gap="lg">…</ModuleGrid>`}
+/>
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">columns</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">1 | 2 | 3 | 4</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">3</code></TableCell>
+      <TableCell>Number of columns at the <code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">lg</code> breakpoint</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">gap</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">'sm' | 'md' | 'lg'</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">'md'</code></TableCell>
+      <TableCell>Spacing between grid cells</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">className</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional Tailwind classes</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">children</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Grid cell elements</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>

@@ -1,0 +1,139 @@
+import { Switch, CodeBlock, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@venator/ui';
+import { PageHeader } from '@venator/patterns';
+import { Preview } from '@/components/Preview';
+import { SwitchExample } from '@/components/SwitchExample';
+
+<PageHeader
+  title="Switch"
+  description="A sliding toggle for boolean on/off states."
+/>
+
+## Basic
+
+`Switch` manages its own state when used uncontrolled via `defaultChecked`. Click to toggle.
+
+<Preview>
+  <SwitchExample />
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`'use client';
+
+import { useState } from 'react';
+import { Switch } from '@venator/ui';
+
+export function SwitchExample() {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <div className="flex items-center gap-3">
+      <Switch checked={checked} onCheckedChange={setChecked} />
+      <span className="text-sm text-neutral-500">{checked ? 'On' : 'Off'}</span>
+    </div>
+  );
+}`}
+/>
+
+## With label
+
+Pass `label` to render a text label to the right of the track. Clicking the label also toggles the switch.
+
+<Preview>
+  <div className="flex flex-col gap-3">
+    <Switch label="Enable notifications" />
+    <Switch label="Dark mode" defaultChecked />
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Switch label="Enable notifications" />
+<Switch label="Dark mode" defaultChecked />`}
+/>
+
+## Controlled
+
+Pass `checked` and `onCheckedChange` to control the switch externally.
+
+<CodeBlock
+  language="tsx"
+  code={`'use client';
+
+import { useState } from 'react';
+import { Switch } from '@venator/ui';
+
+export function ControlledSwitch() {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <Switch
+      checked={checked}
+      onCheckedChange={setChecked}
+      label="Airplane mode"
+    />
+  );
+}`}
+/>
+
+## Disabled
+
+Set `disabled` to prevent interaction. Works in both checked and unchecked states.
+
+<Preview>
+  <div className="flex flex-col gap-3">
+    <Switch label="Disabled off" disabled />
+    <Switch label="Disabled on" defaultChecked disabled />
+  </div>
+</Preview>
+
+<CodeBlock
+  language="tsx"
+  code={`<Switch label="Disabled off" disabled />
+<Switch label="Disabled on" defaultChecked disabled />`}
+/>
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">checked</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">boolean</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Controlled checked state</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">defaultChecked</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">boolean</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">false</code></TableCell>
+      <TableCell>Initial checked state in uncontrolled mode</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">onCheckedChange</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">(checked: boolean) =&gt; void</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Called when the checked state changes</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">label</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Text label rendered to the right of the track</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">disabled</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">boolean</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">false</code></TableCell>
+      <TableCell>Prevents interaction and applies muted styles</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
