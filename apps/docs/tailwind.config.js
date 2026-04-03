@@ -6,6 +6,7 @@ module.exports = {
   presets: [venatorPreset],
   content: [
     './src/**/*.{ts,tsx,md,mdx,css}',
+    './mdx-components.tsx',
     '../../packages/ui/src/**/*.{ts,tsx}',
     '../../packages/patterns/src/**/*.{ts,tsx}',
   ],
