@@ -11,43 +11,39 @@ import { PageHeader } from '@venator/patterns';
 - **Node.js** >= 18
 - **React** 18
 
-Venator is framework-agnostic but is optimised for use with Next.js 14+ (App Router). All examples in this documentation use Next.js.
+Venator is optimised for use with Next.js 14+ (App Router).
 
 ## Install packages
-
-Install all three packages from your workspace or registry:
 
 <CodeBlock
   language="bash"
   filename="Terminal"
-  code={`npm install @venator/ui @venator/patterns @venator/tokens`}
+  code={`npm install @venator/ui @venator/patterns`}
 />
 
-## Configure Tailwind
+`@venator/tokens` is included as a transitive dependency. You can also install it directly if you need advanced access — for example, to use the Tailwind preset or design tokens in your own config.
 
-Add the package source paths to your `tailwind.config.js` content array so Tailwind can scan component class names. Also enable `darkMode: 'class'` for dark mode support.
+## Configure Tailwind
 
 <CodeBlock
   language="js"
   filename="tailwind.config.js"
-  code={`/** @type {import('tailwindcss').Config} */
+  code={`const { venatorPreset } = require('@venator/tokens');
+
 module.exports = {
   darkMode: 'class',
+  presets: [venatorPreset],
   content: [
-    './src/**/*.{ts,tsx,md,mdx}',
-    '../../packages/ui/src/**/*.{ts,tsx}',
-    '../../packages/patterns/src/**/*.{ts,tsx}',
+    './src/**\/*.{ts,tsx,md,mdx}',
+    './node_modules/@venator/ui/dist/**\/*.{js,mjs}',
+    './node_modules/@venator/patterns/dist/**\/*.{js,mjs}',
   ],
-  theme: {
-    extend: {},
-  },
+  theme: { extend: {} },
   plugins: [],
 };`}
 />
 
 ## Add ToastProvider
-
-Wrap your app root with `ToastProvider` so that `useToast` is available anywhere in the tree.
 
 <CodeBlock
   language="tsx"
@@ -58,9 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <ToastProvider>
-          {children}
-        </ToastProvider>
+        <ToastProvider>{children}</ToastProvider>
       </body>
     </html>
   );
@@ -68,8 +62,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 />
 
 ## First component
-
-You're ready. Import any component from `@venator/ui` or `@venator/patterns` and start building.
 
 <CodeBlock
   language="tsx"
@@ -79,10 +71,7 @@ You're ready. Import any component from `@venator/ui` or `@venator/patterns` and
 export default function Page() {
   return (
     <Card>
-      <CardHeader
-        title="Welcome to Venator"
-        description="Start building your interface."
-      />
+      <CardHeader title="Welcome to Venator" description="Start building." />
       <CardContent className="mt-4">
         <Button variant="primary">Get started</Button>
       </CardContent>

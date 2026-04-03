@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
   Alert,
   AlertDescription,
@@ -16,19 +17,19 @@ const features = [
     pkg: '@venator/tokens',
     title: 'Design Tokens',
     description:
-      'Shared color palettes, spacing scales, and typography values — the single source of truth for the entire design system.',
+      'The single source of truth for your design system. Colors, spacing, typography, and shadows — shared across every layer of Venator.',
   },
   {
     pkg: '@venator/ui',
     title: 'UI Components',
     description:
-      'Accessible, composable primitives built with Tailwind CSS: buttons, cards, modals, tables, toasts, and more.',
+      'Typed, accessible component primitives built on Tailwind CSS. No opinions on layout — just reliable building blocks.',
   },
   {
     pkg: '@venator/patterns',
     title: 'Patterns',
     description:
-      'Opinionated layout compositions like DashboardLayout and PageHeader for rapidly scaffolding data-driven interfaces.',
+      'Production-ready structural compositions. DashboardLayout, PageHeader, ModuleGrid — the recurring structures that appear in every real application.',
   },
 ] as const;
 
@@ -36,22 +37,30 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-neutral-950">
       {/* Hero */}
-      <section className="flex-1 flex flex-col items-center justify-center text-center px-6 py-24 gap-6">
+      <section className="flex-1 flex flex-col items-center justify-center text-center px-6 py-24 gap-4">
         <Badge variant="default">React · TypeScript · Tailwind CSS</Badge>
         <h1 className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
           Venator UI
         </h1>
+        <p className="max-w-xl text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+          Build fast. Scale correctly.
+        </p>
         <p className="max-w-xl text-lg text-neutral-500 dark:text-neutral-400">
-          A React + TypeScript UI infrastructure for building modern web interfaces, data-driven
-          tools, and AI-assisted applications.
+          A React + TypeScript UI system built from primitives to patterns to full application architectures.
         </p>
         <div className="flex items-center gap-3 flex-wrap justify-center">
-          <Button variant="primary" size="lg">
-            <a href="/docs/getting-started/introduction">Get Started</a>
-          </Button>
-          <Button variant="outline" size="lg">
-            <a href="#">GitHub</a>
-          </Button>
+          <Link href="/docs/getting-started/introduction">
+            <Button variant="primary" size="lg">Get Started</Button>
+          </Link>
+          <Link href="#">
+            <Button variant="outline" size="lg">GitHub</Button>
+          </Link>
+        </div>
+        <div className="flex flex-col items-center gap-2 mt-2">
+          <p className="text-xs text-neutral-400 dark:text-neutral-500">Deploy a complete architecture in seconds</p>
+          <code className="text-sm font-mono bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 px-4 py-2 rounded-md">
+            npx venator init dashboard
+          </code>
         </div>
       </section>
 
