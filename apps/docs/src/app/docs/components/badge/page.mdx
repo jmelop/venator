@@ -1,4 +1,4 @@
-import { Badge } from '@venator/ui';
+import { Badge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@venator/ui';
 import { CodeBlock } from '@venator/ui';
 import { PageHeader } from '@venator/patterns';
 import { Preview } from '@/components/Preview';
@@ -69,9 +69,39 @@ Set `dot` to prepend a colored dot matching the current variant.
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'default' \| 'primary' \| 'success' \| 'warning' \| 'error'` | `'default'` | Color style conveying meaning |
-| `size` | `'sm' \| 'md'` | `'md'` | Controls padding and font size |
-| `dot` | `boolean` | `false` | Prepends a colored dot matching the variant |
-| `className` | `string` | — | Additional Tailwind classes |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">variant</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">'default' | 'primary' | 'success' | 'warning' | 'error'</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">'default'</code></TableCell>
+      <TableCell>Color style conveying meaning</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">size</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">'sm' | 'md'</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">'md'</code></TableCell>
+      <TableCell>Controls padding and font size</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">dot</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">boolean</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">false</code></TableCell>
+      <TableCell>Prepends a colored dot matching the variant</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">className</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">string</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional Tailwind classes</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
