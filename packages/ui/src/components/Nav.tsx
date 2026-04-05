@@ -114,7 +114,7 @@ export const NavGroup: React.FC<NavGroupProps> = ({
           <span>{label}</span>
           <Chevron open={!collapsed} />
         </button>
-        {!collapsed && <div>{children}</div>}
+        {!collapsed && <div className="flex flex-col gap-1">{children}</div>}
       </div>
     );
   }
@@ -122,7 +122,7 @@ export const NavGroup: React.FC<NavGroupProps> = ({
   return (
     <div>
       <p className={labelClasses}>{label}</p>
-      <div>{children}</div>
+      <div className="flex flex-col gap-1">{children}</div>
     </div>
   );
 };
