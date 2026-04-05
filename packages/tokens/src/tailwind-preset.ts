@@ -1,4 +1,6 @@
-import { colors, typography, borderRadius, shadows, breakpoints } from './index';
+import { colors } from './colors';
+import { typography } from './typography';
+import { borderRadius, shadows, breakpoints } from './scales';
 
 export const venatorPreset = {
   theme: {
