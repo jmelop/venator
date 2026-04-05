@@ -49,13 +49,13 @@ function Sidebar({ pathname }: { pathname: string }) {
       </div>
 
       <NavGroup label="Getting Started">
-        <Link href="/docs/getting-started/introduction">
+        <Link href="/docs/getting-started/introduction" className="block">
           <NavItem
             label="Introduction"
             active={pathname === '/docs/getting-started/introduction'}
           />
         </Link>
-        <Link href="/docs/getting-started/installation">
+        <Link href="/docs/getting-started/installation" className="block">
           <NavItem
             label="Installation"
             active={pathname === '/docs/getting-started/installation'}
@@ -68,7 +68,7 @@ function Sidebar({ pathname }: { pathname: string }) {
           const slug = toSlug(name);
           const href = `/docs/components/${slug}`;
           return (
-            <Link key={name} href={href}>
+            <Link key={name} href={href} className="block">
               <NavItem
                 label={name}
                 active={pathname === href}
@@ -82,7 +82,7 @@ function Sidebar({ pathname }: { pathname: string }) {
         {patterns.map(({ label, slug }) => {
           const href = `/docs/patterns/${slug}`;
           return (
-            <Link key={slug} href={href}>
+            <Link key={slug} href={href} className="block">
               <NavItem
                 label={label}
                 active={pathname === href}
