@@ -35,8 +35,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const variantStyles = {
       primary: 'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500',
       secondary: 'bg-neutral-600 text-white hover:bg-neutral-700 focus:ring-neutral-500',
-      outline: 'border border-neutral-300 bg-transparent hover:bg-neutral-50 focus:ring-neutral-500',
-      ghost: 'bg-transparent hover:bg-neutral-100 focus:ring-neutral-500',
+      outline: 'border border-neutral-300 bg-transparent hover:bg-neutral-50 focus:ring-neutral-500 dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-800',
+      ghost: 'bg-transparent hover:bg-neutral-100 focus:ring-neutral-500 dark:text-neutral-100 dark:hover:bg-neutral-800',
     };
 
     const sizeStyles = {
