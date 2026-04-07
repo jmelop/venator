@@ -101,19 +101,19 @@ export default function Home() {
               <Button variant="outline" size="lg">GitHub</Button>
             </Link>
           </div>
-          <div className="max-w-lg mx-auto w-full mt-2">
+          <div className="max-w-md mx-auto w-full mt-2">
             <Tabs defaultValue="quickstart">
               <TabsList>
-                <TabsTrigger value="quickstart">Quick start</TabsTrigger>
-                <TabsTrigger value="manual">Install manually</TabsTrigger>
+                <TabsTrigger value="quickstart" disableFocusRing>Quick start</TabsTrigger>
+                <TabsTrigger value="manual" disableFocusRing>Install manually</TabsTrigger>
               </TabsList>
-              <TabsContent value="quickstart">
+              <TabsContent value="quickstart" className="mt-2">
                 <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-3">
                   Deploy a complete dashboard architecture into your project.
                 </p>
                 <CodeBlock code="npx venator init dashboard" language="bash" />
               </TabsContent>
-              <TabsContent value="manual">
+              <TabsContent value="manual" className="mt-2">
                 <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-3">
                   Install UI primitives and patterns as dependencies.
                 </p>
