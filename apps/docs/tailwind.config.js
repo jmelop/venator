@@ -12,6 +12,16 @@ module.exports = {
     '../../packages/patterns/src/**/*.{ts,tsx}',
     '../../packages/patterns/dist/**/*.{js,mjs}',
   ],
+  safelist: [
+    'dark:border-neutral-600',
+    'dark:text-neutral-100',
+    'dark:hover:bg-neutral-800',
+    'dark:bg-neutral-800',
+    'dark:bg-neutral-900',
+    'dark:bg-neutral-950',
+    'dark:text-neutral-400',
+    'dark:border-neutral-800',
+  ],
   theme: {
     extend: {},
   },
