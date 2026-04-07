@@ -43,8 +43,11 @@ function Sidebar({ pathname }: { pathname: string }) {
   return (
     <nav className="flex flex-col gap-6 p-4 pb-8">
       <div className="px-3 py-4 border-b border-neutral-200 dark:border-neutral-800 mb-4">
-        <Link href="/" className="text-base font-bold text-neutral-900 dark:text-neutral-100 hover:text-primary-600 transition-colors">
-          Venator UI
+        <Link href="/" className="flex items-center gap-2.5">
+          <img src="/venator-logo-icon.png" alt="Venator" className="w-7 h-7 rounded-lg" />
+          <span className="text-base font-bold text-neutral-900 dark:text-neutral-100 hover:text-primary-600 transition-colors">
+            Venator UI
+          </span>
         </Link>
       </div>
 
