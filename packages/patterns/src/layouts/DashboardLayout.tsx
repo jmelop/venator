@@ -105,7 +105,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
               </svg>
             </button>
 
-            <div className="flex-1 h-full overflow-y-auto">
+            <div className="flex-1 h-full overflow-y-auto pb-6">
               {sidebar}
             </div>
           </aside>

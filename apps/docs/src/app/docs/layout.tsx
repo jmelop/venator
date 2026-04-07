@@ -41,21 +41,24 @@ function toSlug(name: string): string {
 
 function Sidebar({ pathname }: { pathname: string }) {
   return (
-    <nav className="flex flex-col gap-6 p-4 h-full">
+    <nav className="flex flex-col gap-6 p-4 pb-8">
       <div className="px-3 py-4 border-b border-neutral-200 dark:border-neutral-800 mb-4">
-        <Link href="/" className="text-base font-bold text-neutral-900 dark:text-neutral-100 hover:text-primary-600 transition-colors">
-          Venator UI
+        <Link href="/" className="flex items-center gap-2.5">
+          <img src="/venator-logo-icon.png" alt="Venator" className="w-7 h-7 rounded-lg" />
+          <span className="text-base font-bold text-neutral-900 dark:text-neutral-100 hover:text-primary-600 transition-colors">
+            Venator UI
+          </span>
         </Link>
       </div>
 
       <NavGroup label="Getting Started">
-        <Link href="/docs/getting-started/introduction">
+        <Link href="/docs/getting-started/introduction" className="block">
           <NavItem
             label="Introduction"
             active={pathname === '/docs/getting-started/introduction'}
           />
         </Link>
-        <Link href="/docs/getting-started/installation">
+        <Link href="/docs/getting-started/installation" className="block">
           <NavItem
             label="Installation"
             active={pathname === '/docs/getting-started/installation'}
@@ -68,7 +71,7 @@ function Sidebar({ pathname }: { pathname: string }) {
           const slug = toSlug(name);
           const href = `/docs/components/${slug}`;
           return (
-            <Link key={name} href={href}>
+            <Link key={name} href={href} className="block">
               <NavItem
                 label={name}
                 active={pathname === href}
@@ -82,7 +85,7 @@ function Sidebar({ pathname }: { pathname: string }) {
         {patterns.map(({ label, slug }) => {
           const href = `/docs/patterns/${slug}`;
           return (
-            <Link key={slug} href={href}>
+            <Link key={slug} href={href} className="block">
               <NavItem
                 label={label}
                 active={pathname === href}
@@ -175,7 +178,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
       sidebar={<Sidebar pathname={pathname} />}
       header={<Header dark={dark} onToggleDark={toggleDark} />}
     >
-      <div className="max-w-3xl pb-16">
+      <div className="max-w-4xl pb-16">
         {children}
       </div>
     </DashboardLayout>

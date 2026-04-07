@@ -13,7 +13,7 @@ export interface NavItemProps {
   href?: string;
 }
 
-const navItemBase = 'w-full flex items-center px-3 py-2 rounded-md text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-0';
+const navItemBase = 'w-full flex items-center px-3 py-2.5 rounded-md text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-0';
 const navItemActive = 'bg-primary-50 text-primary-700 font-medium';
 const navItemInactive = 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900';
 const navItemDisabled = 'opacity-50 pointer-events-none';
@@ -114,7 +114,7 @@ export const NavGroup: React.FC<NavGroupProps> = ({
           <span>{label}</span>
           <Chevron open={!collapsed} />
         </button>
-        {!collapsed && <div>{children}</div>}
+        {!collapsed && <div className="flex flex-col gap-1">{children}</div>}
       </div>
     );
   }
@@ -122,7 +122,7 @@ export const NavGroup: React.FC<NavGroupProps> = ({
   return (
     <div>
       <p className={labelClasses}>{label}</p>
-      <div>{children}</div>
+      <div className="flex flex-col gap-1">{children}</div>
     </div>
   );
 };

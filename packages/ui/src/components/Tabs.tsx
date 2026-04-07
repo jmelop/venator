@@ -57,10 +57,11 @@ TabsList.displayName = 'TabsList';
 export interface TabsTriggerProps extends HTMLAttributes<HTMLButtonElement> {
   value: string;
   disabled?: boolean;
+  disableFocusRing?: boolean;
 }
 
 export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
-  ({ value, disabled = false, className = '', ...props }, ref) => {
+  ({ value, disabled = false, disableFocusRing = false, className = '', ...props }, ref) => {
     const { activeTab, setActiveTab } = useTabsContext();
     const isActive = activeTab === value;
 
@@ -71,7 +72,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         disabled={disabled}
         onClick={() => setActiveTab(value)}
         className={[
-          'px-3 py-1.5 text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500',
+          `px-3 py-1.5 text-sm font-medium rounded-md transition-colors focus:outline-none${disableFocusRing ? '' : ' focus:ring-2 focus:ring-primary-500'}`,
           isActive
             ? 'bg-white text-neutral-900 shadow-sm'
             : 'text-neutral-500 hover:text-neutral-700',
