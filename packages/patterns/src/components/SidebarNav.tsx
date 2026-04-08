@@ -1,7 +1,4 @@
-'use client';
-
 import * as React from 'react';
-import Link from 'next/link';
 import { NavGroup, NavItem } from '@venator/ui';
 
 export interface SidebarNavItem {
@@ -22,6 +19,7 @@ export interface SidebarNavProps {
   logo?: React.ReactNode;
   title?: string;
   titleHref?: string;
+  linkComponent?: React.ElementType;
   className?: string;
 }
 
@@ -31,29 +29,30 @@ export function SidebarNav({
   logo,
   title,
   titleHref = '/',
+  linkComponent: LinkComponent = 'a',
   className = '',
 }: SidebarNavProps) {
   return (
     <nav className={`flex flex-col gap-6 p-4 ${className}`.trim()}>
       {(logo || title) && (
         <div className="px-3 py-4 border-b border-neutral-200 dark:border-neutral-800 mb-2">
-          <Link href={titleHref} className="flex items-center gap-2.5">
+          <LinkComponent href={titleHref} className="flex items-center gap-2.5">
             {logo}
             {title && (
               <span className="text-base font-bold text-neutral-900 dark:text-neutral-100">
                 {title}
               </span>
             )}
-          </Link>
+          </LinkComponent>
         </div>
       )}
 
       {sections.map((section) => (
         <NavGroup key={section.label} label={section.label}>
           {section.items.map((item) => (
-            <Link key={item.href} href={item.href} className="block">
+            <LinkComponent key={item.href} href={item.href} className="block">
               <NavItem label={item.label} active={pathname === item.href} />
-            </Link>
+            </LinkComponent>
           ))}
         </NavGroup>
       ))}

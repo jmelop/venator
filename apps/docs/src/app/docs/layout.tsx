@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { SidebarNav, DashboardLayout } from '@venator/patterns';
@@ -129,6 +130,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         <SidebarNav
           sections={sections}
           pathname={pathname}
+          linkComponent={Link}
           logo={<img src="/venator-logo-icon.png" alt="Venator" className="w-7 h-7 rounded-lg" />}
           title="Venator UI"
           titleHref="/"
