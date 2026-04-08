@@ -1,102 +1,52 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { NavGroup, NavItem } from '@venator/ui';
-import { DashboardLayout } from '@venator/patterns';
+import { SidebarNav, DashboardLayout } from '@venator/patterns';
 
-const components = [
-  'Alert',
-  'Avatar',
-  'Badge',
-  'Breadcrumb',
-  'Button',
-  'Card',
-  'CodeBlock',
-  'Input',
-  'Label',
-  'Modal',
-  'Nav',
-  'Select',
-  'Separator',
-  'Skeleton',
-  'Switch',
-  'Table',
-  'Tabs',
-  'Toast',
-  'Toggle',
-  'Tooltip',
-] as const;
-
-const patterns = [
-  { label: 'DashboardLayout', slug: 'dashboard-layout' },
-  { label: 'PageHeader', slug: 'page-header' },
-  { label: 'ModuleGrid', slug: 'module-grid' },
-] as const;
-
-function toSlug(name: string): string {
-  return name.replace(/([A-Z])/g, (m, l, o) => (o === 0 ? l.toLowerCase() : `-${l.toLowerCase()}`));
-}
-
-function Sidebar({ pathname }: { pathname: string }) {
-  return (
-    <nav className="flex flex-col gap-6 p-4 pb-8">
-      <div className="px-3 py-4 border-b border-neutral-200 dark:border-neutral-800 mb-4">
-        <Link href="/" className="flex items-center gap-2.5">
-          <img src="/venator-logo-icon.png" alt="Venator" className="w-7 h-7 rounded-lg" />
-          <span className="text-base font-bold text-neutral-900 dark:text-neutral-100 hover:text-primary-600 transition-colors">
-            Venator UI
-          </span>
-        </Link>
-      </div>
-
-      <NavGroup label="Getting Started">
-        <Link href="/docs/getting-started/introduction" className="block">
-          <NavItem
-            label="Introduction"
-            active={pathname === '/docs/getting-started/introduction'}
-          />
-        </Link>
-        <Link href="/docs/getting-started/installation" className="block">
-          <NavItem
-            label="Installation"
-            active={pathname === '/docs/getting-started/installation'}
-          />
-        </Link>
-      </NavGroup>
-
-      <NavGroup label="Components">
-        {components.map((name) => {
-          const slug = toSlug(name);
-          const href = `/docs/components/${slug}`;
-          return (
-            <Link key={name} href={href} className="block">
-              <NavItem
-                label={name}
-                active={pathname === href}
-              />
-            </Link>
-          );
-        })}
-      </NavGroup>
-
-      <NavGroup label="Patterns">
-        {patterns.map(({ label, slug }) => {
-          const href = `/docs/patterns/${slug}`;
-          return (
-            <Link key={slug} href={href} className="block">
-              <NavItem
-                label={label}
-                active={pathname === href}
-              />
-            </Link>
-          );
-        })}
-      </NavGroup>
-    </nav>
-  );
-}
+const sections = [
+  {
+    label: 'Getting Started',
+    items: [
+      { label: 'Introduction', href: '/docs/getting-started/introduction' },
+      { label: 'Installation', href: '/docs/getting-started/installation' },
+    ],
+  },
+  {
+    label: 'Components',
+    items: [
+      { label: 'Alert', href: '/docs/components/alert' },
+      { label: 'Avatar', href: '/docs/components/avatar' },
+      { label: 'Badge', href: '/docs/components/badge' },
+      { label: 'Breadcrumb', href: '/docs/components/breadcrumb' },
+      { label: 'Button', href: '/docs/components/button' },
+      { label: 'Card', href: '/docs/components/card' },
+      { label: 'CodeBlock', href: '/docs/components/code-block' },
+      { label: 'Input', href: '/docs/components/input' },
+      { label: 'Label', href: '/docs/components/label' },
+      { label: 'Modal', href: '/docs/components/modal' },
+      { label: 'Nav', href: '/docs/components/nav' },
+      { label: 'Select', href: '/docs/components/select' },
+      { label: 'Separator', href: '/docs/components/separator' },
+      { label: 'Skeleton', href: '/docs/components/skeleton' },
+      { label: 'Switch', href: '/docs/components/switch' },
+      { label: 'Table', href: '/docs/components/table' },
+      { label: 'Tabs', href: '/docs/components/tabs' },
+      { label: 'Toast', href: '/docs/components/toast' },
+      { label: 'Toggle', href: '/docs/components/toggle' },
+      { label: 'Tooltip', href: '/docs/components/tooltip' },
+    ],
+  },
+  {
+    label: 'Patterns',
+    items: [
+      { label: 'DashboardLayout', href: '/docs/patterns/dashboard-layout' },
+      { label: 'PageHeader', href: '/docs/patterns/page-header' },
+      { label: 'ModuleGrid', href: '/docs/patterns/module-grid' },
+      { label: 'SidebarNav', href: '/docs/patterns/sidebar-nav' },
+    ],
+  },
+];
 
 function MoonIcon() {
   return (
@@ -175,7 +125,15 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <DashboardLayout
-      sidebar={<Sidebar pathname={pathname} />}
+      sidebar={
+        <SidebarNav
+          sections={sections}
+          pathname={pathname}
+          logo={<img src="/venator-logo-icon.png" alt="Venator" className="w-7 h-7 rounded-lg" />}
+          title="Venator UI"
+          titleHref="/"
+        />
+      }
       header={<Header dark={dark} onToggleDark={toggleDark} />}
     >
       <div className="max-w-4xl pb-16">
