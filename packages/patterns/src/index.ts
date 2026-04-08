@@ -19,3 +19,6 @@ export type { SidebarNavProps, SidebarNavSection, SidebarNavItem } from './compo
 
 export { Topbar } from './components/Topbar';
 export type { TopbarProps } from './components/Topbar';
+
+export { StatCard } from './components/StatCard';
+export type { StatCardProps } from './components/StatCard';
