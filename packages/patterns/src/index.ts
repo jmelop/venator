@@ -13,3 +13,12 @@ export type { PageHeaderProps } from './components/PageHeader';
 
 export { ModuleGrid } from './components/ModuleGrid';
 export type { ModuleGridProps } from './components/ModuleGrid';
+
+export { SidebarNav } from './components/SidebarNav';
+export type { SidebarNavProps, SidebarNavSection, SidebarNavItem } from './components/SidebarNav';
+
+export { Topbar } from './components/Topbar';
+export type { TopbarProps } from './components/Topbar';
+
+export { StatCard } from './components/StatCard';
+export type { StatCardProps } from './components/StatCard';
