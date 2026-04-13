@@ -5,7 +5,8 @@ module.exports = {
   darkMode: 'class',
   presets: [venatorPreset],
   content: [
-    './src/**/*.{ts,tsx,md,mdx}',
+    './app/**/*.{ts,tsx,md,mdx}',
+    './components/**/*.{ts,tsx,md,mdx}',
     './node_modules/@venator/ui/dist/**/*.{js,mjs}',
     './node_modules/@venator/patterns/dist/**/*.{js,mjs}',
   ],
