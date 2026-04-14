@@ -159,31 +159,37 @@ export default function Home() {
               Three production-ready starting points, deployed in one command.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card>
-                <CardContent className="pt-6">
+              <Card className="flex flex-col">
+                <CardContent className="pt-6 flex flex-col flex-1">
                   <p className="font-semibold text-neutral-900 dark:text-neutral-100">Dashboard</p>
-                  <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 flex-1">
                     A modular dashboard with KPI cards, analytics and settings.
                   </p>
-                  <CodeBlock className="mt-3" language="bash" code="npx @venator-ui/cli init dashboard" />
+                  <div className="mt-3 rounded-md bg-neutral-900 px-3 py-2 text-xs font-mono text-neutral-300 truncate">
+                    npx @venator-ui/cli init dashboard
+                  </div>
                 </CardContent>
               </Card>
-              <Card>
-                <CardContent className="pt-6">
+              <Card className="flex flex-col">
+                <CardContent className="pt-6 flex flex-col flex-1">
                   <p className="font-semibold text-neutral-900 dark:text-neutral-100">Admin</p>
-                  <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 flex-1">
                     A backoffice interface with user table, roles and organization settings.
                   </p>
-                  <CodeBlock className="mt-3" language="bash" code="npx @venator-ui/cli init admin" />
+                  <div className="mt-3 rounded-md bg-neutral-900 px-3 py-2 text-xs font-mono text-neutral-300 truncate">
+                    npx @venator-ui/cli init admin
+                  </div>
                 </CardContent>
               </Card>
-              <Card>
-                <CardContent className="pt-6">
+              <Card className="flex flex-col">
+                <CardContent className="pt-6 flex flex-col flex-1">
                   <p className="font-semibold text-neutral-900 dark:text-neutral-100">AI Tool</p>
-                  <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 flex-1">
                     A prompt-based interface with chat input, history and model settings.
                   </p>
-                  <CodeBlock className="mt-3" language="bash" code="npx @venator-ui/cli init ai-tool" />
+                  <div className="mt-3 rounded-md bg-neutral-900 px-3 py-2 text-xs font-mono text-neutral-300 truncate">
+                    npx @venator-ui/cli init ai-tool
+                  </div>
                 </CardContent>
               </Card>
             </div>
