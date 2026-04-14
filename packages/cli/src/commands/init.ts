@@ -10,7 +10,10 @@ function isSupportedArchetype(name: string): name is Archetype {
   return (SUPPORTED_ARCHETYPES as readonly string[]).includes(name);
 }
 
-const TEMPLATES_DIR = path.resolve(__dirname, '../../archetypes/templates');
+const TEMPLATES_DIR = path.resolve(
+  path.dirname(require.resolve('@venator-ui/archetypes/package.json')),
+  'templates'
+);
 
 function createSpinner(message: string): () => void {
   const frames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
