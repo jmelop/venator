@@ -111,7 +111,7 @@ export default function Home() {
                 <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-3">
                   Deploy a complete dashboard architecture into your project.
                 </p>
-                <CodeBlock code="npx @venator-ui/cli init dashboard" language="bash" />
+                <CodeBlock language="bash" code="npx @venator-ui/cli init dashboard" />
               </TabsContent>
               <TabsContent value="manual" className="mt-2">
                 <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-3">
@@ -165,9 +165,7 @@ export default function Home() {
                   <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 flex-1">
                     A modular dashboard with KPI cards, analytics and settings.
                   </p>
-                  <div className="mt-3 rounded-md bg-neutral-900 px-3 py-2 text-xs font-mono text-neutral-300 truncate">
-                    npx @venator-ui/cli init dashboard
-                  </div>
+                  <CodeBlock language="bash" code="npx @venator-ui/cli init dashboard" className="mt-3" />
                 </CardContent>
               </Card>
               <Card className="flex flex-col">
@@ -176,9 +174,7 @@ export default function Home() {
                   <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 flex-1">
                     A backoffice interface with user table, roles and organization settings.
                   </p>
-                  <div className="mt-3 rounded-md bg-neutral-900 px-3 py-2 text-xs font-mono text-neutral-300 truncate">
-                    npx @venator-ui/cli init admin
-                  </div>
+                  <CodeBlock language="bash" code="npx @venator-ui/cli init admin" className="mt-3" />
                 </CardContent>
               </Card>
               <Card className="flex flex-col">
@@ -187,9 +183,7 @@ export default function Home() {
                   <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 flex-1">
                     A prompt-based interface with chat input, history and model settings.
                   </p>
-                  <div className="mt-3 rounded-md bg-neutral-900 px-3 py-2 text-xs font-mono text-neutral-300 truncate">
-                    npx @venator-ui/cli init ai-tool
-                  </div>
+                  <CodeBlock language="bash" code="npx @venator-ui/cli init ai-tool" className="mt-3" />
                 </CardContent>
               </Card>
             </div>
