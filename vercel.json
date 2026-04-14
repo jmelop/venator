@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run build --workspace=apps/docs",
+  "outputDirectory": "apps/docs/.next",
+  "installCommand": "npm install"
+}
