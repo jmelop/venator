@@ -24,9 +24,9 @@ function createSpinner(message: string): () => void {
 }
 
 export async function initCommand(archetype: string): Promise<void> {
-  let TEMPLATES_DIR: string;
+  let templatesDir: string;
   try {
-    TEMPLATES_DIR = path.resolve(
+    templatesDir = path.resolve(
       path.dirname(require.resolve('@venator-ui/archetypes/package.json')),
       'templates'
     );
@@ -76,7 +76,7 @@ export async function initCommand(archetype: string): Promise<void> {
     }
 
     const stopSpinner = createSpinner('Copying files...');
-    const templateDir = path.join(TEMPLATES_DIR, archetype);
+    const templateDir = path.join(templatesDir, archetype);
     await fs.copy(templateDir, destination);
     stopSpinner();
 

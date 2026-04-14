@@ -19,9 +19,9 @@ function isKnownPattern(name: string): name is PatternSlug {
 }
 
 export async function addCommand(pattern: string): Promise<void> {
-  let PATTERNS_SRC_DIR: string;
+  let patternsSrcDir: string;
   try {
-    PATTERNS_SRC_DIR = path.resolve(
+    patternsSrcDir = path.resolve(
       path.dirname(require.resolve('@venator-ui/patterns/package.json')),
       'src'
     );
@@ -51,7 +51,7 @@ export async function addCommand(pattern: string): Promise<void> {
     const destination = path.resolve(process.cwd(), dest);
     await fs.ensureDir(destination);
 
-    const sourceFile = path.join(PATTERNS_SRC_DIR, PATTERNS_MAP[pattern]);
+    const sourceFile = path.join(patternsSrcDir, PATTERNS_MAP[pattern]);
     const fileName = path.basename(PATTERNS_MAP[pattern]);
     await fs.copy(sourceFile, path.join(destination, fileName));
 
