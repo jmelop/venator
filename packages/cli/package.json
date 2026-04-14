@@ -1,5 +1,5 @@
 {
-  "name": "@venator/cli",
+  "name": "@venator-ui/cli",
   "version": "0.0.1",
   "description": "CLI for deploying Venator archetypes and patterns",
   "bin": {
