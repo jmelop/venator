@@ -4,7 +4,6 @@ export default defineConfig({
   entry: ['src/index.ts'],
   format: ['cjs', 'esm'],
   dts: true,
-  minify: false,
   external: ['react', 'react-dom'],
   clean: true,
   banner: {
