@@ -28,7 +28,7 @@ export function CodeBlock({ code, language = 'tsx', filename, className }: CodeB
       )}
       <pre
         className={[
-          'bg-neutral-900 text-neutral-100 overflow-x-auto text-sm font-mono p-4',
+          'bg-neutral-900 text-neutral-100 overflow-x-auto text-sm font-mono p-4 whitespace-pre-wrap break-all',
           filename ? 'rounded-b-lg' : 'rounded-lg',
         ].join(' ')}
       >

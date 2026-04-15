@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import {
   Alert,
   AlertDescription,
@@ -19,6 +19,37 @@ import {
   TabsTrigger,
   TabsContent,
 } from '@venator-ui/ui';
+
+function CopyCommand({ command }: { command: string }) {
+  const [copied, setCopied] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current); }, []);
+
+  return (
+    <button
+      type="button"
+      aria-label="Copy command"
+      className="flex items-center justify-between rounded-md bg-neutral-900 px-3 py-2 cursor-pointer group"
+      onClick={async () => {
+        if (!navigator.clipboard?.writeText) return;
+        try {
+          await navigator.clipboard.writeText(command);
+          if (timerRef.current) clearTimeout(timerRef.current);
+          setCopied(true);
+          timerRef.current = setTimeout(() => setCopied(false), 2000);
+        } catch {
+          // ignore
+        }
+      }}
+    >
+      <span className="font-mono text-[11px] text-neutral-300">{command}</span>
+      <span className="text-neutral-500 group-hover:text-neutral-300 transition-colors ml-2 shrink-0 text-xs">
+        {copied ? '✓' : '⧉'}
+      </span>
+    </button>
+  );
+}
 
 const features = [
   {
@@ -91,7 +122,7 @@ export default function Home() {
             Build fast. Scale correctly.
           </p>
           <p className="max-w-xl text-lg text-neutral-500 dark:text-neutral-400">
-            A React + TypeScript UI system built from primitives to patterns to full application architectures.
+            A React + TypeScript UI system built from primitives to patterns to full application architectures - shipped via CLI.
           </p>
           <div className="flex items-center gap-3 flex-wrap justify-center">
             <Link href="/docs/getting-started/introduction">
@@ -111,7 +142,7 @@ export default function Home() {
                 <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-3">
                   Deploy a complete dashboard architecture into your project.
                 </p>
-                <CodeBlock code="npx venator init dashboard" language="bash" />
+                <CodeBlock language="bash" code="npx @venator-ui/cli init dashboard" />
               </TabsContent>
               <TabsContent value="manual" className="mt-2">
                 <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-3">
@@ -149,8 +180,47 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Archetypes */}
+        <section className="px-6 py-16 bg-neutral-50 dark:bg-neutral-950">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-100 text-center mb-2">
+              Deploy a complete architecture
+            </h2>
+            <p className="text-center text-neutral-500 dark:text-neutral-400 mb-10">
+              Three production-ready starting points, deployed in one command.
+            </p>
+            <div className="max-w-2xl mx-auto flex flex-col divide-y divide-neutral-200 dark:divide-neutral-800">
+              {[
+                {
+                  title: 'Dashboard',
+                  description: 'A modular dashboard with KPI cards, analytics and settings.',
+                  command: 'npx @venator-ui/cli init dashboard',
+                },
+                {
+                  title: 'Admin',
+                  description: 'A backoffice interface with user table, roles and organization settings.',
+                  command: 'npx @venator-ui/cli init admin',
+                },
+                {
+                  title: 'AI Tool',
+                  description: 'A prompt-based interface with chat input, history and model settings.',
+                  command: 'npx @venator-ui/cli init ai-tool',
+                },
+              ].map(({ title, description, command }) => (
+                <div key={title} className="flex items-start justify-between gap-8 py-6">
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-1">{title}</p>
+                    <p className="text-sm text-neutral-600 dark:text-neutral-400">{description}</p>
+                  </div>
+                  <CopyCommand command={command} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Component preview */}
-        <section className="px-6 py-16">
+        <section className="px-6 py-16 bg-white dark:bg-neutral-900">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-100 text-center mb-10">
               Component preview

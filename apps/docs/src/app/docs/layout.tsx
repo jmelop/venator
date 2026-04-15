@@ -103,10 +103,22 @@ function SunIcon() {
   );
 }
 
-function Header({ dark, onToggleDark }: { dark: boolean; onToggleDark: () => void }) {
+function Header({ dark, onToggleDark, onMenuOpen }: { dark: boolean; onToggleDark: () => void; onMenuOpen: () => void }) {
   return (
     <div className="flex items-center justify-between w-full">
-      <span className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
+      <button
+        type="button"
+        aria-label="Open menu"
+        onClick={onMenuOpen}
+        className="lg:hidden p-2 rounded-md text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+      <span className="text-sm font-medium text-neutral-500 dark:text-neutral-400 hidden lg:block">
         Documentation
       </span>
       <button
@@ -123,6 +135,7 @@ function Header({ dark, onToggleDark }: { dark: boolean; onToggleDark: () => voi
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [dark, setDark] = useState(() => {
     if (typeof document === 'undefined') return false;
     return document.documentElement.classList.contains('dark');
@@ -146,7 +159,9 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           titleHref="/"
         />
       }
-      header={<Header dark={dark} onToggleDark={toggleDark} />}
+      header={<Header dark={dark} onToggleDark={toggleDark} onMenuOpen={() => setMobileOpen(true)} />}
+      mobileOpen={mobileOpen}
+      onMobileOpenChange={setMobileOpen}
     >
       <div className="max-w-4xl pb-16">
         {children}
