@@ -128,7 +128,7 @@ export default function Home() {
             <Link href="/docs/getting-started/introduction">
               <Button variant="primary" size="lg">Get Started</Button>
             </Link>
-            <Link href="#">
+            <Link href="https://github.com/jmelop/venator-ui">
               <Button variant="outline" size="lg">GitHub</Button>
             </Link>
           </div>
