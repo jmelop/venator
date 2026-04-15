@@ -110,7 +110,7 @@ export default function Home() {
             Build fast. Scale correctly.
           </p>
           <p className="max-w-xl text-lg text-neutral-500 dark:text-neutral-400">
-            Components, patterns and architectures in one system.
+            A React + TypeScript UI system built from primitives to patterns to full application architectures - shipped via CLI.
           </p>
           <div className="flex items-center gap-3 flex-wrap justify-center">
             <Link href="/docs/getting-started/introduction">
