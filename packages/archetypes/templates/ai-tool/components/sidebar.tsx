@@ -28,6 +28,7 @@ export function Sidebar() {
       pathname={pathname}
       linkComponent={Link}
       title="AI Tool"
+      logo={<img src="/logo.png" alt="Logo" className="w-7 h-7 rounded-lg" />}
     />
   );
 }
