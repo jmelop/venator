@@ -1,6 +1,6 @@
 {
   "name": "@venator-ui/archetypes",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Complete application architectures deployable via the Venator CLI",
   "files": ["templates"],
   "scripts": {
