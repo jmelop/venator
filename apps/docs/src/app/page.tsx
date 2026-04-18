@@ -567,7 +567,7 @@ function Playground() {
 
         <div className="border border-subtle rounded-xl overflow-hidden">
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-2.5 border-b border-subtle font-mono text-[12px]" style={{ background: 'var(--bg-1)', color: 'var(--fg-4)' }}>
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-subtle font-mono text-[12px]" style={{ background: 'var(--bg-2)', color: 'var(--fg-4)' }}>
             <span className="flex items-center gap-2">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
               &lt;Button /&gt;
@@ -587,7 +587,7 @@ function Playground() {
                 <div className="flex border border-subtle rounded-md overflow-hidden">
                   {(['primary', 'ghost', 'outline'] as const).map((v, i, arr) => (
                     <button key={v} onClick={() => setVariant(v)}
-                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-subtle' : ''} ${variant === v ? 'bg-[var(--bg-2)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
+                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-subtle' : ''} ${variant === v ? 'bg-[var(--bg-3)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
                       {v}
                     </button>
                   ))}
@@ -598,7 +598,7 @@ function Playground() {
                 <div className="flex border border-subtle rounded-md overflow-hidden">
                   {(['sm', 'md'] as const).map((v, i, arr) => (
                     <button key={v} onClick={() => setSize(v)}
-                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-subtle' : ''} ${size === v ? 'bg-[var(--bg-2)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
+                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-subtle' : ''} ${size === v ? 'bg-[var(--bg-3)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
                       {v}
                     </button>
                   ))}
@@ -609,7 +609,7 @@ function Playground() {
                 <input
                   value={label}
                   onChange={e => setLabel(e.target.value)}
-                  className="border border-subtle rounded-md px-3 py-1.5 text-[13px] font-mono focus:outline-none" style={{ background: 'var(--bg-1)', color: 'var(--fg-2)' }}
+                  className="rounded-md px-3 py-1.5 text-[13px] font-mono focus:outline-none" style={{ background: 'var(--bg-2)', color: 'var(--fg)', border: '1px solid var(--line-2)' }}
                 />
               </div>
               <div className="flex items-center justify-between">
@@ -627,7 +627,7 @@ function Playground() {
             </div>
 
             {/* Preview */}
-            <div className="border-r border-subtle flex items-center justify-center p-8" style={{ background: 'radial-gradient(400px 200px at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%), var(--bg-1)' }}>
+            <div className="border-r border-subtle flex items-center justify-center p-8" style={{ background: 'radial-gradient(400px 200px at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%), var(--bg-2)' }}>
               <Button
                 variant={variant}
                 size={size === 'sm' ? 'sm' : undefined}
@@ -646,7 +646,7 @@ function Playground() {
             </div>
 
             {/* JSX output */}
-            <div className="relative p-5 font-mono text-[12.5px] leading-relaxed overflow-auto" style={{ background: 'var(--bg)' }}>
+            <div className="relative p-5 font-mono text-[12.5px] leading-relaxed overflow-auto" style={{ background: 'var(--bg-1)' }}>
               <button onClick={copyJsx} className="absolute top-3 right-3 p-1.5 transition-colors" style={{ color: 'var(--fg-4)' }} onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg-2)')} onMouseLeave={e => (e.currentTarget.style.color = 'var(--fg-4)')}>
                 {copied ? (
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -792,21 +792,21 @@ export default function Home() {
                   icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M16.5 9.4l-9-5.2M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16zM3.3 7L12 12l8.7-5M12 22V12"/></svg>,
                 },
               ].map(({ pkg, title, desc, meta, index, icon }) => (
-                <div key={pkg} className="bg-neutral-900 border border-subtle rounded-xl p-7 flex flex-col gap-4">
+                <div key={pkg} className="rounded-xl p-7 flex flex-col gap-4" style={{ background: 'var(--bg-1)', border: '1px solid var(--line-2)' }}>
                   <div className="flex items-start justify-between">
-                    <div className="w-8 h-8 border border-subtle rounded-md flex items-center justify-center text-neutral-500">
+                    <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ border: '1px solid var(--line-2)', color: 'var(--fg-4)' }}>
                       {icon}
                     </div>
-                    <span className="font-mono text-[10.5px] text-neutral-700">{index}</span>
+                    <span className="font-mono text-[10.5px]" style={{ color: 'var(--fg-5)' }}>{index}</span>
                   </div>
                   <div>
-                    <p className="font-mono text-[12px] text-neutral-500 mb-2">{pkg}</p>
+                    <p className="font-mono text-[12px] mb-2" style={{ color: 'var(--fg-4)' }}>{pkg}</p>
                     <p className="text-[15px] font-medium mb-2 tracking-tight" style={{ color: 'var(--fg)' }}>{title}</p>
                     <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--fg-4)' }}>{desc}</p>
                   </div>
-                  <div className="flex items-center justify-between mt-auto pt-2 border-t border-subtle">
-                    <span className="font-mono text-[11px] text-neutral-600">{meta}</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-700">
+                  <div className="flex items-center justify-between mt-auto pt-2" style={{ borderTop: '1px solid var(--line)' }}>
+                    <span className="font-mono text-[11px]" style={{ color: 'var(--fg-4)' }}>{meta}</span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--fg-5)' }}>
                       <path d="M7 17L17 7M8 7h9v9" />
                     </svg>
                   </div>
@@ -871,7 +871,7 @@ export default function Home() {
                   ].map((item, i) => item.type === 'section' ? (
                     <div key={i} className="px-2 pt-4 pb-1 font-mono text-[10.5px] text-neutral-700 uppercase tracking-wider">{item.label}</div>
                   ) : (
-                    <div key={i} className={`flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[13px] cursor-pointer transition-colors ${item.active ? 'bg-[var(--bg-2)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
+                    <div key={i} className={`flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[13px] cursor-pointer transition-colors ${item.active ? 'bg-[var(--bg-3)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
                       {item.label}
                     </div>
                   ))}
@@ -952,7 +952,7 @@ export default function Home() {
             <p className="text-[15px] max-w-[560px] mb-12 leading-relaxed" style={{ color: 'var(--fg-4)' }}>
               Structure is the thing that's hard to change once a project grows. Venator gets it right on day one, so you can change the rest freely.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px border border-subtle rounded-xl overflow-hidden" style={{ background: 'var(--bg-2)' }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px border border-subtle rounded-xl overflow-hidden" style={{ background: 'var(--line)' }}>
               {[
                 {
                   title: 'Zero runtime weight',
@@ -985,7 +985,7 @@ export default function Home() {
                   icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>,
                 },
               ].map((f, i) => (
-                <div key={i} className="p-7" style={{ background: 'var(--bg)' }}>
+                <div key={i} className="p-7" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
                   <div className="mb-4" style={{ color: 'var(--fg-4)' }}>{f.icon}</div>
                   <p className="text-[15px] font-medium tracking-tight mb-2" style={{ color: 'var(--fg)' }}>{f.title}</p>
                   <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--fg-4)' }}>{f.desc}</p>
