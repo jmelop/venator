@@ -61,3 +61,9 @@ export type { CheckboxProps, CheckboxSize } from './components/Checkbox';
 
 export { Slider } from './components/Slider';
 export type { SliderProps } from './components/Slider';
+
+export { Progress } from './components/Progress';
+export type { ProgressProps, ProgressSize } from './components/Progress';
+
+export { Kbd } from './components/Kbd';
+export type { KbdProps } from './components/Kbd';
