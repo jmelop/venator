@@ -153,7 +153,7 @@ function HeroVisual() {
           title="venator — zsh — 100×28"
           loop
           loopDelay={2000}
-          className="h-[320px] overflow-y-auto"
+          className="h-[420px] overflow-hidden"
         />
       ) : (
         <div className="rounded-lg border border-subtle bg-neutral-900 p-8 min-h-[200px] flex items-center justify-center">
