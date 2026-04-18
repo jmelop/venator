@@ -28,7 +28,7 @@ function CopyCommand({ command }: { command: string }) {
     <button
       type="button"
       aria-label="Copy command"
-      className="flex items-center justify-between rounded-md bg-neutral-900 border border-default px-3 py-2 cursor-pointer group w-full"
+      className="flex items-center justify-between rounded-md bg-neutral-900 px-3 py-2 cursor-pointer group w-full" style={{ border: '1px solid var(--line-2)' }}
       onClick={async () => {
         if (!navigator.clipboard?.writeText) return;
         try {
@@ -73,7 +73,7 @@ function ArchetypeCLI() {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex items-center gap-1 bg-neutral-900 border border-subtle rounded-lg p-1">
+      <div className="flex items-center gap-1 bg-neutral-900 rounded-lg p-1" style={{ border: '1px solid var(--line)' }}>
         {ARCHETYPES.map(a => (
           <button
             key={a.key}
@@ -82,7 +82,7 @@ function ArchetypeCLI() {
             className={[
               'flex-1 py-1.5 px-3 rounded-md text-sm font-medium transition-colors',
               active === a.key
-                ? 'bg-neutral-800 border border-default text-white shadow-sm'
+                ? 'bg-neutral-800 border border-[var(--line-2)] text-white shadow-sm'
                 : 'text-neutral-400 hover:text-neutral-200',
             ].join(' ')}
           >
@@ -179,7 +179,7 @@ function LayersVisual() {
               cursor: i !== active ? 'pointer' : 'default',
             }}
           >
-            <div className="rounded-xl border border-subtle p-5" style={{ background: 'var(--bg-1)', minHeight: 260 }}>
+            <div className="rounded-xl p-5" style={{ background: 'var(--bg-1)', minHeight: 260, border: '1px solid var(--line)' }}>
               <div className="flex items-center justify-between mb-3">
                 <span className="font-mono text-[10.5px]" style={{ color: 'var(--fg-4)' }}>{layer.pkg}</span>
                 <span className="font-mono text-[10.5px]" style={{ color: 'var(--fg-5)' }}>{layer.index}</span>
@@ -188,7 +188,7 @@ function LayersVisual() {
               <p className="text-[12.5px] mb-4" style={{ color: 'var(--fg-4)' }}>{layer.desc}</p>
               <div className="flex flex-wrap gap-1.5">
                 {layer.items.map(item => (
-                  <span key={item} className="font-mono text-[11px] border border-subtle rounded-md px-2 py-0.5" style={{ color: 'var(--fg-4)' }}>{item}</span>
+                  <span key={item} className="font-mono text-[11px] rounded-md px-2 py-0.5" style={{ color: 'var(--fg-4)', border: '1px solid var(--line)' }}>{item}</span>
                 ))}
               </div>
             </div>
@@ -204,7 +204,7 @@ function LayersVisual() {
             onClick={() => setActive(i)}
             className={`font-mono text-[11px] px-3 py-1 rounded-md transition-colors border ${
               i === active
-                ? 'border-subtle text-[var(--fg-2)] bg-[var(--bg-2)]'
+                ? 'border-[var(--line)] text-[var(--fg-2)] bg-[var(--bg-2)]'
                 : 'border-transparent text-[var(--fg-4)] hover:text-[var(--fg-3)]'
             }`}
           >
@@ -228,7 +228,7 @@ function HeroVisual() {
           className={[
             'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[13px] font-medium transition-colors',
             tab === 'terminal'
-              ? 'bg-[var(--bg-2)] text-[var(--fg)] border border-subtle'
+              ? 'bg-[var(--bg-2)] text-[var(--fg)] border border-[var(--line)]'
               : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]',
           ].join(' ')}
         >
@@ -243,7 +243,7 @@ function HeroVisual() {
           className={[
             'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[13px] font-medium transition-colors',
             tab === 'layers'
-              ? 'bg-[var(--bg-2)] text-[var(--fg)] border border-subtle'
+              ? 'bg-[var(--bg-2)] text-[var(--fg)] border border-[var(--line)]'
               : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]',
           ].join(' ')}
         >
@@ -262,7 +262,7 @@ function HeroVisual() {
           className="h-[420px] overflow-hidden"
         />
       ) : (
-        <div className="rounded-lg border border-subtle overflow-hidden" style={{ background: 'var(--bg)' }}>
+        <div className="rounded-lg overflow-hidden" style={{ background: 'var(--bg)', border: '1px solid var(--line)' }}>
           <LayersVisual />
         </div>
       )}
@@ -358,7 +358,7 @@ function ComponentsShowcase() {
   const [tooltip, setTooltip] = useState(false);
 
   return (
-    <section className="border-t border-subtle px-6 py-20">
+    <section className="px-6 py-20" style={{ borderTop: '1px solid var(--line)' }}>
       <div className="max-w-[1200px] mx-auto">
         <p className="font-mono text-[11px] tracking-[0.08em] uppercase mb-4" style={{ color: 'var(--fg-4)' }}>Primitives · 03</p>
         <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight mb-3" style={{ color: 'var(--fg)' }}>
@@ -372,7 +372,7 @@ function ComponentsShowcase() {
         <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(12, 1fr)' }}>
 
           {/* Buttons — col 6 */}
-          <div className="col-span-6 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+          <div className="col-span-6 rounded-xl p-5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
             <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Button</p>
             <div className="flex flex-wrap gap-2">
               <Button variant="primary" size="sm">Primary</Button>
@@ -383,7 +383,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Badges — col 6 */}
-          <div className="col-span-6 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+          <div className="col-span-6 rounded-xl p-5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
             <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Badge</p>
             <div className="flex flex-wrap gap-2">
               <Badge variant="default">Default</Badge>
@@ -395,7 +395,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Input — col 4 */}
-          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+          <div className="col-span-4 rounded-xl p-5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
             <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Input</p>
             <div className="flex flex-col gap-2">
               <Input placeholder="Search components..." />
@@ -404,7 +404,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Switch — col 4 */}
-          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+          <div className="col-span-4 rounded-xl p-5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
             <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Switch</p>
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
@@ -419,7 +419,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Checkbox — col 4 */}
-          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+          <div className="col-span-4 rounded-xl p-5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
             <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Checkbox</p>
             <div className="flex flex-col gap-2.5">
               {([['Accessible', ck1, setCk1], ['Composable', ck2, setCk2], ['Typed', ck3, setCk3]] as const).map(([label, val, set]) => (
@@ -431,7 +431,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Slider — col 4 */}
-          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+          <div className="col-span-4 rounded-xl p-5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
             <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Slider</p>
             <Slider value={sliderVal} onValueChange={setSliderVal} />
             <div className="flex justify-between font-mono text-[11px] mt-2" style={{ color: 'var(--fg-4)' }}>
@@ -440,7 +440,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Progress — col 4 */}
-          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+          <div className="col-span-4 rounded-xl p-5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
             <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Progress</p>
             <div className="flex flex-col gap-3">
               <div className="flex justify-between font-mono text-[11px] mb-1" style={{ color: 'var(--fg-3)' }}>
@@ -455,7 +455,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Kbd + Tooltip — col 4 */}
-          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+          <div className="col-span-4 rounded-xl p-5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
             <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Kbd · Tooltip</p>
             <div className="flex flex-col gap-3">
               <div
@@ -478,9 +478,9 @@ function ComponentsShowcase() {
           </div>
 
           {/* Tabs — col 6 */}
-          <div className="col-span-6 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+          <div className="col-span-6 rounded-xl p-5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
             <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Tabs</p>
-            <div className="border-b border-subtle flex gap-6 mb-3">
+            <div className="flex gap-6 mb-3" style={{ borderBottom: '1px solid var(--line)' }}>
               {['Overview', 'Usage', 'Theming', 'API'].map((t, i) => (
                 <button
                   key={t}
@@ -497,13 +497,13 @@ function ComponentsShowcase() {
           </div>
 
           {/* Table — col 6 */}
-          <div className="col-span-6 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+          <div className="col-span-6 rounded-xl p-5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
             <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Table</p>
             <table className="w-full font-mono text-[12.5px] border-collapse">
               <thead>
                 <tr>
                   {['Package', 'Version', 'Status'].map(h => (
-                    <th key={h} className="text-left text-[11px] uppercase tracking-wider pb-2 border-b border-subtle font-normal" style={{ color: 'var(--fg-4)' }}>{h}</th>
+                    <th key={h} className="text-left text-[11px] uppercase tracking-wider pb-2 font-normal" style={{ color: 'var(--fg-4)', borderBottom: '1px solid var(--line)' }}>{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -514,7 +514,7 @@ function ComponentsShowcase() {
                   { pkg: 'patterns', version: '0.1.1', status: 'beta', variant: 'warning' as const },
                   { pkg: 'archetypes', version: '0.1.7', status: 'beta', variant: 'warning' as const },
                 ].map(row => (
-                  <tr key={row.pkg} className="border-b border-subtle last:border-0">
+                  <tr key={row.pkg} style={{ borderBottom: '1px solid var(--line)' }}>
                     <td className="py-2" style={{ color: 'var(--fg-2)' }}>{row.pkg}</td>
                     <td className="py-2" style={{ color: 'var(--fg-3)' }}>{row.version}</td>
                     <td className="py-2"><Badge variant={row.variant}>{row.status}</Badge></td>
@@ -554,7 +554,7 @@ function Playground() {
   }
 
   return (
-    <section className="border-t border-subtle px-6 py-20">
+    <section className="px-6 py-20" style={{ borderTop: '1px solid var(--line)' }}>
       <div className="max-w-[1200px] mx-auto">
         <p className="font-mono text-[11px] tracking-[0.08em] uppercase mb-4" style={{ color: 'var(--fg-4)' }}>Live · 04</p>
         <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight mb-3" style={{ color: 'var(--fg)' }}>
@@ -565,9 +565,9 @@ function Playground() {
           Every primitive is tweakable in-browser. Props on the left, rendered component in the middle, generated JSX on the right.
         </p>
 
-        <div className="border border-subtle rounded-xl overflow-hidden">
+        <div className="rounded-xl overflow-hidden" style={{ border: '1px solid var(--line)' }}>
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-2.5 border-b border-subtle font-mono text-[12px]" style={{ background: 'var(--bg-2)', color: 'var(--fg-4)' }}>
+          <div className="flex items-center justify-between px-4 py-2.5 font-mono text-[12px]" style={{ background: 'var(--bg-2)', color: 'var(--fg-4)', borderBottom: '1px solid var(--line)' }}>
             <span className="flex items-center gap-2">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
               &lt;Button /&gt;
@@ -581,13 +581,13 @@ function Playground() {
           {/* Body */}
           <div className="grid" style={{ gridTemplateColumns: '280px 1fr 1fr', minHeight: 360 }}>
             {/* Controls */}
-            <div className="border-r border-subtle p-5 flex flex-col gap-5" style={{ background: 'var(--bg-1)' }}>
+            <div className="p-5 flex flex-col gap-5" style={{ background: 'var(--bg-1)', borderRight: '1px solid var(--line)' }}>
               <div className="flex flex-col gap-2">
                 <label className="font-mono text-[10.5px] uppercase tracking-wider" style={{ color: 'var(--fg-4)' }}>variant</label>
-                <div className="flex border border-subtle rounded-md overflow-hidden">
+                <div className="flex rounded-md overflow-hidden" style={{ border: '1px solid var(--line)' }}>
                   {(['primary', 'ghost', 'outline'] as const).map((v, i, arr) => (
                     <button key={v} onClick={() => setVariant(v)}
-                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-subtle' : ''} ${variant === v ? 'bg-[var(--bg-3)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
+                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-[var(--line)]' : ''} ${variant === v ? 'bg-[var(--bg-3)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
                       {v}
                     </button>
                   ))}
@@ -595,10 +595,10 @@ function Playground() {
               </div>
               <div className="flex flex-col gap-2">
                 <label className="font-mono text-[10.5px] uppercase tracking-wider" style={{ color: 'var(--fg-4)' }}>size</label>
-                <div className="flex border border-subtle rounded-md overflow-hidden">
+                <div className="flex rounded-md overflow-hidden" style={{ border: '1px solid var(--line)' }}>
                   {(['sm', 'md'] as const).map((v, i, arr) => (
                     <button key={v} onClick={() => setSize(v)}
-                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-subtle' : ''} ${size === v ? 'bg-[var(--bg-3)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
+                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-[var(--line)]' : ''} ${size === v ? 'bg-[var(--bg-3)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
                       {v}
                     </button>
                   ))}
@@ -627,7 +627,7 @@ function Playground() {
             </div>
 
             {/* Preview */}
-            <div className="border-r border-subtle flex items-center justify-center p-8" style={{ background: 'radial-gradient(400px 200px at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%), var(--bg-2)' }}>
+            <div className="flex items-center justify-center p-8" style={{ background: 'radial-gradient(400px 200px at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%), var(--bg-2)', borderRight: '1px solid var(--line)' }}>
               <Button
                 variant={variant}
                 size={size === 'sm' ? 'sm' : undefined}
@@ -701,11 +701,11 @@ export default function Home() {
         {/* Hero */}
         <section className="flex flex-col items-center justify-center text-center px-6 pt-40 pb-28 gap-6">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 border border-default rounded-full px-4 py-1.5 text-sm text-neutral-200">
+          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm" style={{ background: 'var(--bg-2)', border: '1px solid var(--line-2)', color: 'var(--fg-2)' }}>
             <span>React</span>
-            <span className="text-neutral-600">·</span>
+            <span style={{ color: 'var(--fg-4)' }}>·</span>
             <span>TypeScript</span>
-            <span className="text-neutral-600">·</span>
+            <span style={{ color: 'var(--fg-4)' }}>·</span>
             <span>Tailwind CSS</span>
           </div>
 
@@ -745,14 +745,14 @@ export default function Home() {
           </div>
 
           <div className="w-full max-w-md mx-auto mt-8">
-            <div className="border-t border-subtle" />
+            <div style={{ borderTop: '1px solid var(--line)' }} />
           </div>
 
           <HeroVisual />
         </section>
 
         {/* Three layers */}
-        <section className="border-t border-subtle px-6 py-20">
+        <section className="px-6 py-20" style={{ borderTop: '1px solid var(--line)' }}>
           <div className="max-w-[1200px] mx-auto">
             <p className="font-mono text-[11px] tracking-[0.08em] uppercase mb-4" style={{ color: 'var(--fg-4)' }}>
               Architecture · 01
@@ -817,7 +817,7 @@ export default function Home() {
         </section>
 
         {/* Archetypes / Dashboard Preview */}
-        <section className="border-t border-subtle px-6 py-20">
+        <section className="px-6 py-20" style={{ borderTop: '1px solid var(--line)' }}>
           <div className="max-w-[1200px] mx-auto">
             <p className="font-mono text-[11px] tracking-[0.08em] uppercase mb-4" style={{ color: 'var(--fg-4)' }}>Archetypes · 02</p>
             <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight mb-3" style={{ color: 'var(--fg)' }}>
@@ -827,15 +827,15 @@ export default function Home() {
               One command scaffolds a complete architecture. Sidebar navigation, header, module grid, tokens wired in. The output is yours — extend it, delete half of it, it's code, not config.
             </p>
             {/* Browser frame */}
-            <div className="rounded-xl border border-subtle overflow-hidden" style={{ background: 'var(--bg)', boxShadow: '0 60px 120px -40px rgba(0,0,0,0.7)' }}>
+            <div className="rounded-xl overflow-hidden" style={{ background: 'var(--bg)', boxShadow: '0 60px 120px -40px rgba(0,0,0,0.7)', border: '1px solid var(--line)' }}>
               {/* Chrome bar */}
-              <div className="flex items-center gap-3 px-4 py-2.5 border-b border-subtle">
+              <div className="flex items-center gap-3 px-4 py-2.5" style={{ borderBottom: '1px solid var(--line)' }}>
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-500/70" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
                   <div className="w-3 h-3 rounded-full bg-green-500/70" />
                 </div>
-                <div className="flex-1 bg-neutral-800 border border-subtle rounded-md px-3 py-1 font-mono text-[11.5px] text-neutral-500">
+                <div className="flex-1 bg-neutral-800 rounded-md px-3 py-1 font-mono text-[11.5px] text-neutral-500" style={{ border: '1px solid var(--line)' }}>
                   <span className="text-neutral-700">https://</span>dashboard.venator.app<span className="text-neutral-700">/analytics</span>
                 </div>
                 <div className="flex gap-2">
@@ -850,8 +850,8 @@ export default function Home() {
               {/* Dashboard grid */}
               <div className="grid" style={{ gridTemplateColumns: '220px 1fr', minHeight: 560 }}>
                 {/* Sidebar */}
-                <aside className="border-r border-subtle p-3" style={{ background: 'color-mix(in srgb, var(--bg-1) 70%, transparent)' }}>
-                  <div className="flex items-center gap-2 px-2 pb-3 mb-1 border-b border-subtle">
+                <aside className="p-3" style={{ background: 'color-mix(in srgb, var(--bg-1) 70%, transparent)', borderRight: '1px solid var(--line)' }}>
+                  <div className="flex items-center gap-2 px-2 pb-3 mb-1" style={{ borderBottom: '1px solid var(--line)' }}>
                     <div className="w-7 h-7 bg-neutral-800 rounded-md flex items-center justify-center">
                       <img src="/venator-logo-icon.png" className="w-4 h-4" />
                     </div>
@@ -886,7 +886,7 @@ export default function Home() {
                     </div>
                     <div className="flex gap-2">
                       {['Filter', 'Export', 'New report'].map((label, i) => (
-                        <button key={label} className={`inline-flex items-center gap-1.5 h-7 px-2.5 rounded-md text-[12.5px] font-medium border transition-colors ${i === 2 ? 'bg-white text-black border-white' : 'bg-transparent text-neutral-400 border-subtle hover:text-neutral-200'}`}>
+                        <button key={label} className={`inline-flex items-center gap-1.5 h-7 px-2.5 rounded-md text-[12.5px] font-medium border transition-colors ${i === 2 ? 'bg-white text-black border-white' : 'bg-transparent text-neutral-400 border-[var(--line)] hover:text-neutral-200'}`}>
                           {label}
                         </button>
                       ))}
@@ -900,7 +900,7 @@ export default function Home() {
                       { label: 'Sessions', value: '89,233', delta: '+4.7%', data: [20,22,18,24,28,24,30,28,34] },
                       { label: 'Conv. rate', value: '3.42%', delta: '-0.6%', down: true, data: [30,28,32,26,24,28,22,20,18] },
                     ].map(s => (
-                      <div key={s.label} className="border border-subtle rounded-lg p-3.5" style={{ background: 'var(--bg-1)' }}>
+                      <div key={s.label} className="rounded-lg p-3.5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
                         <div className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-1">{s.label}</div>
                         <div className="text-[26px] font-medium tracking-tight text-neutral-100 mb-1">{s.value}</div>
                         <div className="flex items-center justify-between">
@@ -912,7 +912,7 @@ export default function Home() {
                   </div>
                   {/* Charts */}
                   <div className="grid gap-3" style={{ gridTemplateColumns: '2fr 1fr' }}>
-                    <div className="border border-subtle rounded-lg p-4" style={{ background: 'var(--bg-1)' }}>
+                    <div className="rounded-lg p-4" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
                       <div className="flex items-start justify-between mb-1">
                         <div>
                           <h4 className="text-[14px] font-medium text-neutral-200">Sessions over time</h4>
@@ -925,7 +925,7 @@ export default function Home() {
                       </div>
                       <AreaChart />
                     </div>
-                    <div className="border border-subtle rounded-lg p-4" style={{ background: 'var(--bg-1)' }}>
+                    <div className="rounded-lg p-4" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
                       <h4 className="text-[14px] font-medium text-neutral-200">Sign-ups / day</h4>
                       <p className="font-mono text-[12px] text-neutral-600 mb-3">Weekly average · 62</p>
                       <BarChart />
@@ -942,7 +942,7 @@ export default function Home() {
         <Playground />
 
         {/* Features strip */}
-        <section className="border-t border-subtle px-6 py-20">
+        <section className="px-6 py-20" style={{ borderTop: '1px solid var(--line)' }}>
           <div className="max-w-[1200px] mx-auto">
             <p className="font-mono text-[11px] tracking-[0.08em] uppercase mb-4" style={{ color: 'var(--fg-4)' }}>Why Venator · 05</p>
             <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight mb-3" style={{ color: 'var(--fg)' }}>
@@ -952,7 +952,7 @@ export default function Home() {
             <p className="text-[15px] max-w-[560px] mb-12 leading-relaxed" style={{ color: 'var(--fg-4)' }}>
               Structure is the thing that's hard to change once a project grows. Venator gets it right on day one, so you can change the rest freely.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px border border-subtle rounded-xl overflow-hidden" style={{ background: 'var(--line)' }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px rounded-xl overflow-hidden" style={{ background: 'var(--line)', border: '1px solid var(--line)' }}>
               {[
                 {
                   title: 'Zero runtime weight',
@@ -996,7 +996,7 @@ export default function Home() {
         </section>
 
         {/* Final CTA */}
-        <section className="border-t border-subtle px-6 py-36 text-center relative overflow-hidden">
+        <section className="px-6 py-36 text-center relative overflow-hidden" style={{ borderTop: '1px solid var(--line)' }}>
           <div
             className="absolute inset-0 pointer-events-none"
             style={{ background: 'radial-gradient(600px 300px at 50% 50%, color-mix(in srgb, var(--accent) 6%, transparent) 0%, transparent 70%)' }}
@@ -1027,16 +1027,16 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="border-t border-subtle px-6 py-16">
+        <footer className="px-6 py-16" style={{ borderTop: '1px solid var(--line)' }}>
           <div className="max-w-[1200px] mx-auto">
             <div className="grid gap-10" style={{ gridTemplateColumns: '2fr 1fr 1fr 1fr' }}>
               {/* Brand */}
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <img src="/venator-logo-icon.png" className="w-7 h-7 rounded-lg" />
-                  <span className="font-semibold text-[15px] text-neutral-100">Venator UI</span>
+                  <span className="font-semibold text-[15px]" style={{ color: 'var(--fg)' }}>Venator UI</span>
                 </div>
-                <p className="text-[13.5px] text-neutral-200 max-w-[280px] leading-relaxed mb-5">
+                <p className="text-[13.5px] max-w-[280px] leading-relaxed mb-5" style={{ color: 'var(--fg-3)' }}>
                   A React + TypeScript UI system. From primitives to patterns to full application architectures — shipped via CLI.
                 </p>
                 <div className="flex gap-2">
@@ -1046,7 +1046,7 @@ export default function Home() {
                     { label: 'CLI', href: '/docs/getting-started/introduction', icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 17l6-6-6-6M12 19h8"/></svg> },
                   ].map(({ label, href, icon }) => (
                     <a key={label} href={href} aria-label={label}
-                      className="w-8 h-8 flex items-center justify-center rounded-md border border-subtle text-neutral-500 hover:text-neutral-200 hover:border-default transition-colors">
+                      className="w-8 h-8 flex items-center justify-center rounded-md text-neutral-500 hover:text-neutral-200 transition-colors" style={{ border: '1px solid var(--line)' }}>
                       {icon}
                     </a>
                   ))}
@@ -1055,7 +1055,7 @@ export default function Home() {
 
               {/* Packages */}
               <div>
-                <h5 className="font-mono text-[11px] text-neutral-600 uppercase tracking-wider mb-4">Packages</h5>
+                <h5 className="font-mono text-[11px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Packages</h5>
                 <ul className="flex flex-col gap-2.5">
                   {[
                     { pkg: '@venator-ui/tokens',     href: 'https://www.npmjs.com/package/@venator-ui/tokens' },
@@ -1065,7 +1065,7 @@ export default function Home() {
                     { pkg: '@venator-ui/cli',        href: 'https://www.npmjs.com/package/@venator-ui/cli' },
                   ].map(({ pkg, href }) => (
                     <li key={pkg}>
-                      <a href={href} target="_blank" rel="noopener noreferrer" className="text-[13.5px] text-neutral-200 hover:text-neutral-100 transition-colors font-mono">{pkg}</a>
+                      <a href={href} target="_blank" rel="noopener noreferrer" className="text-[13.5px] transition-colors font-mono" style={{ color: 'var(--fg-2)' }}>{pkg}</a>
                     </li>
                   ))}
                 </ul>
@@ -1073,7 +1073,7 @@ export default function Home() {
 
               {/* Resources */}
               <div>
-                <h5 className="font-mono text-[11px] text-neutral-600 uppercase tracking-wider mb-4">Resources</h5>
+                <h5 className="font-mono text-[11px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Resources</h5>
                 <ul className="flex flex-col gap-2.5">
                   {[
                     { label: 'Documentation', href: '/docs/getting-started/introduction' },
@@ -1082,7 +1082,7 @@ export default function Home() {
                     { label: 'Changelog', href: '#' },
                   ].map(({ label, href }) => (
                     <li key={label}>
-                      <a href={href} className="text-[13.5px] text-neutral-200 hover:text-neutral-100 transition-colors">{label}</a>
+                      <a href={href} className="text-[13.5px] transition-colors" style={{ color: 'var(--fg-2)' }}>{label}</a>
                     </li>
                   ))}
                 </ul>
@@ -1090,14 +1090,14 @@ export default function Home() {
 
               {/* Community */}
               <div>
-                <h5 className="font-mono text-[11px] text-neutral-600 uppercase tracking-wider mb-4">Community</h5>
+                <h5 className="font-mono text-[11px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Community</h5>
                 <ul className="flex flex-col gap-2.5">
                   {[
                     { label: 'GitHub',     href: 'https://github.com/jmelop/venator-ui' },
                     { label: 'Contribute', href: 'https://github.com/jmelop/venator-ui/pulls' },
                   ].map(({ label, href }) => (
                     <li key={label}>
-                      <a href={href} target="_blank" rel="noopener noreferrer" className="text-[13.5px] text-neutral-200 hover:text-neutral-100 transition-colors">{label}</a>
+                      <a href={href} target="_blank" rel="noopener noreferrer" className="text-[13.5px] transition-colors" style={{ color: 'var(--fg-2)' }}>{label}</a>
                     </li>
                   ))}
                 </ul>
@@ -1105,9 +1105,9 @@ export default function Home() {
             </div>
 
             {/* Bottom */}
-            <div className="flex items-center justify-between mt-12 pt-6 border-t border-subtle">
-              <span className="font-mono text-[12px] text-neutral-600">MIT © 2026 Venator contributors</span>
-              <span className="flex items-center gap-2 font-mono text-[12px] text-neutral-600">
+            <div className="flex items-center justify-between mt-12 pt-6" style={{ borderTop: '1px solid var(--line)' }}>
+              <span className="font-mono text-[12px]" style={{ color: 'var(--fg-4)' }}>MIT © 2026 Venator contributors</span>
+              <span className="flex items-center gap-2 font-mono text-[12px]" style={{ color: 'var(--fg-4)' }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 6px #34d399' }} />
                 All systems operational
               </span>

@@ -20,13 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
-            const stored = localStorage.getItem('venator-theme');
-            const theme = stored || 'dark';
-            if (theme === 'dark') {
-              document.documentElement.classList.add('dark');
-            } else {
-              document.documentElement.classList.remove('dark');
-            }
+            try {
+              const stored = localStorage.getItem('venator-theme');
+              const theme = stored || 'dark';
+              document.documentElement.classList.toggle('dark', theme === 'dark');
+              document.documentElement.setAttribute('data-theme', theme);
+            } catch(e) {}
           })();
         `}} />
       </head>
