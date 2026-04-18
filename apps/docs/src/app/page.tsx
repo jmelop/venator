@@ -671,6 +671,60 @@ export default function Home() {
 
         <ComponentsShowcase />
 
+        {/* Features strip */}
+        <section className="border-t border-subtle px-6 py-20">
+          <div className="max-w-[1200px] mx-auto">
+            <p className="font-mono text-[11px] tracking-[0.08em] uppercase text-neutral-600 mb-4">Why Venator · 04</p>
+            <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight text-neutral-50 mb-3">
+              Opinionated about structure.<br />
+              <span className="text-neutral-400">Unopinionated about everything else.</span>
+            </h2>
+            <p className="text-[15px] text-neutral-400 max-w-[560px] mb-12 leading-relaxed">
+              Structure is the thing that's hard to change once a project grows. Venator gets it right on day one, so you can change the rest freely.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-neutral-800 border border-subtle rounded-xl overflow-hidden">
+              {[
+                {
+                  title: 'Zero runtime weight',
+                  desc: 'Tree-shakeable, no CSS-in-JS, no provider.',
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>,
+                },
+                {
+                  title: 'Fully typed',
+                  desc: 'Strict TypeScript in every package.',
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>,
+                },
+                {
+                  title: 'CLI-deployed archetypes',
+                  desc: 'Scaffold complete architectures in one command.',
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 17l6-6-6-6M12 19h8"/></svg>,
+                },
+                {
+                  title: 'Four adoption levels',
+                  desc: 'Start with a Button. Scale to a full app.',
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>,
+                },
+                {
+                  title: 'No lock-in',
+                  desc: 'Archetypes are copied — the code is yours.',
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16zM3.3 7L12 12l8.7-5M12 22V12"/></svg>,
+                },
+                {
+                  title: 'Accessible by default',
+                  desc: 'WAI-ARIA patterns wired in from the primitive layer.',
+                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>,
+                },
+              ].map((f, i) => (
+                <div key={i} className="bg-neutral-950 p-7">
+                  <div className="text-neutral-500 mb-4">{f.icon}</div>
+                  <p className="text-[15px] font-medium text-neutral-100 tracking-tight mb-2">{f.title}</p>
+                  <p className="text-[13.5px] text-neutral-400 leading-relaxed">{f.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Footer */}
         <footer className="py-10 border-t border-subtle">
           <p className="text-center text-[13px] text-neutral-600">
