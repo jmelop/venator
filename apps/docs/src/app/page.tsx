@@ -258,16 +258,16 @@ function ComponentsShowcase() {
         <p className="font-mono text-[11px] tracking-[0.08em] uppercase text-neutral-600 mb-4">Primitives · 03</p>
         <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight text-neutral-50 mb-3">
           Every primitive you'll need.<br />
-          <span className="text-neutral-700">None you won't.</span>
+          <span className="text-neutral-600">None you won't.</span>
         </h2>
         <p className="text-[15px] text-neutral-500 max-w-[560px] mb-12 leading-relaxed">
           Accessible, composable, typed primitives. Built with Tailwind CSS and design tokens.
         </p>
 
-        <div className="grid gap-px bg-neutral-800 border border-subtle rounded-xl overflow-hidden" style={{ gridTemplateColumns: 'repeat(12, 1fr)' }}>
+        <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(12, 1fr)' }}>
 
           {/* Buttons — col 6 */}
-          <div className="col-span-6 bg-neutral-900 p-5">
+          <div className="col-span-6 bg-neutral-900 border border-subtle rounded-xl p-5">
             <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Button</p>
             <div className="flex flex-wrap gap-2">
               <Button variant="primary" size="sm">Primary</Button>
@@ -278,7 +278,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Badges — col 6 */}
-          <div className="col-span-6 bg-neutral-900 p-5">
+          <div className="col-span-6 bg-neutral-900 border border-subtle rounded-xl p-5">
             <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Badge</p>
             <div className="flex flex-wrap gap-2">
               <Badge variant="default">Default</Badge>
@@ -290,7 +290,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Input — col 4 */}
-          <div className="col-span-4 bg-neutral-900 p-5">
+          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
             <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Input</p>
             <div className="flex flex-col gap-2">
               <Input placeholder="Search components..." />
@@ -299,7 +299,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Switch — col 4 */}
-          <div className="col-span-4 bg-neutral-900 p-5">
+          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
             <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Switch</p>
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
@@ -314,7 +314,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Checkbox — col 4 */}
-          <div className="col-span-4 bg-neutral-900 p-5">
+          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
             <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Checkbox</p>
             <div className="flex flex-col gap-2.5">
               {([['Accessible', ck1, setCk1], ['Composable', ck2, setCk2], ['Typed', ck3, setCk3]] as const).map(([label, val, set]) => (
@@ -326,7 +326,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Slider — col 4 */}
-          <div className="col-span-4 bg-neutral-900 p-5">
+          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
             <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Slider</p>
             <Slider value={sliderVal} onValueChange={setSliderVal} />
             <div className="flex justify-between font-mono text-[11px] text-neutral-600 mt-2">
@@ -335,7 +335,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Progress — col 4 */}
-          <div className="col-span-4 bg-neutral-900 p-5">
+          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
             <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Progress</p>
             <div className="flex flex-col gap-3">
               <div className="flex justify-between font-mono text-[11px] text-neutral-500 mb-1">
@@ -350,7 +350,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Kbd + Tooltip — col 4 */}
-          <div className="col-span-4 bg-neutral-900 p-5">
+          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
             <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Kbd · Tooltip</p>
             <div className="flex flex-col gap-3">
               <div
@@ -373,7 +373,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Tabs — col 6 */}
-          <div className="col-span-6 bg-neutral-900 p-5">
+          <div className="col-span-6 bg-neutral-900 border border-subtle rounded-xl p-5">
             <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Tabs</p>
             <div className="border-b border-subtle flex gap-6 mb-3">
               {['Overview', 'Usage', 'Theming', 'API'].map((t, i) => (
@@ -392,7 +392,7 @@ function ComponentsShowcase() {
           </div>
 
           {/* Table — col 6 */}
-          <div className="col-span-6 bg-neutral-900 p-5">
+          <div className="col-span-6 bg-neutral-900 border border-subtle rounded-xl p-5">
             <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Table</p>
             <table className="w-full font-mono text-[12.5px] border-collapse">
               <thead>
@@ -491,7 +491,7 @@ export default function Home() {
             </p>
             <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight text-neutral-50 mb-3">
               Three layers.<br />
-              <span className="text-neutral-700">Adopt any one of them.</span>
+              <span className="text-neutral-600">Adopt any one of them.</span>
             </h2>
             <p className="text-[15px] text-neutral-500 max-w-[560px] mb-12 leading-relaxed">
               A strict, one-way dependency chain: ui → patterns → architectures.
@@ -552,7 +552,7 @@ export default function Home() {
           <div className="max-w-[1200px] mx-auto">
             <p className="font-mono text-[11px] tracking-[0.08em] uppercase text-neutral-600 mb-4">Archetypes · 02</p>
             <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight text-neutral-50 mb-3">
-              Run the CLI.<br /><span className="text-neutral-700">Ship this on Monday.</span>
+              Run the CLI.<br /><span className="text-neutral-600">Ship this on Monday.</span>
             </h2>
             <p className="text-[15px] text-neutral-500 max-w-[560px] mb-12 leading-relaxed">
               One command scaffolds a complete architecture. Sidebar navigation, header, module grid, tokens wired in. The output is yours — extend it, delete half of it, it's code, not config.
