@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { LandingNav } from '../components/LandingNav';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -30,8 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}} />
       </head>
       <body className={inter.className}>
-        <LandingNav />
-        <div className="pt-14">{children}</div>
+        <div>{children}</div>
       </body>
     </html>
   );

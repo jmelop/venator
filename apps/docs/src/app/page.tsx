@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useRef, useEffect, useState } from 'react';
+import { LandingNav } from '../components/LandingNav';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import {
   Badge,
@@ -697,6 +698,7 @@ function Playground() {
 export default function Home() {
   return (
     <div className={`${geist.variable} ${geistMono.variable}`}>
+      <LandingNav />
       <div className="min-h-screen font-[family-name:var(--font-geist)]" style={{ background: 'var(--bg)', color: 'var(--fg)' }}>
         {/* Hero */}
         <section className="flex flex-col items-center justify-center text-center px-6 pt-40 pb-28 gap-6">
@@ -827,7 +829,7 @@ export default function Home() {
               One command scaffolds a complete architecture. Sidebar navigation, header, module grid, tokens wired in. The output is yours — extend it, delete half of it, it's code, not config.
             </p>
             {/* Browser frame */}
-            <div className="rounded-xl overflow-hidden" style={{ background: 'var(--bg)', boxShadow: '0 60px 120px -40px rgba(0,0,0,0.7)', border: '1px solid var(--line)' }}>
+            <div className="rounded-xl overflow-hidden" style={{ background: 'var(--bg-1)', boxShadow: '0 60px 120px -40px rgba(0,0,0,0.7)', border: '1px solid var(--line)' }}>
               {/* Chrome bar */}
               <div className="flex items-center gap-3 px-4 py-2.5" style={{ borderBottom: '1px solid var(--line)' }}>
                 <div className="flex gap-1.5">
@@ -835,14 +837,14 @@ export default function Home() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
                   <div className="w-3 h-3 rounded-full bg-green-500/70" />
                 </div>
-                <div className="flex-1 bg-neutral-800 rounded-md px-3 py-1 font-mono text-[11.5px] text-neutral-500" style={{ border: '1px solid var(--line)' }}>
+                <div className="flex-1 rounded-md px-3 py-1 font-mono text-[11.5px]" style={{ background: '#1a1d21', border: '1px solid rgba(255,255,255,0.08)', color: '#8a8f98' }}>
                   <span className="text-neutral-700">https://</span>dashboard.venator.app<span className="text-neutral-700">/analytics</span>
                 </div>
                 <div className="flex gap-2">
-                  <button className="w-7 h-7 flex items-center justify-center rounded text-neutral-600 hover:text-neutral-400 hover:bg-neutral-800 transition-colors">
+                  <button className="w-7 h-7 flex items-center justify-center rounded hover:bg-neutral-800 transition-colors" style={{ color: 'var(--fg-4)' }}>
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
                   </button>
-                  <button className="w-7 h-7 flex items-center justify-center rounded text-neutral-600 hover:text-neutral-400 hover:bg-neutral-800 transition-colors">
+                  <button className="w-7 h-7 flex items-center justify-center rounded hover:bg-neutral-800 transition-colors" style={{ color: 'var(--fg-4)' }}>
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
                   </button>
                 </div>
@@ -850,13 +852,13 @@ export default function Home() {
               {/* Dashboard grid */}
               <div className="grid" style={{ gridTemplateColumns: '220px 1fr', minHeight: 560 }}>
                 {/* Sidebar */}
-                <aside className="p-3" style={{ background: 'color-mix(in srgb, var(--bg-1) 70%, transparent)', borderRight: '1px solid var(--line)' }}>
+                <aside className="p-3" style={{ background: 'var(--bg-1)', borderRight: '1px solid var(--line)' }}>
                   <div className="flex items-center gap-2 px-2 pb-3 mb-1" style={{ borderBottom: '1px solid var(--line)' }}>
                     <div className="w-7 h-7 bg-neutral-800 rounded-md flex items-center justify-center">
                       <img src="/venator-logo-icon.png" className="w-4 h-4" />
                     </div>
-                    <span className="text-[13px] font-medium text-neutral-200">Acme Inc.</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="ml-auto text-neutral-600"><path d="M6 9l6 6 6-6"/></svg>
+                    <span className="text-[13px] font-medium" style={{ color: 'var(--fg)' }}>Acme Inc.</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="ml-auto" style={{ color: 'var(--fg-4)' }}><path d="M6 9l6 6 6-6"/></svg>
                   </div>
                   {[
                     { label: 'Workspace', type: 'section' },
@@ -869,7 +871,7 @@ export default function Home() {
                     { label: 'Notifications', active: false },
                     { label: 'Billing', active: false },
                   ].map((item, i) => item.type === 'section' ? (
-                    <div key={i} className="px-2 pt-4 pb-1 font-mono text-[10.5px] text-neutral-700 uppercase tracking-wider">{item.label}</div>
+                    <div key={i} className="px-2 pt-4 pb-1 font-mono text-[10.5px] uppercase tracking-wider" style={{ color: 'var(--fg-5)' }}>{item.label}</div>
                   ) : (
                     <div key={i} className={`flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[13px] cursor-pointer transition-colors ${item.active ? 'bg-[var(--bg-3)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
                       {item.label}
@@ -881,8 +883,8 @@ export default function Home() {
                   {/* Header */}
                   <div className="flex items-start justify-between mb-5">
                     <div>
-                      <h3 className="text-[22px] font-medium tracking-tight text-neutral-100 mb-1">Analytics</h3>
-                      <p className="font-mono text-[12px] text-neutral-600">Last 30 days · updated just now</p>
+                      <h3 className="text-[22px] font-medium tracking-tight mb-1" style={{ color: 'var(--fg)' }}>Analytics</h3>
+                      <p className="font-mono text-[12px]" style={{ color: 'var(--fg-4)' }}>Last 30 days · updated just now</p>
                     </div>
                     <div className="flex gap-2">
                       {['Filter', 'Export', 'New report'].map((label, i) => (
@@ -901,8 +903,8 @@ export default function Home() {
                       { label: 'Conv. rate', value: '3.42%', delta: '-0.6%', down: true, data: [30,28,32,26,24,28,22,20,18] },
                     ].map(s => (
                       <div key={s.label} className="rounded-lg p-3.5" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
-                        <div className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-1">{s.label}</div>
-                        <div className="text-[26px] font-medium tracking-tight text-neutral-100 mb-1">{s.value}</div>
+                        <div className="font-mono text-[10.5px] uppercase tracking-wider mb-1" style={{ color: 'var(--fg-4)' }}>{s.label}</div>
+                        <div className="text-[26px] font-medium tracking-tight mb-1" style={{ color: 'var(--fg)' }}>{s.value}</div>
                         <div className="flex items-center justify-between">
                           <span className={`font-mono text-[11.5px] ${s.down ? 'text-red-400' : 'text-emerald-400'}`}>{s.delta}</span>
                           <Sparkline data={s.data} color={s.down ? 'var(--danger)' : 'var(--accent)'} />
@@ -915,10 +917,10 @@ export default function Home() {
                     <div className="rounded-lg p-4" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
                       <div className="flex items-start justify-between mb-1">
                         <div>
-                          <h4 className="text-[14px] font-medium text-neutral-200">Sessions over time</h4>
-                          <p className="font-mono text-[12px] text-neutral-600 mb-3">Apr 01 – Apr 17 · 2026</p>
+                          <h4 className="text-[14px] font-medium" style={{ color: 'var(--fg)' }}>Sessions over time</h4>
+                          <p className="font-mono text-[12px] mb-3" style={{ color: 'var(--fg-4)' }}>Apr 01 – Apr 17 · 2026</p>
                         </div>
-                        <div className="flex gap-3 font-mono text-[11px] text-neutral-500">
+                        <div className="flex gap-3 font-mono text-[11px]" style={{ color: 'var(--fg-4)' }}>
                           <span className="flex items-center gap-1.5"><span className="inline-block w-2 h-px bg-white" /> This period</span>
                           <span className="flex items-center gap-1.5"><span className="inline-block w-2 h-px bg-neutral-600" /> Previous</span>
                         </div>
@@ -926,8 +928,8 @@ export default function Home() {
                       <AreaChart />
                     </div>
                     <div className="rounded-lg p-4" style={{ background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
-                      <h4 className="text-[14px] font-medium text-neutral-200">Sign-ups / day</h4>
-                      <p className="font-mono text-[12px] text-neutral-600 mb-3">Weekly average · 62</p>
+                      <h4 className="text-[14px] font-medium" style={{ color: 'var(--fg)' }}>Sign-ups / day</h4>
+                      <p className="font-mono text-[12px] mb-3" style={{ color: 'var(--fg-4)' }}>Weekly average · 62</p>
                       <BarChart />
                     </div>
                   </div>
