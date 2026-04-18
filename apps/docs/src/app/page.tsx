@@ -953,9 +953,15 @@ export default function Home() {
               <div>
                 <h5 className="font-mono text-[11px] text-neutral-600 uppercase tracking-wider mb-4">Packages</h5>
                 <ul className="flex flex-col gap-2.5">
-                  {['@venator-ui/tokens', '@venator-ui/ui', '@venator-ui/patterns', '@venator-ui/archetypes'].map(pkg => (
+                  {[
+                    { pkg: '@venator-ui/tokens',     href: 'https://www.npmjs.com/package/@venator-ui/tokens' },
+                    { pkg: '@venator-ui/ui',         href: 'https://www.npmjs.com/package/@venator-ui/ui' },
+                    { pkg: '@venator-ui/patterns',   href: 'https://www.npmjs.com/package/@venator-ui/patterns' },
+                    { pkg: '@venator-ui/archetypes', href: 'https://www.npmjs.com/package/@venator-ui/archetypes' },
+                    { pkg: '@venator-ui/cli',        href: 'https://www.npmjs.com/package/@venator-ui/cli' },
+                  ].map(({ pkg, href }) => (
                     <li key={pkg}>
-                      <a href="#" className="text-[13.5px] text-neutral-200 hover:text-neutral-100 transition-colors font-mono">{pkg}</a>
+                      <a href={href} target="_blank" rel="noopener noreferrer" className="text-[13.5px] text-neutral-200 hover:text-neutral-100 transition-colors font-mono">{pkg}</a>
                     </li>
                   ))}
                 </ul>
@@ -983,13 +989,11 @@ export default function Home() {
                 <h5 className="font-mono text-[11px] text-neutral-600 uppercase tracking-wider mb-4">Community</h5>
                 <ul className="flex flex-col gap-2.5">
                   {[
-                    { label: 'GitHub', href: 'https://github.com/jmelop/venator-ui' },
-                    { label: 'Discord', href: '#' },
-                    { label: 'Twitter / X', href: '#' },
-                    { label: 'Contribute', href: '#' },
+                    { label: 'GitHub',     href: 'https://github.com/jmelop/venator-ui' },
+                    { label: 'Contribute', href: 'https://github.com/jmelop/venator-ui/pulls' },
                   ].map(({ label, href }) => (
                     <li key={label}>
-                      <a href={href} className="text-[13.5px] text-neutral-200 hover:text-neutral-100 transition-colors">{label}</a>
+                      <a href={href} target="_blank" rel="noopener noreferrer" className="text-[13.5px] text-neutral-200 hover:text-neutral-100 transition-colors">{label}</a>
                     </li>
                   ))}
                 </ul>
