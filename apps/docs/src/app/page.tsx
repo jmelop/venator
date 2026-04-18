@@ -11,6 +11,7 @@ import {
   Button,
   Input,
   Label,
+  Terminal,
 } from '@venator-ui/ui';
 
 const geist = Inter({ subsets: ['latin'], variable: '--font-geist' });
@@ -94,6 +95,74 @@ function ArchetypeCLI() {
 }
 
 
+const TERMINAL_LINES: import('@venator-ui/ui').TerminalLine[] = [
+  { type: 'command', text: 'npx @venator-ui/cli init dashboard', delay: 0 },
+  { type: 'muted',   text: '✓ Fetching archetype manifest',               delay: 800 },
+  { type: 'muted',   text: '✓ Resolving @venator-ui/tokens@0.1',           delay: 1200 },
+  { type: 'muted',   text: '✓ Resolving @venator-ui/ui@0.1',               delay: 1500 },
+  { type: 'muted',   text: '✓ Resolving @venator-ui/patterns@0.1',         delay: 1800 },
+  { type: 'muted',   text: '→ Scaffolding into ./apps/dashboard',          delay: 2200 },
+  { type: 'dim',     text: '   ├── app/',                                   delay: 2500 },
+  { type: 'dim',     text: '   ├── components/modules/',                   delay: 2700 },
+  { type: 'dim',     text: '   ├── lib/navigation.ts',                     delay: 2900 },
+  { type: 'dim',     text: '   └── tailwind.config.ts',                    delay: 3100 },
+  { type: 'success', text: '✓ Architecture deployed. 12 files written.',   delay: 3500 },
+  { type: 'accent',  text: '→ cd apps/dashboard && npm run dev',           delay: 3900 },
+];
+
+function HeroVisual() {
+  const [tab, setTab] = useState<'terminal' | 'layers'>('terminal');
+
+  return (
+    <div className="w-full max-w-2xl mx-auto mt-6">
+      <div className="flex items-center gap-1 mb-3 justify-center">
+        <button
+          type="button"
+          onClick={() => setTab('terminal')}
+          className={[
+            'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[13px] font-medium transition-colors',
+            tab === 'terminal'
+              ? 'bg-neutral-800 text-neutral-100 border border-subtle'
+              : 'text-neutral-500 hover:text-neutral-300',
+          ].join(' ')}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 17l6-6-6-6M12 19h8" />
+          </svg>
+          CLI scaffold
+        </button>
+        <button
+          type="button"
+          onClick={() => setTab('layers')}
+          className={[
+            'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[13px] font-medium transition-colors',
+            tab === 'layers'
+              ? 'bg-neutral-800 text-neutral-100 border border-subtle'
+              : 'text-neutral-500 hover:text-neutral-300',
+          ].join(' ')}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+          Architecture
+        </button>
+      </div>
+      {tab === 'terminal' ? (
+        <Terminal
+          lines={TERMINAL_LINES}
+          title="venator — zsh — 100×28"
+          loop
+          loopDelay={2000}
+        />
+      ) : (
+        <div className="rounded-lg border border-subtle bg-neutral-900 p-8 min-h-[200px] flex items-center justify-center">
+          <p className="text-neutral-600 text-sm font-mono">Architecture view coming soon</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div className={`${geist.variable} ${geistMono.variable}`}>
@@ -148,6 +217,8 @@ export default function Home() {
           <div className="w-full max-w-md mt-2">
             <ArchetypeCLI />
           </div>
+
+          <HeroVisual />
         </section>
 
         {/* Three layers */}
