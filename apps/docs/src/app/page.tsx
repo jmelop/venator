@@ -121,7 +121,7 @@ export default function Home() {
         {/* Hero */}
         <section className="flex flex-col items-center justify-center text-center px-6 pt-40 pb-28 gap-6">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 border border-default rounded-full px-4 py-1.5 text-sm text-neutral-400">
+          <div className="inline-flex items-center gap-2 border border-default rounded-full px-4 py-1.5 text-sm text-neutral-500">
             <span>React</span>
             <span className="text-neutral-600">·</span>
             <span>TypeScript</span>
@@ -135,7 +135,7 @@ export default function Home() {
             <h1 className="text-[clamp(56px,8vw,96px)] font-bold tracking-[-0.04em] leading-[0.95] text-white">
               Build fast.
             </h1>
-            <h1 className="text-[clamp(56px,8vw,96px)] font-bold tracking-[-0.04em] leading-[0.95] text-neutral-700">
+            <h1 className="text-[clamp(56px,8vw,96px)] font-bold tracking-[-0.04em] leading-[0.95] text-neutral-600">
               Scale correctly.
             </h1>
           </div>
