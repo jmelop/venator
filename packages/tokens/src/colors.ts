@@ -40,3 +40,8 @@ export const colors = {
     dark: '#b91c1c',
   },
 } as const;
+
+export const border = {
+  subtle:  'rgba(255,255,255,0.08)',
+  default: 'rgba(255,255,255,0.14)',
+} as const;
