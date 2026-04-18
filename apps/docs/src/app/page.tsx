@@ -476,7 +476,7 @@ function Playground() {
           {/* Body */}
           <div className="grid" style={{ gridTemplateColumns: '280px 1fr 1fr', minHeight: 360 }}>
             {/* Controls */}
-            <div className="border-r border-subtle p-5 flex flex-col gap-5 bg-neutral-950">
+            <div className="border-r border-subtle p-5 flex flex-col gap-5 bg-neutral-900">
               <div className="flex flex-col gap-2">
                 <label className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider">variant</label>
                 <div className="flex border border-subtle rounded-md overflow-hidden">
@@ -522,7 +522,7 @@ function Playground() {
             </div>
 
             {/* Preview */}
-            <div className="border-r border-subtle flex items-center justify-center p-8 bg-neutral-950" style={{ background: 'radial-gradient(400px 200px at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%)' }}>
+            <div className="border-r border-subtle flex items-center justify-center p-8 bg-neutral-900" style={{ background: 'radial-gradient(400px 200px at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%), #0d0f12' }}>
               <Button
                 variant={variant}
                 size={size === 'sm' ? 'sm' : undefined}
@@ -530,9 +530,11 @@ function Playground() {
                 className={fullWidth ? 'w-full' : ''}
               >
                 {withIcon && (
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M13 6l6 6-6 6"/>
-                  </svg>
+                  <span className="mr-1 flex items-center">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M13 6l6 6-6 6"/>
+                    </svg>
+                  </span>
                 )}
                 {label || 'Button'}
               </Button>
