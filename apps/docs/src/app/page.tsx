@@ -142,16 +142,18 @@ function LayersVisual() {
   const [active, setActive] = useState(1);
 
   useEffect(() => {
-    const id = setInterval(() => setActive(a => (a + 1) % LAYER_DATA.length), 3400);
+    const id = setInterval(() => setActive(a => (a + 1) % LAYER_DATA.length), 6000);
     return () => clearInterval(id);
   }, []);
 
   return (
-    <div className="relative w-full h-[320px] overflow-hidden" style={{ perspective: '900px' }}>
+    <div className="relative w-full h-[480px] overflow-hidden" style={{ perspective: '900px' }}>
       {/* Grid background */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
         backgroundSize: '40px 40px',
+        maskImage: 'radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 100%)',
       }} />
 
       {/* Planes */}
@@ -168,7 +170,8 @@ function LayersVisual() {
               position: 'absolute',
               top: '50%',
               left: '50%',
-              width: 280,
+              width: 300,
+              minHeight: 280,
               transform,
               zIndex,
               opacity,
@@ -176,7 +179,7 @@ function LayersVisual() {
               cursor: i !== active ? 'pointer' : 'default',
             }}
           >
-            <div className="rounded-xl border border-subtle p-5" style={{ background: '#0c0d10' }}>
+            <div className="rounded-xl border border-subtle p-5" style={{ background: '#0c0d10', minHeight: 260 }}>
               <div className="flex items-center justify-between mb-3">
                 <span className="font-mono text-[10.5px] text-neutral-500">{layer.pkg}</span>
                 <span className="font-mono text-[10.5px] text-neutral-700">{layer.index}</span>
