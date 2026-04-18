@@ -4,13 +4,14 @@ import Link from 'next/link';
 import { useRef, useEffect, useState } from 'react';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
   Badge,
   Button,
+  Checkbox,
   Input,
-  Label,
+  Kbd,
+  Progress,
+  Slider,
+  Switch,
   Terminal,
 } from '@venator-ui/ui';
 
@@ -238,6 +239,189 @@ function BarChart() {
         );
       })}
     </svg>
+  );
+}
+
+function ComponentsShowcase() {
+  const [sw1, setSw1] = useState(true);
+  const [sw2, setSw2] = useState(false);
+  const [ck1, setCk1] = useState(true);
+  const [ck2, setCk2] = useState(false);
+  const [ck3, setCk3] = useState(true);
+  const [sliderVal, setSliderVal] = useState(62);
+  const [activeTab, setActiveTab] = useState(0);
+  const [tooltip, setTooltip] = useState(false);
+
+  return (
+    <section className="border-t border-subtle px-6 py-20">
+      <div className="max-w-[1200px] mx-auto">
+        <p className="font-mono text-[11px] tracking-[0.08em] uppercase text-neutral-600 mb-4">Primitives · 03</p>
+        <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight text-neutral-50 mb-3">
+          Every primitive you'll need.<br />
+          <span className="text-neutral-700">None you won't.</span>
+        </h2>
+        <p className="text-[15px] text-neutral-500 max-w-[560px] mb-12 leading-relaxed">
+          Accessible, composable, typed primitives. Built with Tailwind CSS and design tokens.
+        </p>
+
+        <div className="grid gap-px bg-neutral-800 border border-subtle rounded-xl overflow-hidden" style={{ gridTemplateColumns: 'repeat(12, 1fr)' }}>
+
+          {/* Buttons — col 6 */}
+          <div className="col-span-6 bg-neutral-900 p-5">
+            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Button</p>
+            <div className="flex flex-wrap gap-2">
+              <Button variant="primary" size="sm">Primary</Button>
+              <Button variant="ghost" size="sm">Ghost</Button>
+              <Button variant="outline" size="sm">Outline</Button>
+              <Button variant="primary" size="sm" className="opacity-40 pointer-events-none">Disabled</Button>
+            </div>
+          </div>
+
+          {/* Badges — col 6 */}
+          <div className="col-span-6 bg-neutral-900 p-5">
+            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Badge</p>
+            <div className="flex flex-wrap gap-2">
+              <Badge variant="default">Default</Badge>
+              <Badge variant="primary">Primary</Badge>
+              <Badge variant="success">Active</Badge>
+              <Badge variant="warning">Pending</Badge>
+              <Badge variant="error">Failed</Badge>
+            </div>
+          </div>
+
+          {/* Input — col 4 */}
+          <div className="col-span-4 bg-neutral-900 p-5">
+            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Input</p>
+            <div className="flex flex-col gap-2">
+              <Input placeholder="Search components..." />
+              <Input placeholder="you@acme.com" />
+            </div>
+          </div>
+
+          {/* Switch — col 4 */}
+          <div className="col-span-4 bg-neutral-900 p-5">
+            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Switch</p>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <span className="text-[13px] text-neutral-300">Notifications</span>
+                <Switch checked={sw1} onCheckedChange={setSw1} />
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[13px] text-neutral-300">Analytics</span>
+                <Switch checked={sw2} onCheckedChange={setSw2} />
+              </div>
+            </div>
+          </div>
+
+          {/* Checkbox — col 4 */}
+          <div className="col-span-4 bg-neutral-900 p-5">
+            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Checkbox</p>
+            <div className="flex flex-col gap-2.5">
+              {([['Accessible', ck1, setCk1], ['Composable', ck2, setCk2], ['Typed', ck3, setCk3]] as const).map(([label, val, set]) => (
+                <label key={label} className="flex items-center gap-2 cursor-pointer text-[13px] text-neutral-300" onClick={() => set(!val)}>
+                  <Checkbox checked={val} onCheckedChange={set} /> {label}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Slider — col 4 */}
+          <div className="col-span-4 bg-neutral-900 p-5">
+            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Slider</p>
+            <Slider value={sliderVal} onValueChange={setSliderVal} />
+            <div className="flex justify-between font-mono text-[11px] text-neutral-600 mt-2">
+              <span>0</span><span className="text-neutral-300">{sliderVal}</span><span>100</span>
+            </div>
+          </div>
+
+          {/* Progress — col 4 */}
+          <div className="col-span-4 bg-neutral-900 p-5">
+            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Progress</p>
+            <div className="flex flex-col gap-3">
+              <div className="flex justify-between font-mono text-[11px] text-neutral-500 mb-1">
+                <span>Building</span><span>67%</span>
+              </div>
+              <Progress value={67} />
+              <div className="flex justify-between font-mono text-[11px] text-neutral-500 mb-1">
+                <span>Deploying</span><span>24%</span>
+              </div>
+              <Progress value={24} />
+            </div>
+          </div>
+
+          {/* Kbd + Tooltip — col 4 */}
+          <div className="col-span-4 bg-neutral-900 p-5">
+            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Kbd · Tooltip</p>
+            <div className="flex flex-col gap-3">
+              <div
+                className="relative inline-block"
+                onMouseEnter={() => setTooltip(true)}
+                onMouseLeave={() => setTooltip(false)}
+              >
+                {tooltip && (
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-neutral-100 text-neutral-900 text-[11px] font-mono rounded-md whitespace-nowrap">
+                    Copy to clipboard
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-neutral-100" />
+                  </div>
+                )}
+                <Button variant="outline" size="sm">Hover me</Button>
+              </div>
+              <div className="flex items-center gap-1 font-mono text-[11px] text-neutral-500">
+                Press <Kbd className="mx-1">⌘</Kbd><Kbd>K</Kbd> to search
+              </div>
+            </div>
+          </div>
+
+          {/* Tabs — col 6 */}
+          <div className="col-span-6 bg-neutral-900 p-5">
+            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Tabs</p>
+            <div className="border-b border-subtle flex gap-6 mb-3">
+              {['Overview', 'Usage', 'Theming', 'API'].map((t, i) => (
+                <button
+                  key={t}
+                  onClick={() => setActiveTab(i)}
+                  className={`pb-2.5 text-[13px] border-b-2 transition-colors -mb-px ${activeTab === i ? 'border-white text-neutral-100' : 'border-transparent text-neutral-600 hover:text-neutral-400'}`}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
+            <p className="font-mono text-[12px] text-neutral-500">
+              {['Primitives are accessible by default.', 'Import from @venator-ui/ui.', 'Tokens drive all visual properties.', 'All props are strictly typed.'][activeTab]}
+            </p>
+          </div>
+
+          {/* Table — col 6 */}
+          <div className="col-span-6 bg-neutral-900 p-5">
+            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Table</p>
+            <table className="w-full font-mono text-[12.5px] border-collapse">
+              <thead>
+                <tr>
+                  {['Package', 'Version', 'Status'].map(h => (
+                    <th key={h} className="text-left text-[11px] text-neutral-600 uppercase tracking-wider pb-2 border-b border-subtle font-normal">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { pkg: 'tokens', version: '0.1.2', status: 'ready', variant: 'success' as const },
+                  { pkg: 'ui', version: '0.1.3', status: 'ready', variant: 'success' as const },
+                  { pkg: 'patterns', version: '0.1.1', status: 'beta', variant: 'warning' as const },
+                  { pkg: 'archetypes', version: '0.1.7', status: 'beta', variant: 'warning' as const },
+                ].map(row => (
+                  <tr key={row.pkg} className="border-b border-subtle last:border-0">
+                    <td className="py-2 text-neutral-300">{row.pkg}</td>
+                    <td className="py-2 text-neutral-500">{row.version}</td>
+                    <td className="py-2"><Badge variant={row.variant}>{row.status}</Badge></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -484,57 +668,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Component preview */}
-        <section className="px-6 py-20 bg-neutral-950 border-t border-subtle">
-          <div className="max-w-[1200px] mx-auto">
-            <div className="text-center mb-10">
-              <p className="text-[11px] tracking-[0.1em] uppercase text-neutral-600 mb-3">Components</p>
-              <h2 className="text-2xl font-semibold text-white">
-                Component preview
-              </h2>
-            </div>
-            <div className="bg-neutral-900 border border-subtle rounded-xl p-6 space-y-6">
-              <div>
-                <p className="text-[11px] tracking-[0.1em] uppercase text-neutral-600 mb-3">Buttons</p>
-                <div className="flex gap-2 flex-wrap">
-                  <Button variant="primary" size="sm">Primary</Button>
-                  <Button variant="secondary" size="sm">Secondary</Button>
-                  <Button variant="outline" size="sm">Outline</Button>
-                  <Button variant="ghost" size="sm">Ghost</Button>
-                </div>
-              </div>
-
-              <div>
-                <p className="text-[11px] tracking-[0.1em] uppercase text-neutral-600 mb-3">Badges</p>
-                <div className="flex gap-2 flex-wrap">
-                  <Badge variant="default">Default</Badge>
-                  <Badge variant="primary">Primary</Badge>
-                  <Badge variant="success">Success</Badge>
-                  <Badge variant="warning">Warning</Badge>
-                  <Badge variant="error">Error</Badge>
-                </div>
-              </div>
-
-              <div>
-                <p className="text-[11px] tracking-[0.1em] uppercase text-neutral-600 mb-3">Alert</p>
-                <Alert variant="info">
-                  <AlertTitle>Heads up</AlertTitle>
-                  <AlertDescription>
-                    This is an informational alert using the info variant.
-                  </AlertDescription>
-                </Alert>
-              </div>
-
-              <div>
-                <p className="text-[11px] tracking-[0.1em] uppercase text-neutral-600 mb-3">Input</p>
-                <div className="space-y-1.5">
-                  <Label htmlFor="preview-input">Email address</Label>
-                  <Input id="preview-input" type="email" placeholder="you@example.com" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ComponentsShowcase />
 
         {/* Footer */}
         <footer className="py-10 border-t border-subtle">
