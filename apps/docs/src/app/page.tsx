@@ -114,7 +114,7 @@ function HeroVisual() {
   const [tab, setTab] = useState<'terminal' | 'layers'>('terminal');
 
   return (
-    <div className="w-full max-w-2xl mx-auto mt-6">
+    <div className="w-full max-w-[1200px] mx-auto mt-6">
       <div className="flex items-center gap-1 mb-3 justify-center">
         <button
           type="button"
@@ -153,6 +153,7 @@ function HeroVisual() {
           title="venator — zsh — 100×28"
           loop
           loopDelay={2000}
+          className="min-h-[280px]"
         />
       ) : (
         <div className="rounded-lg border border-subtle bg-neutral-900 p-8 min-h-[200px] flex items-center justify-center">
@@ -214,7 +215,7 @@ export default function Home() {
           </div>
 
           {/* Archetype CLI tabs */}
-          <div className="w-full max-w-md mt-2">
+          <div className="w-full max-w-[1200px] mt-2">
             <ArchetypeCLI />
           </div>
 
@@ -223,7 +224,7 @@ export default function Home() {
 
         {/* Three layers */}
         <section className="border-t border-subtle px-6 py-20">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-[1200px] mx-auto">
             <p className="font-mono text-[11px] tracking-[0.08em] uppercase text-neutral-600 mb-4">
               Architecture · 01
             </p>
@@ -287,7 +288,7 @@ export default function Home() {
 
         {/* Archetypes */}
         <section className="px-6 py-20 bg-neutral-950 border-t border-subtle">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-12">
               <p className="text-[11px] tracking-[0.1em] uppercase text-neutral-600 mb-3">CLI</p>
               <h2 className="text-2xl font-semibold text-white mb-2">
@@ -297,7 +298,7 @@ export default function Home() {
                 Three production-ready starting points, deployed in one command.
               </p>
             </div>
-            <div className="max-w-2xl mx-auto flex flex-col divide-y divide-subtle">
+            <div className="max-w-[1200px] mx-auto flex flex-col divide-y divide-subtle">
               {[
                 {
                   title: 'Dashboard',
@@ -331,7 +332,7 @@ export default function Home() {
 
         {/* Component preview */}
         <section className="px-6 py-20 bg-neutral-950 border-t border-subtle">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10">
               <p className="text-[11px] tracking-[0.1em] uppercase text-neutral-600 mb-3">Components</p>
               <h2 className="text-2xl font-semibold text-white">
