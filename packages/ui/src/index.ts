@@ -67,3 +67,6 @@ export type { ProgressProps, ProgressSize } from './components/Progress';
 
 export { Kbd } from './components/Kbd';
 export type { KbdProps } from './components/Kbd';
+
+export { Terminal } from './components/Terminal';
+export type { TerminalProps, TerminalLine, TerminalLineType } from './components/Terminal';
