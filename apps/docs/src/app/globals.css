@@ -29,9 +29,9 @@ html.light, html[data-theme="light"] {
   --line-2: rgba(0,0,0,0.14);
   --fg: #0a0a0c;
   --fg-2: #222428;
-  --fg-3: #5b6069;
-  --fg-4: #8a8f98;
-  --fg-5: #b5b8bf;
+  --fg-3: #3a3e46;
+  --fg-4: #5b6069;
+  --fg-5: #8a8f98;
   --accent: #0a0a0c;
   --accent-ink: #ffffff;
   --success: #059669;

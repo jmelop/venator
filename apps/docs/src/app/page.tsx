@@ -181,14 +181,14 @@ function LayersVisual() {
           >
             <div className="rounded-xl border border-subtle p-5" style={{ background: 'var(--bg-1)', minHeight: 260 }}>
               <div className="flex items-center justify-between mb-3">
-                <span className="font-mono text-[10.5px] text-neutral-500">{layer.pkg}</span>
-                <span className="font-mono text-[10.5px] text-neutral-700">{layer.index}</span>
+                <span className="font-mono text-[10.5px]" style={{ color: 'var(--fg-4)' }}>{layer.pkg}</span>
+                <span className="font-mono text-[10.5px]" style={{ color: 'var(--fg-5)' }}>{layer.index}</span>
               </div>
-              <p className="text-[15px] font-medium text-neutral-100 mb-1 tracking-tight">{layer.title}</p>
-              <p className="text-[12.5px] text-neutral-500 mb-4">{layer.desc}</p>
+              <p className="text-[15px] font-medium mb-1 tracking-tight" style={{ color: 'var(--fg)' }}>{layer.title}</p>
+              <p className="text-[12.5px] mb-4" style={{ color: 'var(--fg-4)' }}>{layer.desc}</p>
               <div className="flex flex-wrap gap-1.5">
                 {layer.items.map(item => (
-                  <span key={item} className="font-mono text-[11px] text-neutral-500 border border-subtle rounded-md px-2 py-0.5">{item}</span>
+                  <span key={item} className="font-mono text-[11px] border border-subtle rounded-md px-2 py-0.5" style={{ color: 'var(--fg-4)' }}>{item}</span>
                 ))}
               </div>
             </div>
@@ -204,8 +204,8 @@ function LayersVisual() {
             onClick={() => setActive(i)}
             className={`font-mono text-[11px] px-3 py-1 rounded-md transition-colors border ${
               i === active
-                ? 'border-subtle text-neutral-300 bg-neutral-800'
-                : 'border-transparent text-neutral-600 hover:text-neutral-400'
+                ? 'border-subtle text-[var(--fg-2)] bg-[var(--bg-2)]'
+                : 'border-transparent text-[var(--fg-4)] hover:text-[var(--fg-3)]'
             }`}
           >
             {layer.key}
@@ -228,8 +228,8 @@ function HeroVisual() {
           className={[
             'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[13px] font-medium transition-colors',
             tab === 'terminal'
-              ? 'bg-neutral-800 text-neutral-100 border border-subtle'
-              : 'text-neutral-500 hover:text-neutral-300',
+              ? 'bg-[var(--bg-2)] text-[var(--fg)] border border-subtle'
+              : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]',
           ].join(' ')}
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -243,8 +243,8 @@ function HeroVisual() {
           className={[
             'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[13px] font-medium transition-colors',
             tab === 'layers'
-              ? 'bg-neutral-800 text-neutral-100 border border-subtle'
-              : 'text-neutral-500 hover:text-neutral-300',
+              ? 'bg-[var(--bg-2)] text-[var(--fg)] border border-subtle'
+              : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]',
           ].join(' ')}
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -360,20 +360,20 @@ function ComponentsShowcase() {
   return (
     <section className="border-t border-subtle px-6 py-20">
       <div className="max-w-[1200px] mx-auto">
-        <p className="font-mono text-[11px] tracking-[0.08em] uppercase text-neutral-600 mb-4">Primitives · 03</p>
-        <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight text-neutral-50 mb-3">
+        <p className="font-mono text-[11px] tracking-[0.08em] uppercase mb-4" style={{ color: 'var(--fg-4)' }}>Primitives · 03</p>
+        <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight mb-3" style={{ color: 'var(--fg)' }}>
           Every primitive you'll need.<br />
-          <span className="text-neutral-400">None you won't.</span>
+          <span style={{ color: 'var(--fg-4)' }}>None you won't.</span>
         </h2>
-        <p className="text-[15px] text-neutral-400 max-w-[560px] mb-12 leading-relaxed">
+        <p className="text-[15px] max-w-[560px] mb-12 leading-relaxed" style={{ color: 'var(--fg-4)' }}>
           Accessible, composable, typed primitives. Built with Tailwind CSS and design tokens.
         </p>
 
         <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(12, 1fr)' }}>
 
           {/* Buttons — col 6 */}
-          <div className="col-span-6 bg-neutral-900 border border-subtle rounded-xl p-5">
-            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Button</p>
+          <div className="col-span-6 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Button</p>
             <div className="flex flex-wrap gap-2">
               <Button variant="primary" size="sm">Primary</Button>
               <Button variant="ghost" size="sm">Ghost</Button>
@@ -383,8 +383,8 @@ function ComponentsShowcase() {
           </div>
 
           {/* Badges — col 6 */}
-          <div className="col-span-6 bg-neutral-900 border border-subtle rounded-xl p-5">
-            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Badge</p>
+          <div className="col-span-6 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Badge</p>
             <div className="flex flex-wrap gap-2">
               <Badge variant="default">Default</Badge>
               <Badge variant="primary">Primary</Badge>
@@ -395,8 +395,8 @@ function ComponentsShowcase() {
           </div>
 
           {/* Input — col 4 */}
-          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
-            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Input</p>
+          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Input</p>
             <div className="flex flex-col gap-2">
               <Input placeholder="Search components..." />
               <Input placeholder="you@acme.com" />
@@ -404,26 +404,26 @@ function ComponentsShowcase() {
           </div>
 
           {/* Switch — col 4 */}
-          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
-            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Switch</p>
+          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Switch</p>
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
-                <span className="text-[13px] text-neutral-300">Notifications</span>
+                <span className="text-[13px]" style={{ color: 'var(--fg-2)' }}>Notifications</span>
                 <Switch checked={sw1} onCheckedChange={setSw1} />
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-[13px] text-neutral-300">Analytics</span>
+                <span className="text-[13px]" style={{ color: 'var(--fg-2)' }}>Analytics</span>
                 <Switch checked={sw2} onCheckedChange={setSw2} />
               </div>
             </div>
           </div>
 
           {/* Checkbox — col 4 */}
-          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
-            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Checkbox</p>
+          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Checkbox</p>
             <div className="flex flex-col gap-2.5">
               {([['Accessible', ck1, setCk1], ['Composable', ck2, setCk2], ['Typed', ck3, setCk3]] as const).map(([label, val, set]) => (
-                <label key={label} className="flex items-center gap-2 cursor-pointer text-[13px] text-neutral-300" onClick={() => set(!val)}>
+                <label key={label} className="flex items-center gap-2 cursor-pointer text-[13px]" style={{ color: 'var(--fg-2)' }} onClick={() => set(!val)}>
                   <Checkbox checked={val} onCheckedChange={set} /> {label}
                 </label>
               ))}
@@ -431,23 +431,23 @@ function ComponentsShowcase() {
           </div>
 
           {/* Slider — col 4 */}
-          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
-            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Slider</p>
+          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Slider</p>
             <Slider value={sliderVal} onValueChange={setSliderVal} />
-            <div className="flex justify-between font-mono text-[11px] text-neutral-600 mt-2">
-              <span>0</span><span className="text-neutral-300">{sliderVal}</span><span>100</span>
+            <div className="flex justify-between font-mono text-[11px] mt-2" style={{ color: 'var(--fg-4)' }}>
+              <span>0</span><span style={{ color: 'var(--fg-2)' }}>{sliderVal}</span><span>100</span>
             </div>
           </div>
 
           {/* Progress — col 4 */}
-          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
-            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Progress</p>
+          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Progress</p>
             <div className="flex flex-col gap-3">
-              <div className="flex justify-between font-mono text-[11px] text-neutral-400 mb-1">
+              <div className="flex justify-between font-mono text-[11px] mb-1" style={{ color: 'var(--fg-3)' }}>
                 <span>Building</span><span>67%</span>
               </div>
               <Progress value={67} />
-              <div className="flex justify-between font-mono text-[11px] text-neutral-400 mb-1">
+              <div className="flex justify-between font-mono text-[11px] mb-1" style={{ color: 'var(--fg-3)' }}>
                 <span>Deploying</span><span>24%</span>
               </div>
               <Progress value={24} />
@@ -455,8 +455,8 @@ function ComponentsShowcase() {
           </div>
 
           {/* Kbd + Tooltip — col 4 */}
-          <div className="col-span-4 bg-neutral-900 border border-subtle rounded-xl p-5">
-            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Kbd · Tooltip</p>
+          <div className="col-span-4 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Kbd · Tooltip</p>
             <div className="flex flex-col gap-3">
               <div
                 className="relative inline-block"
@@ -471,39 +471,39 @@ function ComponentsShowcase() {
                 )}
                 <Button variant="outline" size="sm">Hover me</Button>
               </div>
-              <div className="flex items-center gap-1 font-mono text-[11px] text-neutral-400">
+              <div className="flex items-center gap-1 font-mono text-[11px]" style={{ color: 'var(--fg-3)' }}>
                 Press <Kbd className="mx-1">⌘</Kbd><Kbd>K</Kbd> to search
               </div>
             </div>
           </div>
 
           {/* Tabs — col 6 */}
-          <div className="col-span-6 bg-neutral-900 border border-subtle rounded-xl p-5">
-            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Tabs</p>
+          <div className="col-span-6 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Tabs</p>
             <div className="border-b border-subtle flex gap-6 mb-3">
               {['Overview', 'Usage', 'Theming', 'API'].map((t, i) => (
                 <button
                   key={t}
                   onClick={() => setActiveTab(i)}
-                  className={`pb-2.5 text-[13px] border-b-2 transition-colors -mb-px ${activeTab === i ? 'border-white text-neutral-100' : 'border-transparent text-neutral-600 hover:text-neutral-400'}`}
+                  className={`pb-2.5 text-[13px] border-b-2 transition-colors -mb-px ${activeTab === i ? 'border-[var(--accent)] text-[var(--fg)]' : 'border-transparent text-[var(--fg-4)] hover:text-[var(--fg-3)]'}`}
                 >
                   {t}
                 </button>
               ))}
             </div>
-            <p className="font-mono text-[12px] text-neutral-400">
+            <p className="font-mono text-[12px]" style={{ color: 'var(--fg-3)' }}>
               {['Primitives are accessible by default.', 'Import from @venator-ui/ui.', 'Tokens drive all visual properties.', 'All props are strictly typed.'][activeTab]}
             </p>
           </div>
 
           {/* Table — col 6 */}
-          <div className="col-span-6 bg-neutral-900 border border-subtle rounded-xl p-5">
-            <p className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-4">Table</p>
+          <div className="col-span-6 border border-subtle rounded-xl p-5" style={{ background: 'var(--bg-1)' }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-wider mb-4" style={{ color: 'var(--fg-4)' }}>Table</p>
             <table className="w-full font-mono text-[12.5px] border-collapse">
               <thead>
                 <tr>
                   {['Package', 'Version', 'Status'].map(h => (
-                    <th key={h} className="text-left text-[11px] text-neutral-600 uppercase tracking-wider pb-2 border-b border-subtle font-normal">{h}</th>
+                    <th key={h} className="text-left text-[11px] uppercase tracking-wider pb-2 border-b border-subtle font-normal" style={{ color: 'var(--fg-4)' }}>{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -515,8 +515,8 @@ function ComponentsShowcase() {
                   { pkg: 'archetypes', version: '0.1.7', status: 'beta', variant: 'warning' as const },
                 ].map(row => (
                   <tr key={row.pkg} className="border-b border-subtle last:border-0">
-                    <td className="py-2 text-neutral-300">{row.pkg}</td>
-                    <td className="py-2 text-neutral-400">{row.version}</td>
+                    <td className="py-2" style={{ color: 'var(--fg-2)' }}>{row.pkg}</td>
+                    <td className="py-2" style={{ color: 'var(--fg-3)' }}>{row.version}</td>
                     <td className="py-2"><Badge variant={row.variant}>{row.status}</Badge></td>
                   </tr>
                 ))}
@@ -556,18 +556,18 @@ function Playground() {
   return (
     <section className="border-t border-subtle px-6 py-20">
       <div className="max-w-[1200px] mx-auto">
-        <p className="font-mono text-[11px] tracking-[0.08em] uppercase text-neutral-600 mb-4">Live · 04</p>
-        <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight text-neutral-50 mb-3">
+        <p className="font-mono text-[11px] tracking-[0.08em] uppercase mb-4" style={{ color: 'var(--fg-4)' }}>Live · 04</p>
+        <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight mb-3" style={{ color: 'var(--fg)' }}>
           A playground, not a docs page.<br />
-          <span className="text-neutral-400">Try it before you install.</span>
+          <span style={{ color: 'var(--fg-4)' }}>Try it before you install.</span>
         </h2>
-        <p className="text-[15px] text-neutral-400 max-w-[560px] mb-12 leading-relaxed">
+        <p className="text-[15px] max-w-[560px] mb-12 leading-relaxed" style={{ color: 'var(--fg-4)' }}>
           Every primitive is tweakable in-browser. Props on the left, rendered component in the middle, generated JSX on the right.
         </p>
 
         <div className="border border-subtle rounded-xl overflow-hidden">
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-2.5 border-b border-subtle bg-neutral-900 font-mono text-[12px] text-neutral-600">
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-subtle font-mono text-[12px]" style={{ background: 'var(--bg-1)', color: 'var(--fg-4)' }}>
             <span className="flex items-center gap-2">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
               &lt;Button /&gt;
@@ -581,53 +581,53 @@ function Playground() {
           {/* Body */}
           <div className="grid" style={{ gridTemplateColumns: '280px 1fr 1fr', minHeight: 360 }}>
             {/* Controls */}
-            <div className="border-r border-subtle p-5 flex flex-col gap-5 bg-neutral-900">
+            <div className="border-r border-subtle p-5 flex flex-col gap-5" style={{ background: 'var(--bg-1)' }}>
               <div className="flex flex-col gap-2">
-                <label className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider">variant</label>
+                <label className="font-mono text-[10.5px] uppercase tracking-wider" style={{ color: 'var(--fg-4)' }}>variant</label>
                 <div className="flex border border-subtle rounded-md overflow-hidden">
                   {(['primary', 'ghost', 'outline'] as const).map((v, i, arr) => (
                     <button key={v} onClick={() => setVariant(v)}
-                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-subtle' : ''} ${variant === v ? 'bg-neutral-800 text-neutral-100' : 'text-neutral-500 hover:text-neutral-300'}`}>
+                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-subtle' : ''} ${variant === v ? 'bg-[var(--bg-2)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
                       {v}
                     </button>
                   ))}
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <label className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider">size</label>
+                <label className="font-mono text-[10.5px] uppercase tracking-wider" style={{ color: 'var(--fg-4)' }}>size</label>
                 <div className="flex border border-subtle rounded-md overflow-hidden">
                   {(['sm', 'md'] as const).map((v, i, arr) => (
                     <button key={v} onClick={() => setSize(v)}
-                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-subtle' : ''} ${size === v ? 'bg-neutral-800 text-neutral-100' : 'text-neutral-500 hover:text-neutral-300'}`}>
+                      className={`flex-1 py-1.5 text-[12px] font-mono transition-colors ${i < arr.length - 1 ? 'border-r border-subtle' : ''} ${size === v ? 'bg-[var(--bg-2)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
                       {v}
                     </button>
                   ))}
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <label className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider">children</label>
+                <label className="font-mono text-[10.5px] uppercase tracking-wider" style={{ color: 'var(--fg-4)' }}>children</label>
                 <input
                   value={label}
                   onChange={e => setLabel(e.target.value)}
-                  className="bg-neutral-900 border border-subtle rounded-md px-3 py-1.5 text-[13px] text-neutral-200 font-mono focus:outline-none focus:border-neutral-600"
+                  className="border border-subtle rounded-md px-3 py-1.5 text-[13px] font-mono focus:outline-none" style={{ background: 'var(--bg-1)', color: 'var(--fg-2)' }}
                 />
               </div>
               <div className="flex items-center justify-between">
-                <label className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider">leftIcon</label>
+                <label className="font-mono text-[10.5px] uppercase tracking-wider" style={{ color: 'var(--fg-4)' }}>leftIcon</label>
                 <Switch checked={withIcon} onCheckedChange={setWithIcon} />
               </div>
               <div className="flex items-center justify-between">
-                <label className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider">disabled</label>
+                <label className="font-mono text-[10.5px] uppercase tracking-wider" style={{ color: 'var(--fg-4)' }}>disabled</label>
                 <Switch checked={disabled} onCheckedChange={setDisabled} />
               </div>
               <div className="flex items-center justify-between">
-                <label className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider">fullWidth</label>
+                <label className="font-mono text-[10.5px] uppercase tracking-wider" style={{ color: 'var(--fg-4)' }}>fullWidth</label>
                 <Switch checked={fullWidth} onCheckedChange={setFullWidth} />
               </div>
             </div>
 
             {/* Preview */}
-            <div className="border-r border-subtle flex items-center justify-center p-8 bg-neutral-900" style={{ background: 'radial-gradient(400px 200px at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%), var(--bg-1)' }}>
+            <div className="border-r border-subtle flex items-center justify-center p-8" style={{ background: 'radial-gradient(400px 200px at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%), var(--bg-1)' }}>
               <Button
                 variant={variant}
                 size={size === 'sm' ? 'sm' : undefined}
@@ -646,45 +646,45 @@ function Playground() {
             </div>
 
             {/* JSX output */}
-            <div className="relative bg-neutral-950 p-5 font-mono text-[12.5px] leading-relaxed overflow-auto">
-              <button onClick={copyJsx} className="absolute top-3 right-3 p-1.5 text-neutral-600 hover:text-neutral-300 transition-colors">
+            <div className="relative p-5 font-mono text-[12.5px] leading-relaxed overflow-auto" style={{ background: 'var(--bg)' }}>
+              <button onClick={copyJsx} className="absolute top-3 right-3 p-1.5 transition-colors" style={{ color: 'var(--fg-4)' }} onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg-2)')} onMouseLeave={e => (e.currentTarget.style.color = 'var(--fg-4)')}>
                 {copied ? (
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 ) : (
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                 )}
               </button>
-              <div className="text-neutral-600 mb-4">{'// Generated JSX — copy-paste ready'}</div>
+              <div className="mb-4" style={{ color: 'var(--fg-4)' }}>{'// Generated JSX — copy-paste ready'}</div>
               <div>
                 <span className="text-purple-400">import</span>
-                <span className="text-neutral-400"> {'{ '}</span>
-                <span className="text-neutral-200">Button</span>
-                <span className="text-neutral-400">{' } '}</span>
+                <span style={{ color: 'var(--fg-3)' }}> {'{ '}</span>
+                <span style={{ color: 'var(--fg-2)' }}>Button</span>
+                <span style={{ color: 'var(--fg-3)' }}>{' } '}</span>
                 <span className="text-purple-400">from</span>
                 <span className="text-green-400"> "@venator-ui/ui"</span>
-                <span className="text-neutral-400">;</span>
+                <span style={{ color: 'var(--fg-3)' }}>;</span>
               </div>
               <div className="mt-4">
-                <span className="text-neutral-400">&lt;</span>
+                <span style={{ color: 'var(--fg-3)' }}>&lt;</span>
                 <span className="text-yellow-300">Button</span>
                 {'\n'}
-                <span className="text-neutral-400">{'  '}</span>
+                <span style={{ color: 'var(--fg-3)' }}>{'  '}</span>
                 <span className="text-orange-300">variant</span>
-                <span className="text-neutral-400">=</span>
+                <span style={{ color: 'var(--fg-3)' }}>=</span>
                 <span className="text-green-400">"{variant}"</span>
-                {size !== 'md' && <><br/><span className="text-neutral-400">{'  '}</span><span className="text-orange-300">size</span><span className="text-neutral-400">=</span><span className="text-green-400">"{size}"</span></>}
-                {disabled && <><br/><span className="text-neutral-400">{'  '}</span><span className="text-orange-300">disabled</span></>}
-                {fullWidth && <><br/><span className="text-neutral-400">{'  '}</span><span className="text-orange-300">fullWidth</span></>}
+                {size !== 'md' && <><br/><span style={{ color: 'var(--fg-3)' }}>{'  '}</span><span className="text-orange-300">size</span><span style={{ color: 'var(--fg-3)' }}>=</span><span className="text-green-400">"{size}"</span></>}
+                {disabled && <><br/><span style={{ color: 'var(--fg-3)' }}>{'  '}</span><span className="text-orange-300">disabled</span></>}
+                {fullWidth && <><br/><span style={{ color: 'var(--fg-3)' }}>{'  '}</span><span className="text-orange-300">fullWidth</span></>}
                 {'\n'}
-                <span className="text-neutral-400">&gt;</span>
-                {withIcon && <><br/><span className="text-neutral-400">{'  '}</span><span className="text-neutral-400">&lt;</span><span className="text-yellow-300">ArrowRightIcon</span><span className="text-neutral-400"> /&gt;</span></>}
+                <span style={{ color: 'var(--fg-3)' }}>&gt;</span>
+                {withIcon && <><br/><span style={{ color: 'var(--fg-3)' }}>{'  '}</span><span style={{ color: 'var(--fg-3)' }}>&lt;</span><span className="text-yellow-300">ArrowRightIcon</span><span style={{ color: 'var(--fg-3)' }}> /&gt;</span></>}
                 {'\n'}
-                <span className="text-neutral-400">{'  '}</span>
-                <span className="text-neutral-200">{label || 'Button'}</span>
+                <span style={{ color: 'var(--fg-3)' }}>{'  '}</span>
+                <span style={{ color: 'var(--fg-2)' }}>{label || 'Button'}</span>
                 {'\n'}
-                <span className="text-neutral-400">&lt;/</span>
+                <span style={{ color: 'var(--fg-3)' }}>&lt;/</span>
                 <span className="text-yellow-300">Button</span>
-                <span className="text-neutral-400">&gt;</span>
+                <span style={{ color: 'var(--fg-3)' }}>&gt;</span>
               </div>
             </div>
           </div>
@@ -712,16 +712,16 @@ export default function Home() {
           {/* Heading */}
           <div className="flex flex-col items-center gap-1">
             <img src="/venator-logo-icon.png" alt="Venator" className="w-40 h-40 rounded-2xl mb-6" />
-            <h1 className="text-[clamp(56px,8vw,96px)] font-medium tracking-[-0.04em] leading-[0.95] text-white">
+            <h1 className="text-[clamp(56px,8vw,96px)] font-medium tracking-[-0.04em] leading-[0.95]" style={{ color: 'var(--fg)' }}>
               Build fast.
             </h1>
-            <h1 className="text-[clamp(56px,8vw,96px)] font-medium tracking-[-0.04em] leading-[0.95] text-neutral-600">
+            <h1 className="text-[clamp(56px,8vw,96px)] font-medium tracking-[-0.04em] leading-[0.95]" style={{ color: 'var(--fg-4)' }}>
               Scale correctly.
             </h1>
           </div>
 
           {/* Subheading */}
-          <p className="text-[17px] text-neutral-400 max-w-[480px] leading-relaxed">
+          <p className="text-[17px] max-w-[480px] leading-relaxed" style={{ color: 'var(--fg-4)' }}>
             A React + TypeScript UI system. Primitives, structural patterns, and full application
             architectures — all layered, all opt-in, shipped via CLI.
           </p>
@@ -754,14 +754,14 @@ export default function Home() {
         {/* Three layers */}
         <section className="border-t border-subtle px-6 py-20">
           <div className="max-w-[1200px] mx-auto">
-            <p className="font-mono text-[11px] tracking-[0.08em] uppercase text-neutral-600 mb-4">
+            <p className="font-mono text-[11px] tracking-[0.08em] uppercase mb-4" style={{ color: 'var(--fg-4)' }}>
               Architecture · 01
             </p>
-            <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight text-neutral-50 mb-3">
+            <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight mb-3" style={{ color: 'var(--fg)' }}>
               Three layers.<br />
-              <span className="text-neutral-400">Adopt any one of them.</span>
+              <span style={{ color: 'var(--fg-4)' }}>Adopt any one of them.</span>
             </h2>
-            <p className="text-[15px] text-neutral-400 max-w-[560px] mb-12 leading-relaxed">
+            <p className="text-[15px] max-w-[560px] mb-12 leading-relaxed" style={{ color: 'var(--fg-4)' }}>
               A strict, one-way dependency chain: ui → patterns → architectures.
               Each layer works on its own. None of them force the next.
             </p>
@@ -801,8 +801,8 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-mono text-[12px] text-neutral-500 mb-2">{pkg}</p>
-                    <p className="text-[15px] font-medium text-neutral-100 mb-2 tracking-tight">{title}</p>
-                    <p className="text-[13.5px] text-neutral-400 leading-relaxed">{desc}</p>
+                    <p className="text-[15px] font-medium mb-2 tracking-tight" style={{ color: 'var(--fg)' }}>{title}</p>
+                    <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--fg-4)' }}>{desc}</p>
                   </div>
                   <div className="flex items-center justify-between mt-auto pt-2 border-t border-subtle">
                     <span className="font-mono text-[11px] text-neutral-600">{meta}</span>
@@ -819,11 +819,11 @@ export default function Home() {
         {/* Archetypes / Dashboard Preview */}
         <section className="border-t border-subtle px-6 py-20">
           <div className="max-w-[1200px] mx-auto">
-            <p className="font-mono text-[11px] tracking-[0.08em] uppercase text-neutral-600 mb-4">Archetypes · 02</p>
-            <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight text-neutral-50 mb-3">
-              Run the CLI.<br /><span className="text-neutral-400">Ship this on Monday.</span>
+            <p className="font-mono text-[11px] tracking-[0.08em] uppercase mb-4" style={{ color: 'var(--fg-4)' }}>Archetypes · 02</p>
+            <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight mb-3" style={{ color: 'var(--fg)' }}>
+              Run the CLI.<br /><span style={{ color: 'var(--fg-4)' }}>Ship this on Monday.</span>
             </h2>
-            <p className="text-[15px] text-neutral-400 max-w-[560px] mb-12 leading-relaxed">
+            <p className="text-[15px] max-w-[560px] mb-12 leading-relaxed" style={{ color: 'var(--fg-4)' }}>
               One command scaffolds a complete architecture. Sidebar navigation, header, module grid, tokens wired in. The output is yours — extend it, delete half of it, it's code, not config.
             </p>
             {/* Browser frame */}
@@ -871,7 +871,7 @@ export default function Home() {
                   ].map((item, i) => item.type === 'section' ? (
                     <div key={i} className="px-2 pt-4 pb-1 font-mono text-[10.5px] text-neutral-700 uppercase tracking-wider">{item.label}</div>
                   ) : (
-                    <div key={i} className={`flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[13px] cursor-pointer transition-colors ${item.active ? 'bg-neutral-800 text-neutral-100' : 'text-neutral-500 hover:text-neutral-300'}`}>
+                    <div key={i} className={`flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[13px] cursor-pointer transition-colors ${item.active ? 'bg-[var(--bg-2)] text-[var(--fg)]' : 'text-[var(--fg-4)] hover:text-[var(--fg-2)]'}`}>
                       {item.label}
                     </div>
                   ))}
@@ -944,15 +944,15 @@ export default function Home() {
         {/* Features strip */}
         <section className="border-t border-subtle px-6 py-20">
           <div className="max-w-[1200px] mx-auto">
-            <p className="font-mono text-[11px] tracking-[0.08em] uppercase text-neutral-600 mb-4">Why Venator · 05</p>
-            <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight text-neutral-50 mb-3">
+            <p className="font-mono text-[11px] tracking-[0.08em] uppercase mb-4" style={{ color: 'var(--fg-4)' }}>Why Venator · 05</p>
+            <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight mb-3" style={{ color: 'var(--fg)' }}>
               Opinionated about structure.<br />
-              <span className="text-neutral-400">Unopinionated about everything else.</span>
+              <span style={{ color: 'var(--fg-4)' }}>Unopinionated about everything else.</span>
             </h2>
-            <p className="text-[15px] text-neutral-400 max-w-[560px] mb-12 leading-relaxed">
+            <p className="text-[15px] max-w-[560px] mb-12 leading-relaxed" style={{ color: 'var(--fg-4)' }}>
               Structure is the thing that's hard to change once a project grows. Venator gets it right on day one, so you can change the rest freely.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-neutral-800 border border-subtle rounded-xl overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px border border-subtle rounded-xl overflow-hidden" style={{ background: 'var(--bg-2)' }}>
               {[
                 {
                   title: 'Zero runtime weight',
@@ -985,10 +985,10 @@ export default function Home() {
                   icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>,
                 },
               ].map((f, i) => (
-                <div key={i} className="bg-neutral-950 p-7">
-                  <div className="text-neutral-500 mb-4">{f.icon}</div>
-                  <p className="text-[15px] font-medium text-neutral-100 tracking-tight mb-2">{f.title}</p>
-                  <p className="text-[13.5px] text-neutral-400 leading-relaxed">{f.desc}</p>
+                <div key={i} className="p-7" style={{ background: 'var(--bg)' }}>
+                  <div className="mb-4" style={{ color: 'var(--fg-4)' }}>{f.icon}</div>
+                  <p className="text-[15px] font-medium tracking-tight mb-2" style={{ color: 'var(--fg)' }}>{f.title}</p>
+                  <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--fg-4)' }}>{f.desc}</p>
                 </div>
               ))}
             </div>
@@ -1002,10 +1002,10 @@ export default function Home() {
             style={{ background: 'radial-gradient(600px 300px at 50% 50%, color-mix(in srgb, var(--accent) 6%, transparent) 0%, transparent 70%)' }}
           />
           <div className="max-w-[1200px] mx-auto relative">
-            <h2 className="text-[clamp(40px,6vw,72px)] font-medium tracking-[-0.04em] leading-none text-neutral-50 mb-5">
+            <h2 className="text-[clamp(40px,6vw,72px)] font-medium tracking-[-0.04em] leading-none mb-5" style={{ color: 'var(--fg)' }}>
               Stop solving the<br />same problems.
             </h2>
-            <p className="text-[18px] text-neutral-400 max-w-[520px] mx-auto mb-8 leading-relaxed">
+            <p className="text-[18px] max-w-[520px] mx-auto mb-8 leading-relaxed" style={{ color: 'var(--fg-4)' }}>
               Deploy an architecture once. Scale it across every project you ship.
             </p>
             <div className="flex items-center justify-center gap-3 flex-wrap">

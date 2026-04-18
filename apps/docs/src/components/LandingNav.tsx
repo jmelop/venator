@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Topbar } from '@venator-ui/patterns';
 import { NavLink } from '@venator-ui/ui';
 
@@ -19,11 +19,15 @@ const navLinks = [
 
 export function LandingNav() {
   const pathname = usePathname();
-  const [dark, setDark] = useState(() => {
-    if (typeof window === 'undefined') return true;
+  const [dark, setDark] = useState(true);
+
+  useEffect(() => {
     const stored = localStorage.getItem('venator-theme');
-    return stored ? stored === 'dark' : true;
-  });
+    const isDark = stored ? stored === 'dark' : true;
+    setDark(isDark);
+    document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  }, []);
 
   function toggleDark() {
     const next = !dark;
