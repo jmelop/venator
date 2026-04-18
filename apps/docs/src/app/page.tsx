@@ -164,6 +164,83 @@ function HeroVisual() {
   );
 }
 
+function Sparkline({ data, color = '#ffffff', height = 24, width = 60 }: { data: number[]; color?: string; height?: number; width?: number }) {
+  const max = Math.max(...data), min = Math.min(...data);
+  const range = max - min || 1;
+  const pts = data.map((v, i) => [
+    (i / (data.length - 1)) * width,
+    height - ((v - min) / range) * height,
+  ]);
+  const d = pts.map(([x, y], i) => (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1)).join(' ');
+  const fill = d + ` L ${width} ${height} L 0 ${height} Z`;
+  return (
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{ display: 'block' }}>
+      <path d={fill} fill={color} opacity="0.15" />
+      <path d={d} fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function AreaChart() {
+  const data1 = [12,18,15,22,28,24,32,38,34,42,48,45,52,58,54,62,68,64,72,78,74,82,78,85];
+  const data2 = [8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54];
+  const w = 560, h = 200, max = 100;
+  const mkPath = (data: number[]) => {
+    const pw = w - 40, ph = h - 30;
+    const pts = data.map((v, i) => [30 + (i / (data.length - 1)) * pw, 10 + ph - (v / max) * ph]);
+    const line = pts.map(([x, y], i) => (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1)).join(' ');
+    return { line, fill: line + ` L ${30 + pw} ${10 + ph} L 30 ${10 + ph} Z` };
+  };
+  const p1 = mkPath(data1), p2 = mkPath(data2);
+  return (
+    <svg width="100%" viewBox={`0 0 ${w} ${h}`} style={{ display: 'block' }}>
+      <defs>
+        <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stopColor="#8a8f98" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#8a8f98" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      {[0, 0.25, 0.5, 0.75, 1].map((p, i) => (
+        <line key={i} x1="30" y1={10 + (h - 30) * p} x2={w - 10} y2={10 + (h - 30) * p} stroke="rgba(255,255,255,0.08)" strokeDasharray="2 4" />
+      ))}
+      {[0, 0.25, 0.5, 0.75, 1].map((p, i) => (
+        <text key={i} x="24" y={10 + (h - 30) * (1 - p) + 3} fill="#5b6069" fontSize="9" fontFamily="monospace" textAnchor="end">{Math.round(p * max)}</text>
+      ))}
+      <path d={p2.fill} fill="url(#g2)" />
+      <path d={p2.line} fill="none" stroke="#8a8f98" strokeWidth="1.5" />
+      <path d={p1.fill} fill="url(#g1)" />
+      <path d={p1.line} fill="none" stroke="#ffffff" strokeWidth="1.8" />
+      {['Apr 01','Apr 05','Apr 09','Apr 13','Apr 17'].map((t, i) => (
+        <text key={i} x={30 + (i / 4) * (w - 40)} y={h - 4} fill="#5b6069" fontSize="9" fontFamily="monospace" textAnchor="middle">{t}</text>
+      ))}
+    </svg>
+  );
+}
+
+function BarChart() {
+  const data = [42, 58, 66, 72, 54, 80, 68];
+  const max = 100, w = 260, h = 170;
+  const bw = (w - 20) / data.length - 6;
+  return (
+    <svg width="100%" viewBox={`0 0 ${w} ${h}`} style={{ display: 'block' }}>
+      {data.map((v, i) => {
+        const bh = (v / max) * (h - 30);
+        const x = 10 + i * ((w - 20) / data.length) + 3;
+        return (
+          <g key={i}>
+            <rect x={x} y={10 + (h - 30) - bh} width={bw} height={bh} fill="#ffffff" opacity={0.2 + (v / max) * 0.5} rx="2" />
+            <text x={x + bw / 2} y={h - 4} fill="#5b6069" fontSize="9" fontFamily="monospace" textAnchor="middle">{'MTWTFSS'[i]}</text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <div className={`${geist.variable} ${geistMono.variable}`}>
@@ -286,46 +363,123 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Archetypes */}
-        <section className="px-6 py-20 bg-neutral-950 border-t border-subtle">
+        {/* Archetypes / Dashboard Preview */}
+        <section className="border-t border-subtle px-6 py-20">
           <div className="max-w-[1200px] mx-auto">
-            <div className="text-center mb-12">
-              <p className="text-[11px] tracking-[0.1em] uppercase text-neutral-600 mb-3">CLI</p>
-              <h2 className="text-2xl font-semibold text-white mb-2">
-                Deploy a complete architecture
-              </h2>
-              <p className="text-[13px] text-neutral-400">
-                Three production-ready starting points, deployed in one command.
-              </p>
-            </div>
-            <div className="max-w-[1200px] mx-auto flex flex-col divide-y divide-subtle">
-              {[
-                {
-                  title: 'Dashboard',
-                  description: 'A modular dashboard with KPI cards, analytics and settings.',
-                  command: 'npx @venator-ui/cli init dashboard',
-                },
-                {
-                  title: 'Admin',
-                  description: 'A backoffice interface with user table, roles and organization settings.',
-                  command: 'npx @venator-ui/cli init admin',
-                },
-                {
-                  title: 'AI Tool',
-                  description: 'A prompt-based interface with chat input, history and model settings.',
-                  command: 'npx @venator-ui/cli init ai-tool',
-                },
-              ].map(({ title, description, command }) => (
-                <div key={title} className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between py-6">
-                  <div className="flex-1">
-                    <p className="text-[14px] font-semibold text-white mb-1">{title}</p>
-                    <p className="text-[13px] text-neutral-400">{description}</p>
+            <p className="font-mono text-[11px] tracking-[0.08em] uppercase text-neutral-600 mb-4">Archetypes · 02</p>
+            <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight leading-tight text-neutral-50 mb-3">
+              Run the CLI.<br /><span className="text-neutral-700">Ship this on Monday.</span>
+            </h2>
+            <p className="text-[15px] text-neutral-500 max-w-[560px] mb-12 leading-relaxed">
+              One command scaffolds a complete architecture. Sidebar navigation, header, module grid, tokens wired in. The output is yours — extend it, delete half of it, it's code, not config.
+            </p>
+            {/* Browser frame */}
+            <div className="rounded-xl border border-subtle overflow-hidden" style={{ background: 'linear-gradient(180deg, #0b0c0e 0%, #070708 100%)', boxShadow: '0 60px 120px -40px rgba(0,0,0,0.7)' }}>
+              {/* Chrome bar */}
+              <div className="flex items-center gap-3 px-4 py-2.5 border-b border-subtle">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/70" />
+                </div>
+                <div className="flex-1 bg-neutral-800 border border-subtle rounded-md px-3 py-1 font-mono text-[11.5px] text-neutral-500">
+                  <span className="text-neutral-700">https://</span>dashboard.venator.app<span className="text-neutral-700">/analytics</span>
+                </div>
+                <div className="flex gap-2">
+                  <button className="w-7 h-7 flex items-center justify-center rounded text-neutral-600 hover:text-neutral-400 hover:bg-neutral-800 transition-colors">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                  </button>
+                  <button className="w-7 h-7 flex items-center justify-center rounded text-neutral-600 hover:text-neutral-400 hover:bg-neutral-800 transition-colors">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+                  </button>
+                </div>
+              </div>
+              {/* Dashboard grid */}
+              <div className="grid" style={{ gridTemplateColumns: '220px 1fr', minHeight: 560 }}>
+                {/* Sidebar */}
+                <aside className="border-r border-subtle p-3" style={{ background: 'rgba(12,13,16,0.7)' }}>
+                  <div className="flex items-center gap-2 px-2 pb-3 mb-1 border-b border-subtle">
+                    <div className="w-7 h-7 bg-neutral-800 rounded-md flex items-center justify-center">
+                      <img src="/venator-logo-icon.png" className="w-4 h-4" />
+                    </div>
+                    <span className="text-[13px] font-medium text-neutral-200">Acme Inc.</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="ml-auto text-neutral-600"><path d="M6 9l6 6 6-6"/></svg>
                   </div>
-                  <div className="w-full md:w-auto md:min-w-[340px]">
-                    <CopyCommand command={command} />
+                  {[
+                    { label: 'Workspace', type: 'section' },
+                    { label: 'Overview', active: false },
+                    { label: 'Analytics', active: true },
+                    { label: 'Customers', active: false },
+                    { label: 'Products', active: false },
+                    { label: 'Settings', type: 'section' },
+                    { label: 'Preferences', active: false },
+                    { label: 'Notifications', active: false },
+                    { label: 'Billing', active: false },
+                  ].map((item, i) => item.type === 'section' ? (
+                    <div key={i} className="px-2 pt-4 pb-1 font-mono text-[10.5px] text-neutral-700 uppercase tracking-wider">{item.label}</div>
+                  ) : (
+                    <div key={i} className={`flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[13px] cursor-pointer transition-colors ${item.active ? 'bg-neutral-800 text-neutral-100' : 'text-neutral-500 hover:text-neutral-300'}`}>
+                      {item.label}
+                    </div>
+                  ))}
+                </aside>
+                {/* Main content */}
+                <div className="p-7 overflow-hidden">
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-5">
+                    <div>
+                      <h3 className="text-[22px] font-medium tracking-tight text-neutral-100 mb-1">Analytics</h3>
+                      <p className="font-mono text-[12px] text-neutral-600">Last 30 days · updated just now</p>
+                    </div>
+                    <div className="flex gap-2">
+                      {['Filter', 'Export', 'New report'].map((label, i) => (
+                        <button key={label} className={`inline-flex items-center gap-1.5 h-7 px-2.5 rounded-md text-[12.5px] font-medium border transition-colors ${i === 2 ? 'bg-white text-black border-white' : 'bg-transparent text-neutral-400 border-subtle hover:text-neutral-200'}`}>
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Stats */}
+                  <div className="grid grid-cols-4 gap-3 mb-4">
+                    {[
+                      { label: 'Revenue', value: '$128,402', delta: '+12.4%', data: [12,18,22,20,28,34,32,38,42] },
+                      { label: 'Active users', value: '24,891', delta: '+8.1%', data: [14,16,14,20,22,28,24,26,32] },
+                      { label: 'Sessions', value: '89,233', delta: '+4.7%', data: [20,22,18,24,28,24,30,28,34] },
+                      { label: 'Conv. rate', value: '3.42%', delta: '-0.6%', down: true, data: [30,28,32,26,24,28,22,20,18] },
+                    ].map(s => (
+                      <div key={s.label} className="border border-subtle rounded-lg p-3.5" style={{ background: '#0c0d10' }}>
+                        <div className="font-mono text-[10.5px] text-neutral-600 uppercase tracking-wider mb-1">{s.label}</div>
+                        <div className="text-[26px] font-medium tracking-tight text-neutral-100 mb-1">{s.value}</div>
+                        <div className="flex items-center justify-between">
+                          <span className={`font-mono text-[11.5px] ${s.down ? 'text-red-400' : 'text-emerald-400'}`}>{s.delta}</span>
+                          <Sparkline data={s.data} color={s.down ? '#f87171' : '#ffffff'} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Charts */}
+                  <div className="grid gap-3" style={{ gridTemplateColumns: '2fr 1fr' }}>
+                    <div className="border border-subtle rounded-lg p-4" style={{ background: '#0c0d10' }}>
+                      <div className="flex items-start justify-between mb-1">
+                        <div>
+                          <h4 className="text-[14px] font-medium text-neutral-200">Sessions over time</h4>
+                          <p className="font-mono text-[12px] text-neutral-600 mb-3">Apr 01 – Apr 17 · 2026</p>
+                        </div>
+                        <div className="flex gap-3 font-mono text-[11px] text-neutral-500">
+                          <span className="flex items-center gap-1.5"><span className="inline-block w-2 h-px bg-white" /> This period</span>
+                          <span className="flex items-center gap-1.5"><span className="inline-block w-2 h-px bg-neutral-600" /> Previous</span>
+                        </div>
+                      </div>
+                      <AreaChart />
+                    </div>
+                    <div className="border border-subtle rounded-lg p-4" style={{ background: '#0c0d10' }}>
+                      <h4 className="text-[14px] font-medium text-neutral-200">Sign-ups / day</h4>
+                      <p className="font-mono text-[12px] text-neutral-600 mb-3">Weekly average · 62</p>
+                      <BarChart />
+                    </div>
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </section>
