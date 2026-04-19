@@ -62,7 +62,7 @@ export function Playground() {
           {/* Body */}
           <div
             className="flex flex-col md:grid"
-            style={{ minHeight: 360, gridTemplateColumns: '280px 1fr 1fr' } as React.CSSProperties}
+            style={{ minHeight: 360, gridTemplateColumns: '280px 1fr 1fr' }}
           >
             {/* Controls */}
             <div className="flex flex-col gap-5 p-5 order-2 md:order-1" style={{ borderRight: '1px solid var(--line)', background: 'var(--bg-1)' }}>

@@ -200,7 +200,7 @@ export function DashboardPreview() {
             </div>
           </div>
 
-          {/* Mobile: simplified view — chrome + stats only */}
+          {/* Mobile: simplified view — chrome, stats, and sessions chart */}
           <div className="md:hidden p-4" style={{ background: 'var(--bg-1)' }}>
             <div className="mb-3">
               <h3 className="text-[18px] font-medium tracking-tight" style={{ color: 'var(--fg)' }}>Analytics</h3>
