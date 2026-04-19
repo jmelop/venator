@@ -16,7 +16,21 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>{children}</body>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            try {
+              const stored = localStorage.getItem('venator-theme');
+              const theme = stored || 'dark';
+              document.documentElement.classList.toggle('dark', theme === 'dark');
+              document.documentElement.setAttribute('data-theme', theme);
+            } catch(e) {}
+          })();
+        `}} />
+      </head>
+      <body className={inter.className} suppressHydrationWarning>
+        <div>{children}</div>
+      </body>
     </html>
   );
 }

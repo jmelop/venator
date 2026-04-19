@@ -55,3 +55,21 @@ export type { AlertProps, AlertVariant, AlertTitleProps, AlertDescriptionProps }
 
 export { ToastProvider, useToast } from './components/Toast';
 export type { ToastData, ToastVariant } from './components/Toast';
+
+export { Checkbox } from './components/Checkbox';
+export type { CheckboxProps, CheckboxSize } from './components/Checkbox';
+
+export { Slider } from './components/Slider';
+export type { SliderProps } from './components/Slider';
+
+export { Progress } from './components/Progress';
+export type { ProgressProps, ProgressSize } from './components/Progress';
+
+export { Kbd } from './components/Kbd';
+export type { KbdProps } from './components/Kbd';
+
+export { Terminal } from './components/Terminal';
+export type { TerminalProps, TerminalLine, TerminalLineType } from './components/Terminal';
+
+export { NavLink } from './components/NavLink';
+export type { NavLinkProps } from './components/NavLink';
