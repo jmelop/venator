@@ -117,8 +117,8 @@ export function DashboardPreview() {
             </div>
           </div>
 
-          {/* Dashboard grid */}
-          <div className="grid" style={{ gridTemplateColumns: '220px 1fr', minHeight: 560 }}>
+          {/* Desktop: full sidebar + main */}
+          <div className="hidden md:grid" style={{ gridTemplateColumns: '220px 1fr', minHeight: 560 }}>
             {/* Sidebar */}
             <aside style={{ borderRight: '1px solid var(--line)', background: 'var(--bg-1)', padding: 12 }}>
               <div className="flex items-center gap-2 px-2 pb-3 mb-1" style={{ borderBottom: '1px solid var(--line)' }}>
@@ -197,6 +197,23 @@ export function DashboardPreview() {
                   <BarChart />
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Mobile: simplified view — chrome + stats only */}
+          <div className="md:hidden p-4" style={{ background: 'var(--bg-1)' }}>
+            <div className="mb-3">
+              <h3 className="text-[18px] font-medium tracking-tight" style={{ color: 'var(--fg)' }}>Analytics</h3>
+              <p className="font-mono text-[11px]" style={{ color: 'var(--fg-4)' }}>Last 30 days · updated just now</p>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {STATS.map(s => (
+                <div key={s.label} className="rounded-lg p-3" style={{ border: '1px solid var(--line)', background: 'var(--bg-2)' }}>
+                  <div className="font-mono text-[9px] uppercase tracking-wider mb-1" style={{ color: 'var(--fg-4)' }}>{s.label}</div>
+                  <div className="text-[20px] font-medium tracking-tight" style={{ color: 'var(--fg)' }}>{s.value}</div>
+                  <div className="font-mono text-[10px] mt-0.5" style={{ color: s.down ? '#f87171' : '#5eead4' }}>{s.delta}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
