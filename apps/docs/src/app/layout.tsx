@@ -7,31 +7,33 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Venator UI',
   description:
-    'A React + TypeScript UI infrastructure for building modern web interfaces, data-driven tools and AI-assisted applications.',
-  metadataBase: new URL('https://www.venatorui.com'),
+    'A React + TypeScript UI system. From primitives to patterns to full application architectures — shipped via CLI.',
   icons: {
     icon: '/venator-favicon-32.png',
   },
   openGraph: {
-    title: 'Venator UI',
+    title: 'Venator UI — Build fast. Scale correctly.',
     description:
-      'A React + TypeScript UI infrastructure for building modern web interfaces, data-driven tools and AI-assisted applications.',
-    type: 'website',
+      'A React + TypeScript UI system. Primitives, structural patterns, and full application architectures — all layered, all opt-in, shipped via CLI.',
+    url: 'https://www.venatorui.com',
+    siteName: 'Venator UI',
     images: [
       {
-        url: '/venator-logo-icon.png',
-        width: 512,
-        height: 512,
-        alt: 'Venator UI',
+        url: 'https://www.venatorui.com/venator-og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Venator UI — Build fast. Scale correctly.',
       },
     ],
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
-    card: 'summary',
-    title: 'Venator UI',
+    card: 'summary_large_image',
+    title: 'Venator UI — Build fast. Scale correctly.',
     description:
-      'A React + TypeScript UI infrastructure for building modern web interfaces, data-driven tools and AI-assisted applications.',
-    images: ['/venator-logo-icon.png'],
+      'A React + TypeScript UI system. Primitives, structural patterns, and full application architectures — shipped via CLI.',
+    images: ['https://www.venatorui.com/venator-og.png'],
   },
 };
 
