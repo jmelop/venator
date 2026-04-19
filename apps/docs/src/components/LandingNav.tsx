@@ -127,5 +127,5 @@ export function LandingNav() {
     </div>
   );
 
-  return <Topbar left={left} center={center} right={right} position="fixed" bordered className="![background:var(--bg)] ![border-bottom-color:var(--line)]" />;
+  return <Topbar left={left} center={center} right={right} position="fixed" bordered className="![background:var(--bg-2)] ![border-bottom-color:var(--line)]" />;
 }
