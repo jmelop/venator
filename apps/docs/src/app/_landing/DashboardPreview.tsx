@@ -217,7 +217,7 @@ export function DashboardPreview() {
             </div>
             <div className="mt-3 rounded-lg p-3" style={{ border: '1px solid var(--line)', background: 'var(--bg-2)' }}>
               <div className="font-mono text-[10px] mb-2" style={{ color: 'var(--fg-4)' }}>Sessions over time · Apr 01 – Apr 17</div>
-              <svg width="100%" viewBox="0 0 300 80" style={{ display: 'block' }}>
+              <svg width="100%" viewBox="0 0 300 80" aria-hidden="true" focusable="false" style={{ display: 'block' }}>
                 <defs>
                   <linearGradient id="mg1" x1="0" x2="0" y1="0" y2="1">
                     <stop offset="0%" stopColor="var(--fg)" stopOpacity="0.3"/>
