@@ -114,13 +114,13 @@ export function Playground() {
 
             {/* JSX output */}
             <div className="relative p-5 font-mono text-[12.5px] leading-relaxed overflow-auto" style={{ background: 'var(--bg-1)' }}>
-              <button onClick={copyJsx} className="absolute top-3 right-3 p-1.5 transition-colors" style={{ color: copied ? 'var(--fg)' : 'var(--fg-4)', background: 'transparent', border: 'none', cursor: 'pointer' }}>
+              <Button variant="ghost" size="sm" onClick={copyJsx} className="absolute top-3 right-3">
                 {copied ? (
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 ) : (
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                 )}
-              </button>
+              </Button>
               <div className="mb-4" style={{ color: 'var(--fg-4)' }}>{'// Generated JSX — copy-paste ready'}</div>
               <div>
                 <span style={{ color: '#c678dd' }}>import</span>

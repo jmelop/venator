@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@venator-ui/ui';
 import { STATS } from './constants';
 
 function Sparkline({ data, color = 'var(--fg)', height = 24, width = 60 }: { data: readonly number[]; color?: string; height?: number; width?: number }) {
@@ -107,14 +108,12 @@ export function DashboardPreview() {
               <span style={{ color: 'var(--fg-4)' }}>https://</span>dashboard.venator.app<span style={{ color: 'var(--fg-4)' }}>/analytics</span>
             </div>
             <div className="flex gap-2">
-              {[
-                <path key="code" d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>,
-                <path key="arrow" d="M7 17L17 7M8 7h9v9"/>,
-              ].map((icon, i) => (
-                <button key={i} className="w-7 h-7 flex items-center justify-center rounded transition-colors" style={{ color: 'var(--fg-4)' }}>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">{icon}</svg>
-                </button>
-              ))}
+              <Button variant="ghost" size="sm">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </Button>
+              <Button variant="ghost" size="sm">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </Button>
             </div>
           </div>
 
@@ -157,16 +156,9 @@ export function DashboardPreview() {
                   <p className="font-mono text-[12px]" style={{ color: 'var(--fg-4)' }}>Last 30 days · updated just now</p>
                 </div>
                 <div className="flex gap-2">
-                  {['Filter', 'Export', 'New report'].map((label, i) => (
-                    <button key={label} className="inline-flex items-center gap-1.5 h-7 px-2.5 rounded-md text-[12.5px] font-medium transition-colors"
-                      style={{
-                        background: i === 2 ? 'var(--accent)' : 'transparent',
-                        color: i === 2 ? 'var(--accent-ink)' : 'var(--fg-3)',
-                        border: i === 2 ? '1px solid var(--accent)' : '1px solid var(--line)',
-                      }}>
-                      {label}
-                    </button>
-                  ))}
+                  <Button variant="ghost" size="sm">Filter</Button>
+                  <Button variant="outline" size="sm">Export</Button>
+                  <Button variant="accent" size="sm">New report</Button>
                 </div>
               </div>
 
