@@ -127,7 +127,7 @@ function HeroVisual() {
     cursor: 'pointer',
   });
   return (
-    <div className="w-full max-w-2xl mx-auto mt-6">
+    <div style={{ width: '100%', maxWidth: 850, margin: '24px auto 0' }}>
       <div className="flex items-center gap-1 mb-3 justify-center">
         {[
           { key: 'terminal' as const, label: 'CLI scaffold', icon: <path d="M4 17l6-6-6-6M12 19h8"/> },
@@ -171,7 +171,7 @@ export function Hero() {
 
         {/* Logo + heading */}
         <div className="flex flex-col items-center gap-2">
-          <img src="/venator-logo-icon.png" alt="Venator" style={{ width: 40, height: 40, display: 'block' }} className="rounded-xl mb-4 mx-auto" />
+          <img src="/venator-logo-icon.png" alt="Venator" style={{ width: 56, height: 56, display: 'block' }} className="rounded-xl mb-4 mx-auto" />
           <h1 className="text-[clamp(56px,8vw,88px)] font-medium tracking-[-0.04em] leading-[0.95] m-0" style={{ color: 'var(--fg)' }}>
             Build fast.
           </h1>
