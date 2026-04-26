@@ -125,7 +125,7 @@ export function Hero() {
 
         {/* Logo + heading */}
         <div className="flex flex-col items-center gap-2">
-          <img src="/venator-logo-icon.png" alt="Venator" style={{ width: 120, height: 120, display: 'block' }} className="rounded-xl mb-4 mx-auto" />
+          <img src="/venator-logo-icon.png" alt="Venator" style={{ width: 180, height: 180, display: 'block' }} className="rounded-xl mb-4 mx-auto" />
           <h1 className="text-[clamp(56px,8vw,88px)] font-medium tracking-[-0.04em] leading-[0.95] m-0" style={{ color: 'var(--fg)' }}>
             Build fast.
           </h1>
