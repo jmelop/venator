@@ -177,6 +177,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
     const next = !dark;
     setDark(next);
     document.documentElement.classList.toggle('dark', next);
+    localStorage.setItem('venator-theme', next ? 'dark' : 'light');
   };
 
   return (
