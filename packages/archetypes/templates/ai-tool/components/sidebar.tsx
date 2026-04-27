@@ -28,7 +28,12 @@ export function Sidebar() {
       pathname={pathname}
       linkComponent={Link}
       title="AI Tool"
-      logo={<img src="https://www.venatorui.com/venator-logo-icon.png" alt="Venator" className="w-7 h-7 rounded-lg" />}
+      logo={
+        <span className="block w-7 h-7 flex-shrink-0">
+          <img src="https://www.venatorui.com/venator-logo-icon.png" alt="Venator" className="w-7 h-7 rounded-lg hidden dark:block" />
+          <img src="https://www.venatorui.com/venator-logo-icon-light.png" alt="Venator" className="w-7 h-7 rounded-lg block dark:hidden" />
+        </span>
+      }
     />
   );
 }
