@@ -14,10 +14,18 @@ export interface StatCardProps {
 }
 
 const variantSparklineColor: Record<NonNullable<StatCardProps['variant']>, string> = {
-  default: '#22c55e',
-  primary: '#3b82f6',
-  success: '#22c55e',
-  warning: '#eab308',
+  default: '#9ca3af',
+  primary: '#9ca3af',
+  success: '#9ca3af',
+  warning: '#9ca3af',
+  error: '#ef4444',
+};
+
+const variantSparklineStroke: Record<NonNullable<StatCardProps['variant']>, string> = {
+  default: '#F5F6F7',
+  primary: '#F5F6F7',
+  success: '#F5F6F7',
+  warning: '#F5F6F7',
   error: '#ef4444',
 };
 
@@ -54,62 +62,40 @@ export const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
         </div>
 
         <div className="mt-2 flex items-end justify-between gap-3">
-          <p className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">{value}</p>
+          <div className="flex flex-col gap-2">
+            <p className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">{value}</p>
+            {trend !== undefined && (
+              <div className="flex items-center gap-1">
+                <Badge variant={trend >= 0 ? 'success' : 'error'}>
+                  {trend >= 0 ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="inline-block mr-0.5">
+                      <polyline points="18 15 12 9 6 15" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="inline-block mr-0.5">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  )}
+                  {Math.abs(trend)}%
+                </Badge>
+                {trendLabel && (
+                  <span className="text-xs text-neutral-400 dark:text-neutral-500">{trendLabel}</span>
+                )}
+              </div>
+            )}
+            {description && (
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">{description}</p>
+            )}
+          </div>
           {sparkline && sparkline.length > 0 && (
             <Sparkline
               data={sparkline}
               color={variantSparklineColor[variant]}
-              height={40}
+              strokeColor={variantSparklineStroke[variant]}
+              height={48}
               filled
               className="w-24 shrink-0"
             />
-          )}
-        </div>
-
-        <div className="mt-2 flex items-center justify-between gap-2 flex-wrap">
-          {description && (
-            <p className="text-sm text-neutral-500 dark:text-neutral-400">{description}</p>
-          )}
-          {trend !== undefined && (
-            <div className="flex items-center gap-1 ml-auto">
-              <Badge variant={trend >= 0 ? 'success' : 'error'}>
-                {trend >= 0 ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="inline-block mr-0.5"
-                  >
-                    <polyline points="18 15 12 9 6 15" />
-                  </svg>
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="inline-block mr-0.5"
-                  >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                )}
-                {Math.abs(trend)}%
-              </Badge>
-              {trendLabel && (
-                <span className="text-xs text-neutral-400 dark:text-neutral-500">{trendLabel}</span>
-              )}
-            </div>
           )}
         </div>
       </CardContent>

@@ -37,10 +37,10 @@ export default function DashboardPage() {
     <div className="space-y-6">
       <PageHeader title="Dashboard" description="Welcome to your workspace." />
       <ModuleGrid columns={4}>
-        <StatCard title="Total users" value="4,821" trend={12.5} trendLabel="vs last month" variant="primary" sparkline={usersSparkline} />
-        <StatCard title="Active sessions" value="312" trend={-3.2} trendLabel="vs last month" variant="error" sparkline={sessionsSparkline} />
-        <StatCard title="Revenue" value="$18,400" trend={8.1} trendLabel="vs last month" variant="success" sparkline={revenueSparkline} />
-        <StatCard title="Errors" value="23" trend={-15} trendLabel="vs last month" variant="warning" sparkline={errorsSparkline} />
+        <StatCard title="Total users" value="4,821" trend={12.5} variant="primary" sparkline={usersSparkline} />
+        <StatCard title="Active sessions" value="312" trend={-3.2} variant="error" sparkline={sessionsSparkline} />
+        <StatCard title="Revenue" value="$18,400" trend={8.1} variant="success" sparkline={revenueSparkline} />
+        <StatCard title="Errors" value="23" trend={-15} variant="warning" sparkline={errorsSparkline} />
       </ModuleGrid>
       <ModuleGrid columns={2}>
         <ChartCard

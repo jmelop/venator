@@ -3,6 +3,7 @@
 export interface SparklineProps {
   data: number[];
   color?: string;
+  strokeColor?: string;
   width?: number;
   height?: number;
   filled?: boolean;
@@ -12,6 +13,7 @@ export interface SparklineProps {
 export function Sparkline({
   data,
   color = 'currentColor',
+  strokeColor,
   width,
   height = 32,
   filled = false,
@@ -57,7 +59,7 @@ export function Sparkline({
       <polyline
         points={polylinePoints}
         fill="none"
-        stroke={color}
+        stroke={strokeColor ?? color}
         strokeWidth={1.5}
         strokeLinejoin="round"
         strokeLinecap="round"
