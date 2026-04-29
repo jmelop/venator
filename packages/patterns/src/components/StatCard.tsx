@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Badge, Card, CardContent } from '@venator-ui/ui';
+import { Badge, Card, CardContent, Sparkline } from '@venator-ui/ui';
 
 export interface StatCardProps {
   title: string;
@@ -8,9 +8,18 @@ export interface StatCardProps {
   icon?: React.ReactNode;
   trend?: number;
   trendLabel?: string;
+  sparkline?: number[];
   variant?: 'default' | 'primary' | 'success' | 'warning' | 'error';
   className?: string;
 }
+
+const variantSparklineColor: Record<NonNullable<StatCardProps['variant']>, string> = {
+  default: '#22c55e',
+  primary: '#3b82f6',
+  success: '#22c55e',
+  warning: '#eab308',
+  error: '#ef4444',
+};
 
 const variantStyles: Record<NonNullable<StatCardProps['variant']>, string> = {
   default: '',
@@ -29,6 +38,7 @@ export const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
       icon,
       trend,
       trendLabel,
+      sparkline,
       variant = 'default',
       className = '',
     },
@@ -91,6 +101,19 @@ export const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
             </div>
           )}
         </div>
+
+        {sparkline && sparkline.length > 0 && (
+          <div className="mt-3 -mx-1">
+            <Sparkline
+              data={sparkline}
+              color={variantSparklineColor[variant]}
+              width={80}
+              height={28}
+              filled
+              className="w-full"
+            />
+          </div>
+        )}
       </CardContent>
     </Card>
   ),
