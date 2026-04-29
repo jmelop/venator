@@ -12,7 +12,7 @@ export interface SparklineProps {
 export function Sparkline({
   data,
   color = 'currentColor',
-  width = 80,
+  width,
   height = 32,
   filled = false,
   className,
@@ -22,9 +22,10 @@ export function Sparkline({
   const min = Math.min(...data);
   const max = Math.max(...data);
   const range = max - min || 1;
+  const w = width ?? 100;
 
   const points = data.map((value, i) => {
-    const x = data.length === 1 ? width / 2 : (i / (data.length - 1)) * width;
+    const x = data.length === 1 ? w / 2 : (i / (data.length - 1)) * w;
     const y = height - ((value - min) / range) * height;
     return `${x},${y}`;
   });
@@ -34,14 +35,14 @@ export function Sparkline({
   const areaPoints = [
     `0,${height}`,
     ...points,
-    `${width},${height}`,
+    `${w},${height}`,
   ].join(' ');
 
   return (
     <svg
-      width={width}
+      width={width ?? '100%'}
       height={height}
-      viewBox={`0 0 ${width} ${height}`}
+      viewBox={`0 0 ${w} ${height}`}
       className={className}
       aria-hidden="true"
     >

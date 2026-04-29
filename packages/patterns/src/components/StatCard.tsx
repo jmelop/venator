@@ -53,7 +53,18 @@ export const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
           )}
         </div>
 
-        <p className="mt-2 text-3xl font-bold text-neutral-900 dark:text-neutral-100">{value}</p>
+        <div className="mt-2 flex items-end justify-between gap-3">
+          <p className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">{value}</p>
+          {sparkline && sparkline.length > 0 && (
+            <Sparkline
+              data={sparkline}
+              color={variantSparklineColor[variant]}
+              height={40}
+              filled
+              className="w-24 shrink-0"
+            />
+          )}
+        </div>
 
         <div className="mt-2 flex items-center justify-between gap-2 flex-wrap">
           {description && (
@@ -101,19 +112,6 @@ export const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
             </div>
           )}
         </div>
-
-        {sparkline && sparkline.length > 0 && (
-          <div className="mt-3 -mx-1">
-            <Sparkline
-              data={sparkline}
-              color={variantSparklineColor[variant]}
-              width={80}
-              height={28}
-              filled
-              className="w-full"
-            />
-          </div>
-        )}
       </CardContent>
     </Card>
   ),
