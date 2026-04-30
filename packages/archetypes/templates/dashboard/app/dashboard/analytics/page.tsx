@@ -19,13 +19,6 @@ export default function AnalyticsPage() {
       <PageHeader
         title="Analytics"
         description="Last 30 days · updated just now"
-        actions={
-          <ButtonGroup>
-            <Button variant="ghost" size="sm">Filter</Button>
-            <Button variant="ghost" size="sm">Export</Button>
-            <Button variant="primary" size="sm">New report</Button>
-          </ButtonGroup>
-        }
       />
       <ModuleGrid columns={4}>
         <StatCard title="Revenue" value="$128,402" trend={12.4} variant="success" sparkline={revenueSparkline} />
