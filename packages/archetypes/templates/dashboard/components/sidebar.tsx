@@ -27,12 +27,17 @@ export function Sidebar() {
       sections={sections}
       pathname={pathname}
       linkComponent={Link}
-      title="Dashboard"
-      logo={
-        <span className="block w-7 h-7 flex-shrink-0">
-          <img src="https://www.venatorui.com/venator-logo-icon.png" alt="Venator" className="w-7 h-7 rounded-lg hidden dark:block" />
-          <img src="https://www.venatorui.com/venator-logo-icon-light.png" alt="Venator" className="w-7 h-7 rounded-lg block dark:hidden" />
-        </span>
+      header={
+        <div className="flex items-center gap-2">
+          <span className="w-7 h-7 rounded-md flex items-center justify-center bg-bg-3 shrink-0">
+            <img src="https://www.venatorui.com/venator-logo-icon.png" alt="Acme Inc." className="w-4 h-4 hidden dark:block" />
+            <img src="https://www.venatorui.com/venator-logo-icon-light.png" alt="Acme Inc." className="w-4 h-4 block dark:hidden" />
+          </span>
+          <span className="text-[13px] font-medium text-fg-2">Acme Inc.</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="ml-auto text-fg-4" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </div>
       }
     />
   );
