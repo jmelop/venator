@@ -52,7 +52,7 @@ export function Sparkline({
         <polygon
           points={areaPoints}
           fill={color}
-          fillOpacity={0.2}
+          fillOpacity={0.15}
           stroke="none"
         />
       )}
