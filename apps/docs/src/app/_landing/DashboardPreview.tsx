@@ -51,7 +51,7 @@ function WorkspaceSwitcher() {
       <span className="w-7 h-7 rounded-md flex items-center justify-center bg-bg-3 shrink-0">
         <img src="/venator-logo-icon.png" alt="" className="w-4 h-4" />
       </span>
-      <span className="text-[13px] font-medium text-fg-2">Acme Inc.</span>
+      <span className="text-[13px] font-medium text-fg-2">Venator</span>
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="ml-auto text-fg-4" aria-hidden="true">
         <path d="M6 9l6 6 6-6" />
       </svg>

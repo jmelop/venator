@@ -110,7 +110,7 @@ export const NavGroup: React.FC<NavGroupProps> = ({
   const [collapsed, setCollapsed] = React.useState(defaultCollapsed);
 
   const labelClasses =
-    'font-mono text-2xs font-medium text-fg-5 uppercase tracking-wider px-3 mb-1';
+    'font-mono text-2xs font-medium text-fg-4 uppercase tracking-wider px-3 mb-1';
 
   if (collapsible) {
     return (

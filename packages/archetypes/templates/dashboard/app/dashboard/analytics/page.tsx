@@ -29,7 +29,7 @@ const signupData = [
 
 export default function AnalyticsPage() {
   return (
-    <div className="space-y-4">
+    <div>
       <PageHeader
         className="mb-5"
         title="Analytics"
@@ -42,7 +42,7 @@ export default function AnalyticsPage() {
           </ButtonGroup>
         }
       />
-      <ModuleGrid columns={4}>
+      <ModuleGrid columns={4} className="mb-4">
         <StatCard title="Revenue" value="$128,402" trend={12.4} sparkline={revenueSparkline} />
         <StatCard title="Active users" value="24,891" trend={8.1} sparkline={usersSparkline} />
         <StatCard title="Sessions" value="89,233" trend={4.7} sparkline={sessionsSparkline} />

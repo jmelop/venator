@@ -54,7 +54,7 @@ const signupData = [
 
 export default function DashboardPage() {
   return (
-    <div className="space-y-4">
+    <div>
       <PageHeader
         className="mb-5"
         title="Dashboard"
@@ -67,7 +67,7 @@ export default function DashboardPage() {
           </ButtonGroup>
         }
       />
-      <ModuleGrid columns={4}>
+      <ModuleGrid columns={4} className="mb-4">
         <StatCard title="Total users" value="4,821" trend={12.5} sparkline={usersSparkline} />
         <StatCard title="Active sessions" value="312" trend={-3.2} sparkline={sessionsSparkline} />
         <StatCard title="Revenue" value="$18,400" trend={8.1} sparkline={revenueSparkline} />
@@ -95,7 +95,7 @@ export default function DashboardPage() {
           chart={<BarChart data={signupData} height={170} />}
         />
       </ModuleGrid>
-      <Card>
+      <Card className="mt-4">
         <CardHeader title="Recent activity" description="Latest events in your workspace." />
         <CardContent className="mt-4">
           <Table>
