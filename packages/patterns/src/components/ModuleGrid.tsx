@@ -22,7 +22,7 @@ const gapStyles: Record<NonNullable<ModuleGridProps['gap']>, string> = {
 };
 
 export const ModuleGrid = React.forwardRef<HTMLDivElement, ModuleGridProps>(
-  ({ columns = 3, gap = 'md', gapValue, className = '', children, ...props }, ref) => (
+  ({ columns = 3, gap = 'sm', gapValue, className = '', children, ...props }, ref) => (
     <div
       ref={ref}
       className={['grid', columnStyles[columns], gapValue ?? gapStyles[gap], className].filter(Boolean).join(' ')}

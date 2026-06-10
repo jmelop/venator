@@ -27,6 +27,9 @@ export interface DashboardLayoutProps {
 
   /** Override the sidebar width on desktop (e.g. '232px', 'w-48'). Defaults to 256px (lg:w-64). */
   sidebarWidth?: string;
+
+  /** When false, fills the parent instead of the viewport — for embedded previews */
+  fullHeight?: boolean;
 }
 
 /**
@@ -55,6 +58,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   contentClassName,
   contentPadding = 'p-6 pb-16',
   sidebarWidth = '256px',
+  fullHeight = true,
 }) => {
   const [internalMobileOpen, setInternalMobileOpen] = React.useState(false);
 
@@ -73,7 +77,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   );
 
   return (
-    <div className="flex h-screen bg-bg">
+    <div className={`flex ${fullHeight ? 'h-screen' : 'h-full'} bg-bg`}>
       {sidebar && (
         <>
           {isMobileOpen && (

@@ -22,22 +22,39 @@ Displays a labelled metric value. Add `description` for supporting context below
 
 ## With trend
 
-Pass `trend` as a positive or negative number to render a colour-coded badge. Pair with `trendLabel` for context.
+Pass `trend` as a positive or negative number to render a colour-coded signed delta. Pair with `trendLabel` for context, or set `trendStyle="badge"` for a pill badge instead of the default mono text.
 
 <Preview>
   <ModuleGrid columns={2}>
     <StatCard title="Revenue" value="$18,400" trend={8.1} trendLabel="vs last month" />
-    <StatCard title="Errors" value="23" trend={-15} trendLabel="vs last month" />
+    <StatCard title="Errors" value="23" trend={-15} trendStyle="badge" trendLabel="vs last month" />
   </ModuleGrid>
 </Preview>
 
 <CodeBlock className="mt-6"
   language="tsx"
-  code={`{/* Positive trend — green badge */}
+  code={`{/* Positive trend — quiet mono delta (default) */}
 <StatCard title="Revenue" value="$18,400" trend={8.1} trendLabel="vs last month" />
 
-{/* Negative trend — red badge */}
-<StatCard title="Errors" value="23" trend={-15} trendLabel="vs last month" />`}
+{/* Negative trend — pill badge */}
+<StatCard title="Errors" value="23" trend={-15} trendStyle="badge" trendLabel="vs last month" />`}
+/>
+
+## With sparkline
+
+Pass `sparkline` as a number array to render a compact trend line next to the delta. Its colour follows the trend direction.
+
+<Preview>
+  <ModuleGrid columns={2}>
+    <StatCard title="Revenue" value="$128,402" trend={12.4} sparkline={[12, 18, 22, 20, 28, 34, 32, 38, 42]} />
+    <StatCard title="Conv. rate" value="3.42%" trend={-0.6} sparkline={[30, 28, 32, 26, 24, 28, 22, 20, 18]} />
+  </ModuleGrid>
+</Preview>
+
+<CodeBlock className="mt-6"
+  language="tsx"
+  code={`<StatCard title="Revenue" value="$128,402" trend={12.4} sparkline={[12, 18, 22, 20, 28, 34, 32, 38, 42]} />
+<StatCard title="Conv. rate" value="3.42%" trend={-0.6} sparkline={[30, 28, 32, 26, 24, 28, 22, 20, 18]} />`}
 />
 
 ## With icon
@@ -77,29 +94,6 @@ Pass any React node to `icon` to display it top-right inside the card.
     </svg>
   }
 />`}
-/>
-
-## Variants
-
-Use `variant` to add a coloured left border accent that signals the nature of the metric.
-
-<Preview>
-  <ModuleGrid columns={3}>
-    <StatCard title="Default" value="100" />
-    <StatCard title="Primary" value="100" variant="primary" />
-    <StatCard title="Success" value="100" variant="success" />
-    <StatCard title="Warning" value="100" variant="warning" />
-    <StatCard title="Error" value="100" variant="error" />
-  </ModuleGrid>
-</Preview>
-
-<CodeBlock className="mt-6"
-  language="tsx"
-  code={`<StatCard title="Default" value="100" />
-<StatCard title="Primary" value="100" variant="primary" />
-<StatCard title="Success" value="100" variant="success" />
-<StatCard title="Warning" value="100" variant="warning" />
-<StatCard title="Error" value="100" variant="error" />`}
 />
 
 ## Props
@@ -142,19 +136,25 @@ Use `variant` to add a coloured left border accent that signals the nature of th
       <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">trendLabel</code></TableCell>
       <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">string</code></TableCell>
       <TableCell>—</TableCell>
-      <TableCell>Contextual label shown next to the trend badge</TableCell>
+      <TableCell>Contextual label shown next to the trend</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">trendStyle</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">'text' | 'badge'</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">'text'</code></TableCell>
+      <TableCell>Renders the trend as quiet mono text or a pill badge</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">sparkline</code></TableCell>
+      <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">number[]</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Compact trend line rendered next to the delta; colour follows the trend direction</TableCell>
     </TableRow>
     <TableRow>
       <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">icon</code></TableCell>
       <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">ReactNode</code></TableCell>
       <TableCell>—</TableCell>
       <TableCell>Icon rendered top-right inside the card</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">variant</code></TableCell>
-      <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">'default' | 'primary' | 'success' | 'warning' | 'error'</code></TableCell>
-      <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">'default'</code></TableCell>
-      <TableCell>Adds a coloured left border accent to signal metric status</TableCell>
     </TableRow>
     <TableRow>
       <TableCell><code className="text-xs font-mono bg-bg-2 px-1.5 py-0.5 rounded">className</code></TableCell>
