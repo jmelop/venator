@@ -1,10 +1,7 @@
 export const typography = {
   fontFamily: {
-    // The var() hooks bind to the next/font-loaded Geist faces (see the
-    // `geist` package); the literal family + system stack remain as
-    // fallbacks for consumers that don't load the fonts.
-    sans: 'var(--font-geist-sans, "Geist"), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    mono: 'var(--font-geist-mono, "Geist Mono"), ui-monospace, SFMono-Regular, Menlo, monospace',
+    sans: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    mono: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
   },
   fontSize: {
     '2xs': '0.6875rem',
