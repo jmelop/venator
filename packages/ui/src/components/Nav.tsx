@@ -13,17 +13,24 @@ export interface NavItemProps {
   href?: string;
   /** Right-aligned slot — used for counts, badges, or metadata */
   trail?: React.ReactNode;
+  /** Vertical rhythm: 'compact' for dense sidebars, 'comfortable' for touch */
+  density?: 'compact' | 'comfortable';
 }
 
-const navItemBase = 'w-full flex items-center px-3 py-2.5 rounded-md text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-0';
+const navItemBase = 'w-full flex items-center rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-0';
+const navItemDensity: Record<NonNullable<NavItemProps['density']>, string> = {
+  compact: 'px-2.5 py-1.5 text-[13px]',
+  comfortable: 'px-3 py-2.5 text-sm',
+};
 const navItemActive   = 'bg-bg-3 text-fg font-medium';
 const navItemInactive = 'text-fg-3 hover:bg-bg-2 hover:text-fg transition-colors';
 const navItemDisabled = 'opacity-50 pointer-events-none';
 
 export const NavItem = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, NavItemProps>(
-  ({ label, icon, active = false, disabled = false, onClick, href, trail }, ref) => {
+  ({ label, icon, active = false, disabled = false, onClick, href, trail, density = 'compact' }, ref) => {
     const classes = [
       navItemBase,
+      navItemDensity[density],
       active ? navItemActive : navItemInactive,
       disabled ? navItemDisabled : '',
     ]

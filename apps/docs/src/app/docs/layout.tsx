@@ -188,6 +188,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         <SidebarNav
           sections={sections}
           pathname={pathname}
+          density="comfortable"
           linkComponent={ClosingLink}
           logo={
             <span className="block w-7 h-7 flex-shrink-0">

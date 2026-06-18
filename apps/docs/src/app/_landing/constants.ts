@@ -100,10 +100,10 @@ export const FEATURES = [
 ] as const;
 
 export const STATS = [
-  { label: 'Revenue',      value: '$128,402', delta: '+12.4%', down: false, data: [12,18,22,20,28,34,32,38,42] },
-  { label: 'Active users', value: '24,891',   delta: '+8.1%',  down: false, data: [14,16,14,20,22,28,24,26,32] },
-  { label: 'Sessions',     value: '89,233',   delta: '+4.7%',  down: false, data: [20,22,18,24,28,24,30,28,34] },
-  { label: 'Conv. rate',   value: '3.42%',    delta: '-0.6%',  down: true,  data: [30,28,32,26,24,28,22,20,18] },
+  { label: 'Revenue',      value: '$128,402', trend: 12.4, data: [12,18,22,20,28,34,32,38,42] },
+  { label: 'Active users', value: '24,891',   trend: 8.1,  data: [14,16,14,20,22,28,24,26,32] },
+  { label: 'Sessions',     value: '89,233',   trend: 4.7,  data: [20,22,18,24,28,24,30,28,34] },
+  { label: 'Conv. rate',   value: '3.42%',    trend: -0.6, data: [30,28,32,26,24,28,22,20,18] },
 ] as const;
 
 export const NAV_LINKS = [
