@@ -151,7 +151,7 @@ export function DashboardPreview() {
             <DashboardLayout
               fullHeight={false}
               sidebarWidth="220px"
-              contentPadding="p-7"
+              contentPadding="px-16 py-7"
               sidebar={
                 <SidebarNav
                   header={<WorkspaceSwitcher />}
