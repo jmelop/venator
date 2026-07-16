@@ -41,7 +41,7 @@ export function ChatInput({ onSubmit }: { onSubmit?: (value: string, mode: strin
   };
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 pb-4">
+    <div className="mx-auto w-full max-w-4xl px-6 pb-4">
       <div className="overflow-hidden rounded-2xl border border-[var(--border-default)] bg-bg-1 shadow-lg">
         <textarea
           value={value}

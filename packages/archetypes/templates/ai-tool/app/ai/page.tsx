@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Avatar, Badge, Button } from '@venator-ui/ui';
 import { ChatMessage, ChatRole } from '../../components/chat-message';
 import { ChatInput } from '../../components/chat-input';
-import { ThemeToggle } from '../../components/theme-toggle';
 
 type Message = { id: number; role: ChatRole; content: string };
 
@@ -64,7 +63,6 @@ export default function AiPage() {
           <Button variant="ghost" size="sm" onClick={() => setMessages([])}>
             New chat
           </Button>
-          <ThemeToggle />
           <Avatar size="sm" fallback="JL" />
         </div>
       </header>
@@ -74,7 +72,7 @@ export default function AiPage() {
         {messages.length === 0 ? (
           <EmptyState />
         ) : (
-          <div className="mx-auto flex w-full max-w-3xl flex-col gap-2 px-6 pb-6 pt-8">
+          <div className="mx-auto flex w-full max-w-4xl flex-col gap-2 px-6 pb-6 pt-8">
             {messages.map((m) => (
               <ChatMessage key={m.id} role={m.role} content={m.content} />
             ))}

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Card } from '@venator-ui/ui';
 import { PageHeader } from '@venator-ui/patterns';
-import { ThemeToggle } from '../../../components/theme-toggle';
 
 type Conversation = {
   id: string;
@@ -39,12 +38,11 @@ function ChevronIcon() {
 
 export default function HistoryPage() {
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 pb-10 pt-8">
+    <div className="mx-auto w-full max-w-4xl px-6 pb-10 pt-8">
       <PageHeader
         className="mb-5"
         title="Conversations"
         meta="5 saved sessions"
-        actions={<ThemeToggle />}
       />
 
       <Card padding="none">

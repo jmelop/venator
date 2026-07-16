@@ -4,7 +4,6 @@ import { PageHeader } from '@venator-ui/patterns';
 import {
   Card, CardContent, CardHeader, Input, Label, Select, Button, Separator, Switch,
 } from '@venator-ui/ui';
-import { ThemeToggle } from '../../../components/theme-toggle';
 
 export default function SettingsPage() {
   return (
@@ -13,7 +12,6 @@ export default function SettingsPage() {
         className="mb-5"
         title="Settings"
         meta="AI assistant preferences"
-        actions={<ThemeToggle />}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
