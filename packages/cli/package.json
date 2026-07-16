@@ -1,6 +1,6 @@
 {
   "name": "@venator-ui/cli",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "CLI for deploying Venator archetypes and patterns",
   "bin": {
     "venator": "./dist/index.js"
@@ -18,7 +18,7 @@
     "dist"
   ],
   "dependencies": {
-    "@venator-ui/archetypes": "0.3.0",
+    "@venator-ui/archetypes": "0.3.1",
     "@venator-ui/patterns": "*",
     "@venator-ui/tokens": "*",
     "@venator-ui/ui": "*",
@@ -29,8 +29,8 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/prompts": "^2.4.9",
     "@types/node": "^20.11.0",
+    "@types/prompts": "^2.4.9",
     "tsup": "^8.0.1",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
