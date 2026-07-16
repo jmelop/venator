@@ -2,7 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import { Topbar } from '@venator-ui/patterns';
-import { Button } from '@venator-ui/ui';
+import { Button, Input } from '@venator-ui/ui';
+
+function SearchIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
+  );
+}
 
 function MoonIcon() {
   return (
@@ -48,6 +57,11 @@ export function Header() {
   };
   return (
     <Topbar
+      left={
+        <div className="hidden sm:block w-64">
+          <Input size="sm" placeholder="Search…" leftIcon={<SearchIcon />} aria-label="Search" />
+        </div>
+      }
       right={
         <Button variant="ghost" size="sm" onClick={toggleDark}>
           {dark ? <SunIcon /> : <MoonIcon />}

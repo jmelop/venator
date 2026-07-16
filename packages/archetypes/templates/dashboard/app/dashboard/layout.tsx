@@ -6,7 +6,7 @@ import { Header } from '../../components/header';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <DashboardLayout sidebar={<Sidebar />} header={<Header />} contentPadding="p-7">
+    <DashboardLayout sidebar={<Sidebar />} header={<Header />} contentPadding="px-16 py-7">
       {children}
     </DashboardLayout>
   );

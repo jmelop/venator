@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Topbar } from '@venator-ui/patterns';
 import { Button } from '@venator-ui/ui';
 
 function MoonIcon() {
@@ -28,7 +27,7 @@ function SunIcon() {
   );
 }
 
-export function Header() {
+export function ThemeToggle() {
   const [dark, setDark] = useState(true);
 
   useEffect(() => {
@@ -46,13 +45,10 @@ export function Header() {
     document.documentElement.setAttribute('data-theme', next ? 'dark' : 'light');
     localStorage.setItem('venator-theme', next ? 'dark' : 'light');
   };
+
   return (
-    <Topbar
-      right={
-        <Button variant="ghost" size="sm" onClick={toggleDark}>
-          {dark ? <SunIcon /> : <MoonIcon />}
-        </Button>
-      }
-    />
+    <Button variant="ghost" size="sm" iconOnly onClick={toggleDark} aria-label="Toggle theme">
+      {dark ? <SunIcon /> : <MoonIcon />}
+    </Button>
   );
 }
